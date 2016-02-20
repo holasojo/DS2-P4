@@ -1,6 +1,6 @@
 
 
-public class Point<K extends Comparable<?>>  {
+public class Point  {
 
 	private long xcoord;
 	private long ycoord;

@@ -49,16 +49,7 @@ public class CommandProcessor {
             String name = line[1];
             params = new int[]{Integer.parseInt(line[2]), Integer.parseInt(line[3])};
             insertPoint(name, params);
-            System.out.println("Point rejected: (r_r, -1, -20)\n"
-                    + "Point rejected: (rec, 7, -8)\n" + "Duplicate points:\n"
-                    + "SkipList dump:\n" + "Node has depth 1, Value (null)\n"
-                    + "SkipList size is: 0\n" + "QuadTree dump:\n"
-                    + "Node at 0, 0, 1024: Empty\n" + "1 quadtree nodes printed\n"
-                    + "Point not found: r_r\n" + "Point not removed: r_r\n"
-                    + "Point rejected: (1, -1)\n" + "Point not found: (1, 1)\n"
-                    + "Points intersecting region (-5, -5, 20, 20):\n"
-                    + "1 quadtree nodes visited\n"
-                    + "Rectangle rejected: (5, 5, 4, -2)\n");
+       
             
         }
         else if (com.equals("regionsearch")) {

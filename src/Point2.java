@@ -5,8 +5,8 @@
 /**
  * The class containing the main method, the entry point of the application.
  *
- * @author {your name here}
- * @version {put something here}
+ * @author sohyun, sshumway
+ * @version 2.19.2016
  */
 public class Point2 {
 

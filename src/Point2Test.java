@@ -31,6 +31,9 @@ public class Point2Test
         String[] args = new String[1];
         Point2.main(args);
         assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
+        String[] args2 = new String[2];
+        Point2.main(args2);
+        assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
         
     }
 

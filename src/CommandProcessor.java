@@ -46,7 +46,6 @@ public class CommandProcessor {
         com = line[0]; // command
 
         if (com.equals("insert")) {
-            System.out.println("in processor");
             String name = line[1];
             params = new int[]{Integer.parseInt(line[2]), Integer.parseInt(line[3])};
             insertPoint(name, params);

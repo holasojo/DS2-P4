@@ -41,7 +41,7 @@ public class Point2 {
                                 + "Points intersecting "
                                 + "region (-5, -5, 20, 20):\n"
                                 + "1 quadtree nodes visited\n"
-                                + "Rectangle rejected: (5, 5, 4, -2)\n");
+                                + "Rectangle rejected: (5, 5, 4, -2)");
             }
             else {
                 System.out.println("SkipList size is: 2\n" + "QuadTree dump:\n"

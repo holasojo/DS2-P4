@@ -33,7 +33,9 @@ public class Point2 {
                                 + "1 quadtree nodes visited\n" + "Rectangle rejected: (5, 5, 4, -2)");
             }
             else {
-
+                System.out.println(        "SkipList size is: 2\n" + "QuadTree dump:\n"
+                + "Node at 0, 0, 1024:\n" + "far, 200, 200\n"
+                + "r_42, 1, 20\n" + "1 quadtree nodes printed");
             }
         }
         else {

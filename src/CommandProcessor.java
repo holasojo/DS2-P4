@@ -32,7 +32,7 @@ public class CommandProcessor {
                 + "Point rejected: (1, -1)\n" + "Point not found: (1, 1)\n"
                 + "Points intersecting region (-5, -5, 20, 20):\n"
                 + "1 quadtree nodes visited\n"
-                + "Rectangle rejected: (5, 5, 4, -2)\n");
+                + "Rectangle rejected: (5, 5, 4, -2)");
 
     }
 

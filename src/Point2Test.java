@@ -56,6 +56,7 @@ public class Point2Test
                 + "1 quadtree nodes visited\n"
                 + "Rectangle rejected: (5, 5, 4, -2)\n",
             systemOut().getHistory());
+        systemOut().clearHistory();
     }
 
 

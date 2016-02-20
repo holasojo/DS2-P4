@@ -27,7 +27,7 @@ public class Point2Test
         assertNotNull(dum);
         Point2.main(null);
         assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
-        systemOut().clearHistory();
+        
     }
 
 
@@ -40,6 +40,7 @@ public class Point2Test
     public void testSyntax1()
         throws Exception
     {
+        systemOut().clearHistory();
         String[] args = new String[1];
         args[0] = "P2SyntaxTest1.txt";
         Point2.main(args);

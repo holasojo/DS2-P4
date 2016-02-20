@@ -31,7 +31,12 @@ public class Point2Test
         String[] args = new String[1];
         Point2.main(args);
         assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
+        systemOut().clearHistory();
         String[] args2 = new String[2];
+        Point2.main(args2);
+        assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
+        systemOut().clearHistory();
+        args2[1] = "test.txt";
         Point2.main(args2);
         assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
         

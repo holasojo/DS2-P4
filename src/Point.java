@@ -1,7 +1,6 @@
 
 
-public class Point<K extends Comparable<K> implements
-Comparable<KVPair<K>>   {
+public class Point<K extends Comparable<?>>  {
 
 	private long xcoord;
 	private long ycoord;

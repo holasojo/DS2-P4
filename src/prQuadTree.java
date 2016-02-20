@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.util.Vector;
 
 
-public class prQuadTree<T extends Comparable<T>> {
+public class prQuadTree<T extends Comparable<Point>> {
 
 	abstract class prQuadNode {
 		public abstract boolean isLeaf();

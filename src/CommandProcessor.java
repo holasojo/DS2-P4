@@ -121,7 +121,7 @@ public class CommandProcessor {
      */
     private void removeByName(String name) {
 
-        c.remove(name);
+      //  c.remove(name);
 
     }
 

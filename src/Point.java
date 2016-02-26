@@ -1,6 +1,6 @@
 
 
-public class Point  {
+public class Point {
 
 	private long xcoord;
 	private long ycoord;

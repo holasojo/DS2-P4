@@ -14,11 +14,12 @@ public class prQuadTree<T extends Comparable<T>> {
 	// You must use a hierarchy of node types with an abstract base
 	// class. You may use different names for the node types if
 	// you like (change displayHelper() accordingly).
-	abstract class prQuadNode {
+	abstract class prQuadNode<T> {
 		public abstract boolean isLeaf();
 	}
 
 	class prQuadLeaf extends prQuadNode {
+	    
 		Vector<T> Elements;
 
 		public prQuadLeaf() {

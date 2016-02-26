@@ -3,9 +3,17 @@
 import java.io.FileWriter;
 import java.util.Vector;
 
+// The test harness will belong to the following package; the quadtree
+// implementation must belong to it as well.  In addition, the quadtree
+// implementation must specify package access for the node types and tree
+// members so that the test harness may have access to it.
+//
 
 public class prQuadTree<T extends Comparable<T>> {
 
+	// You must use a hierarchy of node types with an abstract base
+	// class. You may use different names for the node types if
+	// you like (change displayHelper() accordingly).
 	abstract class prQuadNode {
 		public abstract boolean isLeaf();
 	}

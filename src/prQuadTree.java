@@ -19,9 +19,10 @@ public class prQuadTree<T extends Comparable<? super T>> {
 		public abstract boolean isLeaf();
 	}
 
-	class prQuadLeaf extends prQuadNode {
+	class prQuadLeaf<T extends Point> extends prQuadNode {
 	    
 		Vector<T> Elements;
+
 
 		public prQuadLeaf() {
 		}
@@ -29,8 +30,11 @@ public class prQuadTree<T extends Comparable<? super T>> {
 		public prQuadLeaf(T elem) {
 			Elements = new Vector<T>();
 			Elements.add(elem);
+		
 
 		}
+		
+		
 
 		public boolean isLeaf() {
 			return true;
@@ -43,9 +47,11 @@ public class prQuadTree<T extends Comparable<? super T>> {
 
 			return false;
 		}
+		
+	
 	}
 
-	class prQuadInternal extends prQuadNode {
+	class prQuadInternal<T extends Point> extends prQuadNode {
 		prQuadNode NW, NE, SE, SW;
 
 		public prQuadInternal() {

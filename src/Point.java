@@ -1,6 +1,6 @@
 
 
-public class Point {
+public class Point implements Comparable<Point>  {
 
 	private long xcoord;
 	private long ycoord;
@@ -76,6 +76,12 @@ public class Point {
 		return false;
 
 	}
+
+    @Override
+    public int compareTo(Point o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
 }
 

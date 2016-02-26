@@ -9,12 +9,13 @@ import java.util.Vector;
 // members so that the test harness may have access to it.
 //
 
-public class prQuadTree<T extends Comparable<T>> {
+public class prQuadTree<T extends Comparable<? super T>> {
 
 	// You must use a hierarchy of node types with an abstract base
 	// class. You may use different names for the node types if
 	// you like (change displayHelper() accordingly).
-	abstract class prQuadNode<T> {
+	@SuppressWarnings("hiding")
+    abstract class prQuadNode {
 		public abstract boolean isLeaf();
 	}
 

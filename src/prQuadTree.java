@@ -326,12 +326,6 @@ public class prQuadTree<T extends Comparable<T>> {
 		return xLo <= xMax && yHi >= yMin && yLo <= yMax && xHi >= xMin;
 	}
 	
-	public class QuadTreeNode{
-	    private Point pt;
-	    
-	    public QuadTreeNode(Point point){
-	        pt = point;    
-	    }
-	}
+
 }
 

@@ -26,7 +26,10 @@ public class PtListTest extends student.TestCase {
         list1.append(p1);
         list1.append(p2);
         assertEquals(list1.size(),2);
+        assertEquals(p1.toString(), "A, 1, 1");
         assertEquals(list1.toString(), "A, 1, 1\nB, 2, 2\n");
+        
+        
       
     }
 

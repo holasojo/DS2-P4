@@ -85,6 +85,7 @@ public class PtList {
         for(int i = 0; i < size; i++)
         {
             str += curr.toString() + "\n";
+            curr = curr.next();
         }     
         return str;
     }

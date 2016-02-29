@@ -6,6 +6,13 @@ public class Point {
     private int yPos;
 
     public Point(int x, int y) {
+
+        xPos = x;
+        yPos = y;
+    }
+
+    public Point(String n, int x, int y) {
+        name = n;
         xPos = x;
         yPos = y;
     }
@@ -18,12 +25,10 @@ public class Point {
         return yPos;
     }
 
-    
-    public String getName() 
-    {
+    public String getName() {
         return name;
     }
-    
+
     public Direction quadrant(int centerX, int centerY) {
 
         if (yPos < centerY && xPos < centerX) {
@@ -43,7 +48,6 @@ public class Point {
         }
     }
 
-    
     // public boolean inBox();
 
     public String toString() {
@@ -57,12 +61,9 @@ public class Point {
         Point it = (Point) o;
         return this.getX() == it.getX() && this.getY() == it.getY() && this.getName().equals(it.getName());
     }
-    
-    public boolean equalsCoor(Point it)
-    {
+
+    public boolean equalsCoor(Point it) {
         return this.getX() == it.getX() && this.getY() == it.getY();
     }
-    
-    
 
 }

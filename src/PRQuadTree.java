@@ -1,10 +1,10 @@
 
 public class PRQuadTree {
-    QuadNode root;
-    int size;
-    int x;
-    int y;
-    int width;
+    private QuadNode root;
+    private int size;
+    private int x;
+    private int y;
+    private int width;
     
     public PRQuadTree(int x1, int y1, int width1){
         root = IntlNode.flyweight();

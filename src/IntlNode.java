@@ -41,10 +41,13 @@ public class IntlNode implements QuadNode {
         
     }
 
-    @Override
     public void dump(int x, int y, int width, int level) {
-        // TODO Auto-generated method stub
+        int n = 2 * level;
+        String str = String.format("%1$#" + n + "s", "");
         
+        System.out.println(str + "Node at " + x + ", " + y + ", " + width + ": Internal");
+
+//        System.out.println(str + list.toString());
     }
     
     public static Flyweight flyweight()

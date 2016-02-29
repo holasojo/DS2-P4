@@ -49,6 +49,7 @@ public class PtListTest extends student.TestCase {
         assertEquals(list1.remove(p5).toString(), "F, 0, 0");
         removed = list1.remove();
         assertEquals(removed[0].toString(), "B, 2, 2");
+        assertEquals(removed[2].toString(), "D, 5, 5");
         
         
     }

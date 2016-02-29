@@ -26,7 +26,6 @@ public class Point2Test
         Point2 dum = new Point2();
         assertNotNull(dum);
         Point2.main(null);
-<<<<<<< HEAD
         assertFuzzyEquals("Hello, World\n", systemOut().getHistory());
     }
 
@@ -55,51 +54,6 @@ public class Point2Test
                 + "1 quadtree nodes visited\n"
                 + "Rectangle rejected: (5, 5, 4, -2)\n",
             systemOut().getHistory());
-=======
-        assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
-        systemOut().clearHistory();
-        String[] args = new String[1];
-        Point2.main(args);
-        assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
-        systemOut().clearHistory();
-        String[] args2 = new String[2];
-        Point2.main(args2);
-        assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
-        systemOut().clearHistory();
-        args2[1] = "test.txt";
-        Point2.main(args2);
-        assertFuzzyEquals("Check your arguments\n", systemOut().getHistory());
-        
-    }
-
-
-    // ----------------------------------------------------------
-    /**
-     * Test command parser syntax on mostly bad input
-     *
-     * @throws Exception
-     */
-    public void testSyntax1()
-        throws Exception
-    {
-        systemOut().clearHistory();
-        String[] args = new String[1];
-        args[0] = "P2SyntaxTest1.txt";
-        Point2.main(args);
-        assertEquals(
-            "Point rejected: (r_r, -1, -20)\n"
-                + "Point rejected: (rec, 7, -8)\n" + "Duplicate points:\n"
-                + "SkipList dump:\n" + "Node has depth 1, Value (null)\n"
-                + "SkipList size is: 0\n" + "QuadTree dump:\n"
-                + "Node at 0, 0, 1024: Empty\n" + "1 quadtree nodes printed\n"
-                + "Point not found: r_r\n" + "Point not removed: r_r\n"
-                + "Point rejected: (1, -1)\n" + "Point not found: (1, 1)\n"
-                + "Points intersecting region (-5, -5, 20, 20):\n"
-                + "1 quadtree nodes visited\n"
-                + "Rectangle rejected: (5, 5, 4, -2)\n",
-            systemOut().getHistory());
-        systemOut().clearHistory();
->>>>>>> branch 'master' of https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa/git/StudentProject/b8ce28b3-0aa2-4fcc-937b-abbd5785b3cb
     }
 
 

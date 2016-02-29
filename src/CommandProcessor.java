@@ -24,7 +24,6 @@ public class CommandProcessor {
     public CommandProcessor() {
         c = new Container();
 
-<<<<<<< HEAD
     }
 
     /**
@@ -113,98 +112,6 @@ public class CommandProcessor {
     private void removeByName(String name) {
 
         c.remove(name);
-=======
-    
-
-    }
-
-    /**
-     * Set up before it actually gets processed. cline is the command that gets
-     * passed in from the CommandParser class.
-     * 
-     * @param cline
-     *            is the splited command/line from text file.
-     */
-    public void setUp(String[] cline) {
-        this.line = cline;
-
-    }
-
-    /**
-     * Compare the first word of line with possible commands. Calls private
-     * methods in order to proceed.
-     */
-    public void process() {
-        com = line[0]; // command
-
-        if (com.equals("insert")) {
-            String name = line[1];
-            params = new int[]{Integer.parseInt(line[2]), Integer.parseInt(line[3])};
-            insertPoint(name, params);
-       
-            
-        }
-        else if (com.equals("regionsearch")) {
-           params = new int[]{Integer.parseInt(line[1]), Integer.parseInt(line[2]), 
-                   Integer.parseInt(line[3]), Integer.parseInt(line[4])}; 
-                   regionSearch(params);
-        }
-        else if (com.equals("remove")) {
-            // 2 Cases for remove command.
-            // if there the length of array is 2, there are only command and the
-            // name of rectangle
-            if (line.length == 2) {
-                removeByName(line[1]);
-            }
-            else {
-                // length of array is not 2. Most likely going to be just 4.
-                // Meaning that it will be regions/coordinates.
-                params = new int[]{Integer.parseInt(line[1]), Integer.parseInt(line[2])};
-                removeByPoint(params);
-            }
-        }
-        else if (com.equals("duplicates")) {
-            duplicates();
-        }
-        else if (com.equals("dump")) {
-            dump();
-        }
-        else if (com.equals("search")) {
-            searchByName(line[1]);
-        }
-    }
-
-
-    /**
-     * gets called when the command line is insert name x y w h
-     * 
-     * calls the insert method in Container class.
-     * 
-     * @param name
-     *            is the name of rectangle
-     * @param recSize
-     *            is the size and position of rectangle
-     */
-
-    private void insertPoint(String name, int[] recSize) {
-        // create a rectagle object if the rectangle fits under 1024
-
-        //c.insert(name, recSize[0], recSize[1], recSize[2], recSize[3]);
-
-    }
-
-    /**
-     * gets called when the command line is remove name
-     * 
-     * calls the remove method in Container class.
-     * 
-     * @param name
-     *            is the name of rectangle
-     */
-    private void removeByName(String name) {
-
-      //  c.remove(name);
->>>>>>> branch 'master' of https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa/git/StudentProject/b8ce28b3-0aa2-4fcc-937b-abbd5785b3cb
 
     }
 

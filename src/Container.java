@@ -182,7 +182,6 @@ public class Container {
      * 
      */
     public void search(String name) {
-<<<<<<< HEAD
         list.search(name);
     }
 
@@ -203,34 +202,5 @@ public class Container {
     }
     
     
-=======
-
-        list.search(name);
-
-    }
-
-    /**
-     * calls the intersect method in skipList class.
-     */
-    public void intersections() {
-        list.intersections();
-    }
-
-    /**
-     * calls the dump method in skipList class.
-     */
-    public void dump() {
-        list.dump();
-    }
-
-    /**
-     * for testing
-     * 
-     * @return the list.
-     */
-    public SkipList<String, RectangleValue> getList() {
-        return list;
-    }
->>>>>>> branch 'master' of https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa/git/StudentProject/b8ce28b3-0aa2-4fcc-937b-abbd5785b3cb
 
 }

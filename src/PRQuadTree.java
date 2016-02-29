@@ -23,4 +23,7 @@ public class PRQuadTree {
         return size;
     }
     
+    public void dump(){
+        
+    }
 }

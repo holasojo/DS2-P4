@@ -11,12 +11,14 @@ public class Container {
 
     // skiplist
     private SkipList<String, RectangleValue> list;
+    private PRQuadTree tree;
 
     /**
      * constructor. Initializing the SkipList.
      */
     public Container() {
         list = new SkipList<String, RectangleValue>();
+        tree = new PRQuadTree(0,0,1024);
 
     }
 
@@ -45,6 +47,7 @@ public class Container {
                 = new KVPair<String, RectangleValue>(name, rec);
             // insert kv into the list
             list.insert(kv);
+            tree.insert(new Point(name, x, y));
             System.out.println("Rectangle inserted: (" + 
                     name + ", " + x + ", " + y + ", " + w + ", " + h + ")");
         }
@@ -157,22 +160,22 @@ public class Container {
      *            is height
      * @return false when the rectangle is not within the region.
      */
-    public boolean regionSearch(int x, int y, int w, int h) {
-        // checking width and height
-        if (w > 0 && h > 0) {
-            // start region search
-            list.regionsearch(new RectangleValue(x, y, w, h));
-            return true;
-
-        }
-        else {
-            // print out rejection when w <= 0 and h <= 0
-            System.out.println("Rectangle rejected: (" + x + ", " + 
-                    y + ", " + w + ", " + h + ")");
-            return false;
-        }
-
-    }
+//    public boolean regionSearch(int x, int y, int w, int h) {
+//        // checking width and height
+//        if (w > 0 && h > 0) {
+//            // start region search
+//            list.regionsearch(new RectangleValue(x, y, w, h));
+//            return true;
+//
+//        }
+//        else {
+//            // print out rejection when w <= 0 and h <= 0
+//            System.out.println("Rectangle rejected: (" + x + ", " + 
+//                    y + ", " + w + ", " + h + ")");
+//            return false;
+//        }
+//
+//    }
 
     /**
      * calls the search method in skipList class.

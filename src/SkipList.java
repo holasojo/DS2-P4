@@ -281,6 +281,85 @@ class SkipList<K extends Comparable<K>, E> {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Searches list for rectangles that intersect the query region.
+     * 
+     * @param rec
+     *            The rectangle region that is being used to test for
+     *            intersections
+     * 
+     * @return The number of intersections
+     */
+    public int regionsearch(RectangleValue rec) {
+        
+        //intersection counter
+        int intersections = 0;
+
+        System.out.println("Rectangles intersecting region " 
+                + "(" + rec.toString() + ")" + ":");
+        // starts at head of the list
+        SkipNode x = head;
+        //holds current rectangle
+        RectangleValue val;
+        //loop to traverse list 
+        for (int i = 0; i < size; i++) {
+
+            x = x.forward[0];
+            val = (RectangleValue) x.data.value();
+            //checks for intersection
+            if (val.intersect(rec)) {
+
+                intersections++;
+                System.out.println("(" + x.data.toString() + ")");
+
+            }
+        }
+        return intersections;
+    }
+
+    /**
+     * Determines if any rectangles within the skiplist intersect with each
+     * other. Intersections are double counted with this implementation.
+     * 
+     * @return number of intersections
+     */
+    public int intersections() {
+
+        System.out.println("Intersection pairs: ");
+        
+        //intersection counter
+        int numIntersections = 0;
+
+        SkipNode outerNode = head;
+        SkipNode innerNode = head;
+        
+        RectangleValue outerVal;
+        RectangleValue innerVal;
+
+        for (int i = 0; i < size; i++) {
+            outerNode = outerNode.forward[0];
+            outerVal = (RectangleValue) outerNode.data.value();
+
+            for (int j = 0; j < size; j++) {
+                innerNode = innerNode.forward[0];
+                innerVal = (RectangleValue) innerNode.data.value();
+
+                if (i != j) {
+                    if (outerVal.intersect(innerVal)) {
+                        System.out.println("(" + outerNode.data.toString() 
+                            + " | " + innerNode.data.toString() + ")");
+                        numIntersections++;
+                    }
+                }
+            }
+            innerNode = head;
+        }
+        return numIntersections;
+    }
+
+    /**
+>>>>>>> branch 'master' of https://web-cat.cs.vt.edu/Web-CAT/WebObjects/Web-CAT.woa/git/StudentProject/b8ce28b3-0aa2-4fcc-937b-abbd5785b3cb
      * Implementation of a skip node class. SkipNode object holds KVPairs and an
      * array of references to proceeding SkipNodes at each level in the
      * Skiplist.

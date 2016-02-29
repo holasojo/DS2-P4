@@ -56,7 +56,6 @@ public class PtListTest extends student.TestCase {
         list2.append(new Point("B",2,2));
         assertTrue(list2.checkAllSame(p2));
         
-        
     }
 
 }

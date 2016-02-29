@@ -27,6 +27,7 @@ public class PRQuadTree {
 //        for (int i = 0; i < level; i++){
 //            
 //        }
-//        root.dump(x, y, width, level);
+        root.dump(x, y, width, 0);
+        
     }
 }

@@ -48,7 +48,7 @@ public class PtList {
         {
             Point[] points = new Point[size - 1];
             curr = head.next();
-            for(int i = 0; i < size; i++)
+            for(int i = 0; i < size - 1; i++)
             {
                 points[i] = curr.value();
                 curr = curr.next();

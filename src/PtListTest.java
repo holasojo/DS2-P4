@@ -51,7 +51,7 @@ public class PtListTest extends student.TestCase {
         assertEquals(removed[0].toString(), "B, 2, 2");
         assertEquals(removed[2].toString(), "D, 5, 5");
         list1.append(new Point("B",2,2));
-        assertTrue(list1.checkAllSame(p2));
+        assertFalse(list1.checkAllSame(p2));
         
         
     }

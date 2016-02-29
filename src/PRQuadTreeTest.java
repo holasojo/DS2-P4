@@ -11,7 +11,7 @@ public class PRQuadTreeTest extends student.TestCase{
     
     public void testInsert(){
         c.insert("A", 0, 0, 1024, 1024);
-       
+        assertEquals(c.tree().size(), 1);
     }
 
 }

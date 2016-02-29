@@ -9,6 +9,9 @@ public class PRQuadTreeTest extends student.TestCase{
         c = new Container();
     }
     
-    
+    public void testInsert(){
+        c.insert("A", 0, 0, 1024, 1024);
+       
+    }
 
 }

@@ -205,5 +205,15 @@ public class Container {
     }
     
     
+    /**
+     * for testing
+     * 
+     * @return the tree.
+     */
+    public PRQuadTree tree() {
+        return tree;
+    }
+    
+    
 
 }

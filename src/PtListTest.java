@@ -31,10 +31,25 @@ public class PtListTest extends student.TestCase {
         list1.append(p3);
         list1.append(p4);
         list1.append(p5);
-        assertEquals(list1.size(),5);
-        
-        
+        assertEquals(list1.size(),5);    
       
+    }
+    
+    public void testRemove(){
+        assertNull(list1.remove());
+        list1.append(p1);
+        list1.append(p2);
+        assertEquals(list1.size(),2);
+        assertEquals(list1.remove().toString(),"");
+        
+        
+//        assertEquals(p1.toString(), "A, 1, 1");
+//        assertEquals(list1.toString(), "A, 1, 1\nB, 2, 2\n");
+//        list1.append(p3);
+//        list1.append(p4);
+//        list1.append(p5);
+//        assertEquals(list1.size(),5);    
+        
     }
 
 }

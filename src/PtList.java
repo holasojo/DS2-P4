@@ -17,7 +17,7 @@ public class PtList {
     public PtList()
     {
         tail = curr = new PtLink(null);
-        head = new PtLink(null);
+        head = new PtLink(tail);
         size = 0;
     }
     

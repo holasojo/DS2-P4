@@ -29,5 +29,14 @@ public class PRQuadTreeTest extends student.TestCase{
         c.tree().dump();
         assertFuzzyEquals("Node at 0, 0, 1024: Internal", systemOut().getHistory());
     }
+    
+    /**
+     * testing duplicates
+     * and splitting behavior
+     * 
+     */
+    public void testInsert2(){
+        
+    }
 
 }

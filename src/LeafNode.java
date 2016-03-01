@@ -31,6 +31,7 @@ public class LeafNode implements QuadNode {
             {
                 internal.insert(it, x, y, width);
             }
+            internal.insert(pt, x, y, width);
             return internal;    
         }
         list.append(pt);

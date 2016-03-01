@@ -15,7 +15,7 @@ public class PRQuadTree {
     }
 
     public void insert(Point pt){
-        root.insert(pt, x, y, width);
+        root = root.insert(pt, x, y, width);
         size++;
     }
     

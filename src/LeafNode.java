@@ -13,16 +13,16 @@ public class LeafNode implements QuadNode {
 
     public void dump(int x, int y, int width, int level) {
         int n = 2 * level;
-        String str = String.format("%1$#" + n + "s", "");
+//        String str = String.format("%1$#" + n + "s", "");
         
-        System.out.println(str + "Node at " + x + ", " + y + ", " + width + ":");
+        System.out.println("Node at " + x + ", " + y + ", " + width + ":");
 
-        System.out.println(str + list.toString());
+        System.out.println( list.toString());
     }
 
     @Override
     public QuadNode insert(Point pt, int x, int y, int width) {
-        if(list.size() == 3 && !list.checkAllSame(pt))
+        if(list.size() >= 3 && !list.checkAllSame(pt))
         {
             Point[] points = list.remove();
             IntlNode internal = new IntlNode();

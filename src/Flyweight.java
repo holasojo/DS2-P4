@@ -16,9 +16,9 @@ public class Flyweight implements QuadNode {
     public void dump(int x, int y, int width, int level) {
         
         int n = 2 * level;
-        String str = String.format("%"+n+"s", "");
+//        StringBuilder str = StringBuilder.format("%"+n+"s", "");
         System.out
-                .println(str + "Node at " + x + ", " + y + ", " + width + ": Empty");
+                .println("Node at " + x + ", " + y + ", " + width + ": Empty");
     }
 
     @Override

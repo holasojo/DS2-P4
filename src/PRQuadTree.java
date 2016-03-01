@@ -24,9 +24,7 @@ public class PRQuadTree {
     }
     
     public void dump(){
-//        for (int i = 0; i < level; i++){
-//            
-//        }
+
         root.dump(x, y, width, 0);
         
     }

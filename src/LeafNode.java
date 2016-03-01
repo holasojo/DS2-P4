@@ -34,7 +34,6 @@ public class LeafNode implements QuadNode {
             return internal;    
         }
         list.append(pt);
-        
         return this;
     }
 

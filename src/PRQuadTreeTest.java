@@ -23,7 +23,7 @@ public class PRQuadTreeTest extends student.TestCase{
         c.tree().dump();
         c.insert("E", 2, 800, 1, 3);
         c.tree().dump();
-        c.insert("F", 3, 3, 1, 1);
+        c.insert("F", 20, 500, 1, 1);
         c.tree().dump();
         c.insert("G", 300, 300, 1, 1);
         c.tree().dump();

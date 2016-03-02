@@ -10,20 +10,21 @@
 public class Container {
 
     // skiplist
-    private SkipList<String, RectangleValue> list;
+    private SkipList<String, Point> list;
     private PRQuadTree tree;
+    private final int WIDTH = 1024;
 
     /**
      * constructor. Initializing the SkipList.
      */
     public Container() {
-        list = new SkipList<String, RectangleValue>();
-        tree = new PRQuadTree(0,0,1024);
+        list = new SkipList<String, Point>();
+        tree = new PRQuadTree(0, 0, 1024);
 
     }
 
     /**
-     * Insert method. Creates RectangleValue and KVPair. Calls insert() method
+     * Insert method. Creates Point and KVPair. Calls insert() method
      * in SkipList class.
      * 
      * @param name
@@ -37,23 +38,20 @@ public class Container {
      * @param h
      *            is height
      */
-    public void insert(String name, int x, int y, int w, int h) {
+    public void insert(String name, int x, int y) {
         // check if the rectangle fits under the requirement
-        if (fits(x, y, w, h)) {
+        if (fits(x, y)) {
             // create a rectangle
-            RectangleValue rec = new RectangleValue(x, y, w, h);
+            Point pt = new Point(name, x, y);
             // create KVPair with the rectangle object
-            KVPair<String, RectangleValue> kv 
-                = new KVPair<String, RectangleValue>(name, rec);
+            KVPair<String, Point> kv = new KVPair<String, Point>(name, pt);
             // insert kv into the list
             list.insert(kv);
-            tree.insert(new Point(name, x, y));
-            System.out.println("Rectangle inserted: (" + 
-                    name + ", " + x + ", " + y + ", " + w + ", " + h + ")");
+            tree.insert(pt);
+            System.out.println("Point inserted: (" + name + ", " + x + ", " + y + ")");
         }
         else {
-            System.out.println("Rectangle rejected: (" + 
-                    name + ", " + x + ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("Point rejected: (" + name + ", " + x + ", " + y + ")");
         }
     }
 
@@ -70,10 +68,9 @@ public class Container {
      *            is height of the rectangle
      * @return true if the size of rectangle fits within the unit
      */
-    public boolean fits(int x, int y, int w, int h) {
+    public boolean fits(int x, int y) {
 
-        return (w > 0 && h > 0) && (x >= 0 && y >= 0) 
-                && ((x + w <= 1024) && (y + h <= 1024));
+        return (x >= 0 && y >= 0) && ((x < WIDTH) && (y  < WIDTH));
 
     }
 
@@ -86,19 +83,17 @@ public class Container {
     public void remove(String name) {
 
         // creating a KVPair to pass into the method
-        KVPair<String, RectangleValue> toRemove 
-            = new KVPair<String, RectangleValue>(name,
-                new RectangleValue(1, 1, 1, 1));
+        KVPair<String, Point> toRemove = new KVPair<String, Point>(name,
+                new Point(1, 1));
         // the one actually got removed
-        KVPair<String, RectangleValue> removed = list.remove(toRemove);
+        KVPair<String, Point> removed = list.remove(toRemove);
 
         // if there was a rectangle and got removed,
         // print out that it was removed
         // if not, print out Rectangle not removed
         if (removed != null) {
 
-            System.out.println("Rectangle removed: " + "(" + 
-                    removed.toString() + ")");
+            System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
         }
         else {
 
@@ -121,15 +116,14 @@ public class Container {
      */
     public void remove(int x, int y, int w, int h) {
         // check the values meet conditions
-        if (fits(x, y, w, h)) {
+        if (fits(x, y)) {
             // create a new rectangle value with passed in values
-            RectangleValue rec = new RectangleValue(x, y, w, h);
+            Point rec = new Point(x, y);
             // the one got removed
-            KVPair<String, RectangleValue> removed = list.remove(rec);
+            KVPair<String, Point> removed = list.remove(rec);
             if (removed != null) {
                 // rectangle was in the skip list and got removed
-                System.out.println("Rectangle removed: " + "(" 
-                        + removed.toString() + ")");
+                System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
             }
             else {
                 // rectangle was not in the skiplist
@@ -140,8 +134,7 @@ public class Container {
         // rectangle rejected
         else {
 
-            System.out.println("Rectangle rejected: (" + x + ", " 
-                    + y + ", " + w + ", " + h + ")");
+            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
         }
 
     }
@@ -160,22 +153,22 @@ public class Container {
      *            is height
      * @return false when the rectangle is not within the region.
      */
-//    public boolean regionSearch(int x, int y, int w, int h) {
-//        // checking width and height
-//        if (w > 0 && h > 0) {
-//            // start region search
-//            list.regionsearch(new RectangleValue(x, y, w, h));
-//            return true;
-//
-//        }
-//        else {
-//            // print out rejection when w <= 0 and h <= 0
-//            System.out.println("Rectangle rejected: (" + x + ", " + 
-//                    y + ", " + w + ", " + h + ")");
-//            return false;
-//        }
-//
-//    }
+    // public boolean regionSearch(int x, int y, int w, int h) {
+    // // checking width and height
+    // if (w > 0 && h > 0) {
+    // // start region search
+    // list.regionsearch(new Point(x, y, w, h));
+    // return true;
+    //
+    // }
+    // else {
+    // // print out rejection when w <= 0 and h <= 0
+    // System.out.println("Rectangle rejected: (" + x + ", " +
+    // y + ", " + w + ", " + h + ")");
+    // return false;
+    // }
+    //
+    // }
 
     /**
      * calls the search method in skipList class.
@@ -193,6 +186,7 @@ public class Container {
      */
     public void dump() {
         list.dump();
+        tree.dump();
     }
 
     /**
@@ -200,11 +194,10 @@ public class Container {
      * 
      * @return the list.
      */
-    public SkipList<String, RectangleValue> getList() {
+    public SkipList<String, Point> getList() {
         return list;
     }
-    
-    
+
     /**
      * for testing
      * 
@@ -213,7 +206,5 @@ public class Container {
     public PRQuadTree tree() {
         return tree;
     }
-    
-    
 
 }

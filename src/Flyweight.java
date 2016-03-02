@@ -13,12 +13,12 @@ public class Flyweight implements QuadNode {
     }
 
     @Override
-    public void dump(int x, int y, int width, int level) {
+    public int dump(int x, int y, int width, int level) {
         
-        int n = 2 * level;
-//        StringBuilder str = StringBuilder.format("%"+n+"s", "");
+        String n = QuadNode.spaces(level);   
         System.out
-                .println("Node at " + x + ", " + y + ", " + width + ": Empty");
+                .println(n+ "Node at " + x + ", " + y + ", " + width + ": Empty");
+        return 1;
     }
 
     @Override
@@ -28,6 +28,12 @@ public class Flyweight implements QuadNode {
         leaf.insert(pt, x, y, width);
 
         return leaf;
+    }
+
+    @Override
+    public QuadNode remove(Point pt, int x, int y, int width) {
+       
+        return null;
     }
 
 }

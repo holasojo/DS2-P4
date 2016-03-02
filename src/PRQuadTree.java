@@ -24,8 +24,9 @@ public class PRQuadTree {
     }
     
     public void dump(){
-
-        root.dump(x, y, width, 0);
+        System.out.println("QuadTree dump:");
+        int nodeCount = root.dump(x, y, width, 0);
+        System.out.println(nodeCount + " quadtree nodes printed");
         
     }
 }

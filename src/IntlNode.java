@@ -39,22 +39,27 @@ public class IntlNode implements QuadNode {
 
     }
 
-    public void dump(int x, int y, int width, int level) {
-        int n = 2 * level;
-        String str = String.format("%" +n + "s", ""); 
+    public int dump(int x, int y, int width, int level) {
 
+        String n = QuadNode.spaces(level);
 
-        System.out.println(str + "Node at " + x + ", " + y + ", " + width + ": Internal");
-        NW.dump(x, y, width / 2, level + 1);
-        NE.dump(x + width / 2, y, width / 2, level + 1);
-        SW.dump(x, y + width / 2, width / 2, level + 1);
-        SE.dump(x + width / 2, y + width / 2, width / 2, level + 1);
+        System.out.println(n + "Node at " + x + ", " + y + ", " + width + ": Internal");
+        return 1 + NW.dump(x, y, width / 2, level + 1) 
+            + NE.dump(x + width / 2, y, width / 2, level + 1)
+                + SW.dump(x, y + width / 2, width / 2, level + 1)
+                + SE.dump(x + width / 2, y + width / 2, width / 2, level + 1);
 
-        // System.out.println(str + list.toString());
+       
     }
 
     public static Flyweight flyweight() {
         return fly;
+    }
+
+    @Override
+    public QuadNode remove(Point pt, int x, int y, int width) {
+        // TODO Auto-generated method stub
+        return null;
     }
 
 }

@@ -79,6 +79,7 @@ public class PtList {
     
     public String toString()
     {
+        
         String str = "";
         
         curr = head.next();
@@ -88,6 +89,24 @@ public class PtList {
             curr = curr.next();
         }     
         return str;
+    }
+    
+    public String[] list(){
+       
+        if(size != 0)
+        {
+            String[] strArray = new String[size];
+            curr = head.next();
+            for(int i = 0; i < size; i++)
+            {
+                strArray[i] = curr.value().toString();
+                curr = curr.next();
+            }
+            return strArray;
+        }
+        return null;
+        
+        
     }
     
     public int size()

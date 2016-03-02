@@ -41,9 +41,10 @@ public class IntlNode implements QuadNode {
 
     public void dump(int x, int y, int width, int level) {
         int n = 2 * level;
-        // String str = String.format("%1$#" + n + "s", "");
+        String str = String.format("%" +n + "s", ""); 
 
-        System.out.println("Node at " + x + ", " + y + ", " + width + ": Internal");
+
+        System.out.println(str + "Node at " + x + ", " + y + ", " + width + ": Internal");
         NW.dump(x, y, width / 2, level + 1);
         NE.dump(x + width / 2, y, width / 2, level + 1);
         SW.dump(x, y + width / 2, width / 2, level + 1);

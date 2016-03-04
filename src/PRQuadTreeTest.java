@@ -95,10 +95,15 @@ public class PRQuadTreeTest extends student.TestCase {
 
         c.insert("r_r", -1, -20);
         c.insert("r_r", 7, -8);
-        systemOut().clearHistory();
-        c.tree().dump();
+       
+       
         assertFuzzyEquals("Point rejected: (r_r, -1, -20)\n"
                 + "Point rejected: (rec, 7, -8)", systemOut().getHistory());
+        systemOut().clearHistory();
+        c.tree().dump();
+        assertFuzzyEquals("quadtree dump\n"
+                + "node at 0 0 1024 empty\n"
+                + "1 quadtree nodes printed", systemOut().getHistory());
        
 
     }

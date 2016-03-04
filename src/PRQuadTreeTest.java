@@ -10,6 +10,7 @@ public class PRQuadTreeTest extends student.TestCase {
 
     public void testInsert1() {
         c.tree().dump();
+        assertFuzzyEquals("Node at 0, 0, 1024: Internal", systemOut().getHistory());
         c.insert("A", 0, 0);
         assertEquals(c.tree().size(), 1);
         c.tree().dump();
@@ -26,7 +27,6 @@ public class PRQuadTreeTest extends student.TestCase {
         c.tree().dump();
         c.insert("G", 300, 300);
         c.tree().dump();
-//        assertFuzzyEquals("Node at 0, 0, 1024: Internal", systemOut().getHistory());
         systemOut().clearHistory();
     }
 

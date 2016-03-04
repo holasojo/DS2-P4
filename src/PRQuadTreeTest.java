@@ -14,6 +14,7 @@ public class PRQuadTreeTest extends student.TestCase {
         systemOut().clearHistory();
         c.insert("A", 0, 0);
         assertEquals(c.tree().size(), 1);
+        c.tree().dump();
         assertFuzzyEquals("quadtree dump\nnode at 0 0 1024 empty\n1 quadtree nodes printed", systemOut().getHistory());
         systemOut().clearHistory();
         c.insert("B", 1, 1);

@@ -30,9 +30,9 @@ public class PRQuadTree {
 
     }
 
-    public Point removebyCoor(int xval, int yval) {
+    public Point removebyCoor(Point pt) {
 
-        Point found = root.searchbyCoor(new Point("dummy", xval, yval), x, y, width);
+        Point found = root.searchbyCoor(pt, x, y, width);
         if (found != null) {
             root = root.remove(found, x, y, width);
         }

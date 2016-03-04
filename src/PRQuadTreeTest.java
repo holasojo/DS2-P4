@@ -131,7 +131,9 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("r_42", 1, 20);
         c.insert("far", 200, 200);
         systemOut().clearHistory();
+        c.removebyName("r_r");
         c.removebyCoor(10, 30);
+        
     }
 
 }

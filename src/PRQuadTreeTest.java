@@ -102,6 +102,8 @@ public class PRQuadTreeTest extends student.TestCase {
                 + "  Node at 0, 512, 512: Empty\n" + "  Node at 512, 512, 512: Empty\n" + "13 quadtree nodes printed\n",
                 systemOut().getHistory());
 
+        systemOut().clearHistory();
+        c.dump();
     }
 
     /**

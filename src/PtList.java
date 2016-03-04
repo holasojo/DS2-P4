@@ -42,7 +42,7 @@ public class PtList {
         return true;
     }
     
-    public Point find(Point it)
+    public Point findbyCoor(Point it)
     {
         curr = head.next();
         for(int i =0; i<size; i++){

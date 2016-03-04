@@ -22,5 +22,5 @@ public interface QuadNode {
         return str;
     }
     
-   public Point search(Point pt, int x, int y, int width);
+   public Point searchbyCoor(Point pt, int x, int y, int width);
 }

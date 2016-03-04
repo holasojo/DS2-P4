@@ -90,14 +90,14 @@ public class CommandProcessor {
      * 
      * @param name
      *            is the name of rectangle
-     * @param recSize
+     * @param points
      *            is the size and position of rectangle
      */
 
-    private void insertPoint(String name, int[] recSize) {
+    private void insertPoint(String name, int[] points) {
         // create a rectagle object if the rectangle fits under 1024
 
-        //c.insert(name, recSize[0], recSize[1], recSize[2], recSize[3]);
+        //c.insert(name, points[0], points[1], points[2], points[3]);
 
     }
 
@@ -120,11 +120,11 @@ public class CommandProcessor {
      * 
      * calls the remove method in Container class.
      * 
-     * @param recSize
+     * @param points
      *            is the position and size of rectangle
      */
-    private void removeByPoint(int[] recSize) {
-        //c.remove(recSize[0], recSize[1], recSize[2], recSize[3]);
+    private void removeByPoint(int[] points) {
+        c.removebyCoor(points[0], points[1]);
     }
 
     /**
@@ -132,11 +132,11 @@ public class CommandProcessor {
      * 
      * calls the regionSearch method in Container class.
      * 
-     * @param recSize
+     * @param points
      *            is position and size of rectangle
      */
-    private void regionSearch(int[] recSize) {
-        //c.regionSearch(recSize[0], recSize[1], recSize[2], recSize[3]);
+    private void regionSearch(int[] points) {
+        //c.regionSearch(points[0], points[1], points[2], points[3]);
 
     }
 

@@ -73,7 +73,7 @@ public class LeafNode implements QuadNode {
 
         for (Point it : points) {
             if (it.inRegion(x, y, w, h)) {
-                System.out.println("Point found: " + it.toString());
+                System.out.println("Point found: (" + it.toString()+")");
             }
         }
         System.out.println(nodeCount + " quadtree nodes visited");

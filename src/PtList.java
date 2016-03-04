@@ -42,6 +42,18 @@ public class PtList {
         return true;
     }
     
+    public Point find(Point it)
+    {
+        curr = head.next();
+        for(int i =0; i<size; i++){
+            if(it.equalsCoor(curr.value())) {
+                
+                return curr.value();
+            }
+        }
+        return null;
+    }
+    
     public Point[] remove()
     {
         if(size != 0)

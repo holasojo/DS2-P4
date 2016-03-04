@@ -29,4 +29,9 @@ public class PRQuadTree {
         System.out.println(nodeCount + " quadtree nodes printed");
         
     }
+    
+    public QuadNode remove(int x, int y)
+    {
+        
+    }
 }

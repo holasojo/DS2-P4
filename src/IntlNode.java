@@ -58,8 +58,78 @@ public class IntlNode implements QuadNode {
 
     @Override
     public QuadNode remove(Point pt, int x, int y, int width) {
-        // TODO Auto-generated method stub
-        return null;
+        int centerX = x + width / 2;
+        int centerY = y + width / 2;
+        Direction quadrant = pt.quadrant(centerX, centerY);
+        
+        if (quadrant == Direction.NW) {
+            NW = NW.remove(pt, x, y, width / 2);
+        }
+        else if (quadrant == Direction.NE) {
+            NE = NE.remove(pt, centerX, y, width / 2);
+        }
+        else if (quadrant == Direction.SW) {
+            SW = SW.remove(pt, x, centerY, width / 2);
+
+        }
+        else if (quadrant == Direction.SE) {
+            SE = SE.remove(pt, centerX, centerY, width / 2);
+        }
+        
+        int pointCount = 0;
+        int leafCount = 0;
+        
+        QuadNode[] children = new QuadNode[]{NW, NE, SW, SE};
+        for(QuadNode node : children)
+        {
+            if(node.getClass() == LeafNode.class)
+            {
+                leafCount++;
+                pointCount  += ((LeafNode)node).pointCount();
+            }
+        }
+        
+        if(pointCount <= 3 || leafCount == 1) {
+            LeafNode merged = new LeafNode();
+            for(QuadNode node : children)
+            {
+                if(node.getClass() == LeafNode.class)
+                {
+                    Point[] points = ((LeafNode)node).removeAll();
+                    for(Point it : points)
+                    {
+                        merged.insert(it, x, y, width);
+                    }
+                }
+            }
+            return merged;
+        }
+        return this;
     }
 
+    @Override
+    public Point search(Point pt, int x, int y, int width) {
+        int centerX = x + width / 2;
+        int centerY = y + width / 2;
+        Direction quadrant = pt.quadrant(centerX, centerY);
+        
+        if (quadrant == Direction.NW) {
+            return NW.search(pt, x, y, width / 2);
+        }
+        else if (quadrant == Direction.NE) {
+           return NE.search(pt, centerX, y, width / 2);
+        }
+        else if (quadrant == Direction.SW) {
+            return SW.search(pt, x, centerY, width / 2);
+
+        }
+        else if (quadrant == Direction.SE) {
+            return SE.search(pt, centerX, centerY, width / 2);
+        }
+        else {
+            return null;
+        }
+    }
+
+  
 }

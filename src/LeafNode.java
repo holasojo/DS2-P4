@@ -70,8 +70,16 @@ public class LeafNode implements QuadNode {
     }
 
     @Override
-    public void duplicates(int x, int y, int width, int level) {
-        // TODO Auto-generated method stub
+    public void duplicates(int x, int y, int width) {
+
+        System.out.println(n + "Node at " + x + ", " + y + ", " + width + ":");
+        
+        String[] elems = list.list();
+
+        for (String elem : elems) {
+            System.out.println(n + "(" + elem + ")");
+        }
+        
         
     }
     

@@ -181,6 +181,9 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("r_42", 800, 800);
         c.insert("far", 200, 200);
         c.insert("far", 200, 200);
+        systemOut().clearHistory();
+        c.duplicates();
+        assertFuzzyEquals("", systemOut().getHistory());
         
         
     }

@@ -87,6 +87,7 @@ public class Container {
         // the one actually got removed
         KVPair<String, Point> removed = list.remove(toRemove);
 
+        if(removed != null){
         Point removedInTree = tree.removebyCoor(removed.value());
 
         // if there was a rectangle and got removed,
@@ -99,6 +100,7 @@ public class Container {
         else {
             System.out.println("Point not found: " + name);
             System.out.println("Point not removed: " + name);
+        }
         }
     }
 

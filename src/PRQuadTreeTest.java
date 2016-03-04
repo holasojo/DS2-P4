@@ -167,5 +167,9 @@ public class PRQuadTreeTest extends student.TestCase {
         c.tree().dump();
         
     }
+    
+    public void testSyntax2(){
+        
+    }
 
 }

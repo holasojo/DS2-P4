@@ -42,4 +42,10 @@ public class Flyweight implements QuadNode {
         
     }
 
+    @Override
+    public void duplicates(int x, int y, int width, int level) {
+        // TODO Auto-generated method stub
+        
+    }
+
 }

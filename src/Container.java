@@ -39,11 +39,11 @@ public class Container {
      *            is height
      */
     public void insert(String name, int x, int y) {
-        // check if the rectangle fits under the requirement
+        // check if the points fits under the requirement
         if (fits(x, y)) {
-            // create a rectangle
+            // create a points
             Point pt = new Point(name, x, y);
-            // create KVPair with the rectangle object
+            // create KVPair with the points object
             KVPair<String, Point> kv = new KVPair<String, Point>(name, pt);
             // insert kv into the list
             list.insert(kv);
@@ -56,17 +56,17 @@ public class Container {
     }
 
     /**
-     * checking bounds of the rectangle
+     * checking bounds of the points
      * 
      * @param x
      *            is x-Position. Has to be greater than 0
      * @param y
      *            is y-Position. Has to be greater than 0
      * @param w
-     *            is width of the rectangle
+     *            is width of the points
      * @param h
-     *            is height of the rectangle
-     * @return true if the size of rectangle fits within the unit
+     *            is height of the points
+     * @return true if the size of points fits within the unit
      */
     public boolean fits(int x, int y) {
 
@@ -90,9 +90,9 @@ public class Container {
         if(removed != null){
         Point removedInTree = tree.removebyCoor(removed.value());
 
-        // if there was a rectangle and got removed,
+        // if there was a points and got removed,
         // print out that it was removed
-        // if not, print out Rectangle not removed
+        // if not, print out points not removed
         if (removedInTree != null && removed != null) {
 
             System.out.println("Point removed: " + "(" + removedInTree.toString() + ")");
@@ -105,17 +105,17 @@ public class Container {
     }
 
     /**
-     * checking bounds of the rectangle
+     * checking bounds of the points
      * 
      * @param x
      *            is x-Position. Has to be greater than 0
      * @param y
      *            is y-Position. Has to be greater than 0
      * @param w
-     *            is width of the rectangle
+     *            is width of the points
      * @param h
-     *            is height of the rectangle
-     * @return true if the size of rectangle fits within the unit
+     *            is height of the points
+     * @return true if the size of points fits within the unit
      */
     public boolean fits(int x, int y, int w, int h) {
 
@@ -139,7 +139,7 @@ public class Container {
     public void removebyCoor(int x, int y) {
         // check the values meet conditions
         if (fits(x, y)) {
-            // create a new rectangle value with passed in values
+            // create a new points value with passed in values
             Point pt = new Point(x, y);
             Point removeThis = tree.removebyCoor(pt);
             if (removeThis == null) {
@@ -150,18 +150,18 @@ public class Container {
             else {
                 KVPair<String, Point> removed = list.remove(removeThis);
                 if (removed != null && removeThis != null) {
-                    // rectangle was in the skip list and got removed
+                    // points was in the skip list and got removed
                     System.out.println("Point removed: (" + removed.toString() + ")");
                 }
                 // else {
-                // // rectangle was not in the skiplist
+                // // points was not in the skiplist
                 // System.out.println("Point not removed: (" + x + ", " + y +
                 // ")");
                 // }
             }
         }
-        // if the rectangle size and position not meet requirements, print out
-        // rectangle rejected
+        // if the points size and position not meet requirements, print out
+        // points rejected
         else {
 
             System.out.println("Point rejected: (" + x + ", " + y + ")");
@@ -181,7 +181,7 @@ public class Container {
      *            is width
      * @param h
      *            is height
-     * @return false when the rectangle is not within the region.
+     * @return false when the points is not within the region.
      */
     public boolean regionSearch(int x, int y, int w, int h) {
         // checking width and height
@@ -194,7 +194,7 @@ public class Container {
         }
         else {
             // print out rejection when w <= 0 and h <= 0
-            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("points rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
             return false;
         }
 
@@ -209,7 +209,7 @@ public class Container {
      * calls the search method in skipList class.
      * 
      * @param name
-     *            is rectangle name
+     *            is points name
      * 
      */
     public void search(String name) {

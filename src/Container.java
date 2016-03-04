@@ -114,7 +114,7 @@ public class Container {
      *            is height
      * 
      */
-    public void remove(int x, int y, int w) {
+    public void remove(int x, int y) {
         // check the values meet conditions
         if (fits(x, y)) {
             // create a new rectangle value with passed in values
@@ -134,7 +134,7 @@ public class Container {
         // rectangle rejected
         else {
 
-            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w +  ")");
+            System.out.println("Rectangle rejected: (" + x + ", " + y + ")");
         }
 
     }

@@ -90,7 +90,7 @@ public class LeafNode implements QuadNode {
             for (Point elem2 : elems) {
                 if (elem1 != elem2 && elem1.equalsCoor(elem2)) {
                     System.out.println("("+elem1.getX()+", "+elem1.getY()+")");
-                    break;
+                    return;
                 }
                 
             }

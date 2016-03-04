@@ -96,12 +96,12 @@ public class Container {
         if (removedInTree != null && removed != null) {
 
             System.out.println("Point removed: " + "(" + removedInTree.toString() + ")");
-        }
+        }}
         else {
             System.out.println("Point not found: " + name);
             System.out.println("Point not removed: " + name);
         }
-        }
+        
     }
 
     /**

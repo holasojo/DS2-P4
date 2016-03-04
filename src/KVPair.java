@@ -78,7 +78,7 @@ public class KVPair<K extends Comparable<K>, E> implements
      * @return key and value
      */
     public String toString() {
-        return theKey.toString() + ", " + theVal.toString();
+        return  theVal.toString();
     }
 
 }

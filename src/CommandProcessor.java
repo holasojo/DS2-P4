@@ -97,7 +97,7 @@ public class CommandProcessor {
     private void insertPoint(String name, int[] points) {
         // create a rectagle object if the rectangle fits under 1024
 
-        //c.insert(name, points[0], points[1], points[2], points[3]);
+        c.insert(name, points[0], points[1]);
 
     }
 

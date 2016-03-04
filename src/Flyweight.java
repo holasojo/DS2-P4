@@ -36,7 +36,7 @@ public class Flyweight implements QuadNode {
         return this;
     }
 
-    public Point search(Point pt, int x, int y, int width) {
+    public Point searchbyCoor(Point pt, int x, int y, int width) {
         
         return null;
         

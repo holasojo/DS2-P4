@@ -63,9 +63,9 @@ public class LeafNode implements QuadNode {
         return list.remove();
     }
 
-    public Point search(Point pt, int x, int y, int width) {
+    public Point searchbyCoor(Point pt, int x, int y, int width) {
         
-        return list.find(pt);
+        return list.findbyCoor(pt);
         
     }
     

@@ -108,23 +108,23 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
-    public Point search(Point pt, int x, int y, int width) {
+    public Point searchbyCoor(Point pt, int x, int y, int width) {
         int centerX = x + width / 2;
         int centerY = y + width / 2;
         Direction quadrant = pt.quadrant(centerX, centerY);
         
         if (quadrant == Direction.NW) {
-            return NW.search(pt, x, y, width / 2);
+            return NW.searchbyCoor(pt, x, y, width / 2);
         }
         else if (quadrant == Direction.NE) {
-           return NE.search(pt, centerX, y, width / 2);
+           return NE.searchbyCoor(pt, centerX, y, width / 2);
         }
         else if (quadrant == Direction.SW) {
-            return SW.search(pt, x, centerY, width / 2);
+            return SW.searchbyCoor(pt, x, centerY, width / 2);
 
         }
         else if (quadrant == Direction.SE) {
-            return SE.search(pt, centerX, centerY, width / 2);
+            return SE.searchbyCoor(pt, centerX, centerY, width / 2);
         }
         else {
             return null;

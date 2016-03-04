@@ -156,7 +156,7 @@ public class CommandProcessor {
      * calls the dump method in Container class.
      */
     private void dump() {
-        //c.dump();
+        c.dump();
     }
 
     /**

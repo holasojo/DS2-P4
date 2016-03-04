@@ -136,10 +136,10 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
-    public void regionSearch(int x, int y, int w, int h, int xWorld, int yWorld,
+    public int regionSearch(int x, int y, int w, int h, int xWorld, int yWorld,
             int widthWorld, int nodeCount) {
 
-       
+    
         Point regionOrigin = new Point(null, x, y);
         
         int centerX = xWorld + widthWorld / 2;
@@ -154,19 +154,19 @@ public class IntlNode implements QuadNode {
         Direction quadrant = regionOrigin.quadrant(centerX, centerY);
         
         if (queryRegion.intersect(nwRegion)) {
-            NW.regionSearch(x, y, w, h, xWorld, yWorld,
+           return NW.regionSearch(x, y, w, h, xWorld, yWorld,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(neRegion)) {
-            NE.regionSearch(x, y, w, h, centerX, yWorld,
+            return NE.regionSearch(x, y, w, h, centerX, yWorld,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(swRegion)) {
-            SW.regionSearch(x, y, w, h, xWorld, centerY,
+            return SW.regionSearch(x, y, w, h, xWorld, centerY,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(seRegion)) {
-            SE.regionSearch(x, y, w, h, centerX, centerY,
+            return SE.regionSearch(x, y, w, h, centerX, centerY,
                     widthWorld / 2, nodeCount++);
         }
         

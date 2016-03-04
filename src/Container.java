@@ -103,6 +103,25 @@ public class Container {
     }
 
     /**
+     * checking bounds of the rectangle
+     * 
+     * @param x
+     *            is x-Position. Has to be greater than 0
+     * @param y
+     *            is y-Position. Has to be greater than 0
+     * @param w
+     *            is width of the rectangle
+     * @param h
+     *            is height of the rectangle
+     * @return true if the size of rectangle fits within the unit
+     */
+    public boolean fits(int x, int y, int w, int h) {
+
+        return (w > 0 && h > 0) && ((x + w <= 1024) && (y + h <= 1024));
+
+    }
+
+    /**
      * calls remove method in skipList class.
      * 
      * @param x
@@ -130,7 +149,7 @@ public class Container {
                 KVPair<String, Point> removed = list.remove(removeThis);
                 if (removed != null && removeThis != null) {
                     // rectangle was in the skip list and got removed
-                    System.out.println("Point removed: (" + removed.toString()+ ")");
+                    System.out.println("Point removed: (" + removed.toString() + ")");
                 }
                 // else {
                 // // rectangle was not in the skiplist
@@ -162,22 +181,22 @@ public class Container {
      *            is height
      * @return false when the rectangle is not within the region.
      */
-    // public boolean regionSearch(int x, int y, int w, int h) {
-    // // checking width and height
-    // if (w > 0 && h > 0) {
-    // // start region search
-    // list.regionsearch(new Point(x, y, w, h));
-    // return true;
-    //
-    // }
-    // else {
-    // // print out rejection when w <= 0 and h <= 0
-    // System.out.println("Rectangle rejected: (" + x + ", " +
-    // y + ", " + w + ", " + h + ")");
-    // return false;
-    // }
-    //
-    // }
+    public boolean regionSearch(int x, int y, int w, int h) {
+        // checking width and height
+        if (fits(x, y, w, h)) {
+            System.out.println("Points intersecting region (" + x + ", " + y + ", " + w + ", " + h + "):");
+            // start region search
+            tree.regionSearch(x, y, w, h);
+            return true;
+
+        }
+        else {
+            // print out rejection when w <= 0 and h <= 0
+            System.out.println("Rectangle rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
+            return false;
+        }
+
+    }
 
     /**
      * calls the search method in skipList class.

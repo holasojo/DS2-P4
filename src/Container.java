@@ -186,6 +186,7 @@ public class Container {
     public boolean regionSearch(int x, int y, int w, int h) {
         // checking width and height
         if (fits(x, y, w, h)) {
+            
             System.out.println("Points intersecting region (" + x + ", " + y + ", " + w + ", " + h + "):");
             // start region search
             tree.regionSearch(x, y, w, h);

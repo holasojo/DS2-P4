@@ -125,11 +125,13 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("rec", 10, 30);
         c.insert("r_42", 1, 20);
         c.insert("far", 200, 200);
-        c.dump();
-        c.search("r_r");
-        c.removebyName("r_r");
-        c.removebyCoor(10, 30);
-        c.dump();
+//        c.dump();
+//        c.search("r_r");
+//        c.removebyName("r_r");
+//        c.removebyCoor(10, 30);
+//        c.dump();
+//        
+        c.regionSearch(0, 0, 25, 25);
         
     }
     

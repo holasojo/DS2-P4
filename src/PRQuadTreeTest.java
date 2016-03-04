@@ -5,7 +5,7 @@ public class PRQuadTreeTest extends student.TestCase {
 
     public void setUp() {
         c = new Container();
-        systemOut().clearHistory();
+        
     }
 
     public void testInsert1() {
@@ -148,8 +148,18 @@ public class PRQuadTreeTest extends student.TestCase {
  
 
     }
-    
-    public void testRemovebyCoor(){
+    /**
+     * P2SyntaxTest1
+     */
+    public void testRemovebyCoor1(){
+        c.insert("r_r", -1, -20);
+        c.insert("rec", 7, -8);
+        c.tree().removebyCoor(-1, -20);
+    }
+    /**
+     * P2SyntaxTest2
+     */
+public void testRemovebyCoor2(){
         
     }
 

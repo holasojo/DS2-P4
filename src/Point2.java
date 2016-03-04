@@ -22,7 +22,7 @@ public class Point2
     public static void main(String[] args) {
 
         // checks if the length of argument is 1 and args[0] is available.
-        if (args.length == 1 && args[0] != null) {
+        if (args != null&& args.length == 1 && args[0] != null) {
             // continue to run. Passing arguments into the control class.
             Control cont = new Control(args);
             cont.setup();

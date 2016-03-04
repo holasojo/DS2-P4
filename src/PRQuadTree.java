@@ -40,8 +40,8 @@ public class PRQuadTree {
     }
     
     public void regionSearch(int x, int y, int w, int h) {
-        
-        root.regionSearch(x, y, w, h, this.x, this.y, this.width, 1);
+        int static count = 1;
+        root.regionSearch(x, y, w, h, this.x, this.y, this.width, count);
         
     }
     

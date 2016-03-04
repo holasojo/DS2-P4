@@ -140,7 +140,7 @@ public class IntlNode implements QuadNode {
             int widthWorld, int nodeCount) {
 
     
-        Point regionOrigin = new Point(null, x, y);
+//        Point regionOrigin = new Point(null, x, y);
         
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld+ widthWorld / 2;

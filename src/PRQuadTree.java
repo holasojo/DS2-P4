@@ -32,11 +32,11 @@ public class PRQuadTree {
     
     public QuadNode remove(int x, int y)
     {   
-        
-        QuadNode found = root.insert(pt, x, y, width);
+        Point pt = new Point("dummy",x,y);
+        QuadNode found = root.searchbyCoor(pt, x, y, width);
         (found != null){
-            
+            root = root.remove(pt, x, y, width);
         }
-        root = root.remove(pt, x, y, width);
+        
     }
 }

@@ -76,7 +76,7 @@ public class LeafNode implements QuadNode {
                 System.out.println("Point found: (" + it.toString()+")");
             }
         }
-        System.out.println(nodeCount + " quadtree nodes visited");
+        
 
     }
 

@@ -5,6 +5,7 @@ public class PRQuadTree {
     private int x;
     private int y;
     private int width;
+    private static int count;
 
     public PRQuadTree(int x1, int y1, int width1) {
         root = IntlNode.flyweight();
@@ -40,7 +41,7 @@ public class PRQuadTree {
     }
     
     public void regionSearch(int x, int y, int w, int h) {
-        int static count = 1;
+        count = 1;
         root.regionSearch(x, y, w, h, this.x, this.y, this.width, count);
         
     }

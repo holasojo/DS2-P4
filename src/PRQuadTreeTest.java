@@ -10,14 +10,14 @@ public class PRQuadTreeTest extends student.TestCase {
 
     public void testInsert1() {
         c.tree().dump();
-        assertFuzzyEquals("quadtree dump\n"
+        assertFuzzyEquals("Quadtree dump\n"
                 + "node at 0 0 1024 empty\n"
                 + "1 quadtree nodes printed", systemOut().getHistory());
         c.insert("A", 0, 0);
         assertEquals(c.tree().size(), 1);
         systemOut().clearHistory();
         c.tree().dump();
-        assertFuzzyEquals("quadtree dump\n"
+        assertFuzzyEquals("Quadtree dump\n"
                 + "node at 0 0 1024\n"
                 + "a 0 0\n"
                 + "1 quadtree nodes printed", systemOut().getHistory());
@@ -27,7 +27,7 @@ public class PRQuadTreeTest extends student.TestCase {
         systemOut().clearHistory();
         c.tree().dump();
         assertFuzzyEquals(
-                "quadtree dump\n"
+                "Quadtree dump\n"
                 + "node at 0 0 1024 internal\n"
                 + "node at 0 0 512\n"
                 + "a 0 0\n"
@@ -45,7 +45,7 @@ public class PRQuadTreeTest extends student.TestCase {
         systemOut().clearHistory();
         c.tree().dump();
         assertFuzzyEquals(
-                "quadtree dump\n"
+                "Quadtree dump\n"
                 + "node at 0 0 1024 internal\n"
                 + "node at 0 0 512 internal\n"
                 + "node at 0 0 256\n"
@@ -101,7 +101,7 @@ public class PRQuadTreeTest extends student.TestCase {
                 + "Point rejected: (rec, 7, -8)", systemOut().getHistory());
         systemOut().clearHistory();
         c.tree().dump();
-        assertFuzzyEquals("quadtree dump\n"
+        assertFuzzyEquals("Quadtree dump\n"
                 + "node at 0 0 1024 empty\n"
                 + "1 quadtree nodes printed", systemOut().getHistory());
        
@@ -116,15 +116,36 @@ public class PRQuadTreeTest extends student.TestCase {
          * 
          * insert r_r 1 20 insert rec 10 30 insert r_42 1 20 insert far 200 200
          */
-        systemOut().clearHistory();
 
         c.insert("r_r", 1, 20);
         c.insert("rec", 10, 30);
         c.insert("r_42", 1, 20);
         c.insert("far", 200, 200);
+        systemOut().clearHistory();
         c.tree().dump();
 
         systemOut().clearHistory();
+        
+        assertFuzzyEquals("QuadTree dump:\n"
+                + "Node at 0, 0, 1024: Internal\n"
+            + "  Node at 0, 0, 512: Internal\n"
+            + "    Node at 0, 0, 256: Internal\n"
+            + "      Node at 0, 0, 128:\n"
+            + "      r_r, 1, 20\n"
+            + "      rec, 10, 30\n"
+            + "      r_42, 1, 20\n"
+            + "      Node at 128, 0, 128: Empty\n"
+            + "      Node at 0, 128, 128: Empty\n"
+            + "      Node at 128, 128, 128:\n"
+            + "      far, 200, 200\n"
+            + "    Node at 256, 0, 256: Empty\n"
+            + "    Node at 0, 256, 256: Empty\n"
+            + "    Node at 256, 256, 256: Empty\n"
+            + "  Node at 512, 0, 512: Empty\n"
+            + "  Node at 0, 512, 512: Empty\n"
+            + "  Node at 512, 512, 512: Empty\n"
+            + "13 quadtree nodes printed\n", systemOut().getHistory());
+ 
 
     }
 

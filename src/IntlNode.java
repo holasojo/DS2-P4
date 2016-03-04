@@ -139,26 +139,33 @@ public class IntlNode implements QuadNode {
     public void regionSearch(int x, int y, int w, int h, int xWorld, int yWorld,
             int widthWorld, int nodeCount) {
 
+       
         Point regionOrigin = new Point(null, x, y);
         
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld+ widthWorld / 2;
         
+        RectangleValue nwRegion = new RectangleValue(xWorld,yWorld,widthWorld/2, widthWorld/2);
+        RectangleValue neRegion = new RectangleValue(centerX, yWorld, widthWorld/2, widthWorld/2);
+        RectangleValue swRegion = new RectangleValue(xWorld,centerY, widthWorld/2, widthWorld/2);
+        RectangleValue seRegion = new RectangleValue(centerX, centerY, widthWorld/2, widthWorld/2);
+        RectangleValue queryRegion = new RectangleValue(x,y,w,h);
+        
         Direction quadrant = regionOrigin.quadrant(centerX, centerY);
         
-        if (quadrant == Direction.NW) {
+        if (queryRegion.intersect(nwRegion)) {
             NW.regionSearch(x, y, w, h, xWorld, yWorld,
                     widthWorld / 2, nodeCount++);
         }
-        else if (quadrant == Direction.NE) {
+        if (queryRegion.intersect(neRegion)) {
             NE.regionSearch(x, y, w, h, centerX, yWorld,
                     widthWorld / 2, nodeCount++);
         }
-        else if (quadrant == Direction.SW) {
+        if (queryRegion.intersect(swRegion)) {
             SW.regionSearch(x, y, w, h, xWorld, centerY,
                     widthWorld / 2, nodeCount++);
         }
-        else if (quadrant == Direction.SE) {
+        if (queryRegion.intersect(seRegion)) {
             SE.regionSearch(x, y, w, h, centerX, centerY,
                     widthWorld / 2, nodeCount++);
         }

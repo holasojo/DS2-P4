@@ -39,12 +39,12 @@ public class PRQuadTree {
         return found;
     }
     
-    public void regionSearch(int x, int y, int w, int h, int xWorld, int yWorld,
-            int widthWorld, int nodeCount) {
+    public void regionSearch(int x, int y, int w, int h) {
         
-        root.regionSearch(x, y, yWorld, h, xWorld, yWorld, widthWorld, 1);
+        root.regionSearch(x, y, w, h, this.x, this.y, this.width, 1);
         
     }
+    
     
     
 }

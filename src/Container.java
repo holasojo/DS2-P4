@@ -94,7 +94,7 @@ public class Container {
         // if not, print out Rectangle not removed
         if (removedInTree != null && removed != null) {
 
-            System.out.println("Point removed: " + "(" + removed.toString() + ")");
+            System.out.println("Point removed: " + "(" + removedInTree.toString() + ")");
         }
         else {
 

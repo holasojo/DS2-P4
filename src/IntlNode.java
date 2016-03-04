@@ -154,21 +154,22 @@ public class IntlNode implements QuadNode {
 //        Direction quadrant = regionOrigin.quadrant(centerX, centerY);
         
         if (queryRegion.intersect(nwRegion)) {
-           return NW.regionSearch(x, y, w, h, xWorld, yWorld,
+           return 1+ NW.regionSearch(x, y, w, h, xWorld, yWorld,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(neRegion)) {
-            return NE.regionSearch(x, y, w, h, centerX, yWorld,
+            return 1+NE.regionSearch(x, y, w, h, centerX, yWorld,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(swRegion)) {
-            return SW.regionSearch(x, y, w, h, xWorld, centerY,
+            return 1+SW.regionSearch(x, y, w, h, xWorld, centerY,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(seRegion)) {
-            return SE.regionSearch(x, y, w, h, centerX, centerY,
+            return 1+SE.regionSearch(x, y, w, h, centerX, centerY,
                     widthWorld / 2, nodeCount++);
         }
+        return 1; 
         
     }
     

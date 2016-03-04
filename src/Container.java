@@ -24,8 +24,8 @@ public class Container {
     }
 
     /**
-     * Insert method. Creates Point and KVPair. Calls insert() method
-     * in SkipList class.
+     * Insert method. Creates Point and KVPair. Calls insert() method in
+     * SkipList class.
      * 
      * @param name
      *            is the key
@@ -70,7 +70,7 @@ public class Container {
      */
     public boolean fits(int x, int y) {
 
-        return (x >= 0 && y >= 0) && ((x < WIDTH) && (y  < WIDTH));
+        return (x >= 0 && y >= 0) && ((x < WIDTH) && (y < WIDTH));
 
     }
 
@@ -83,8 +83,7 @@ public class Container {
     public void remove(String name) {
 
         // creating a KVPair to pass into the method
-        KVPair<String, Point> toRemove = new KVPair<String, Point>(name,
-                new Point(1, 1));
+        KVPair<String, Point> toRemove = new KVPair<String, Point>(name, new Point(1, 1));
         // the one actually got removed
         KVPair<String, Point> removed = list.remove(toRemove);
 
@@ -120,20 +119,23 @@ public class Container {
             // create a new rectangle value with passed in values
             Point pt = new Point(x, y);
             Point removeThis = tree.removebyCoor(pt);
-            if(removeThis == null){
+            if (removeThis == null) {
                 System.out.println("Point not found: (" + x + ", " + y + ")");
+                return;
             }
             // the one got removed
-            else{
-            KVPair<String, Point> removed = list.remove(removeThis);
-            if (removeThis != null) {
-                // rectangle was in the skip list and got removed
-                System.out.println("Point removed: " + "(" + removed.toString() + ")");
-            }
             else {
-                // rectangle was not in the skiplist
-                System.out.println("Point not removed: (" + x + ", " + y + ")");
-            }}
+                KVPair<String, Point> removed = list.remove(removeThis);
+                if (removeThis != null) {
+                    // rectangle was in the skip list and got removed
+                    System.out.println("Point removed: (" + x + ", " + y + ")");
+                }
+                // else {
+                // // rectangle was not in the skiplist
+                // System.out.println("Point not removed: (" + x + ", " + y +
+                // ")");
+                // }
+            }
         }
         // if the rectangle size and position not meet requirements, print out
         // rectangle rejected

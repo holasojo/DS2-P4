@@ -50,6 +50,7 @@ public class PtList {
                 
                 return curr.value();
             }
+            curr = curr.next();   
         }
         return null;
     }

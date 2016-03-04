@@ -200,7 +200,7 @@ public class Container {
 
     public void duplicates(){
         
-        tree.
+        tree.duplicates();
         
     }
     /**

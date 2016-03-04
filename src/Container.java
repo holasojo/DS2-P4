@@ -198,7 +198,7 @@ public class Container {
 
     }
 
-    public void duplicates(int x, int y){
+    public void duplicates(){
         
         
         

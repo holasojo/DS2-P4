@@ -136,8 +136,8 @@ public class CommandProcessor {
      *            is position and size of rectangle
      */
     private void regionSearch(int[] points) {
-        //c.regionSearch(points[0], points[1], points[2], points[3]);
-
+        c.regionSearch(points[0], points[1], points[2], points[3]);
+ 
     }
 
     /**
@@ -146,7 +146,7 @@ public class CommandProcessor {
      * calls the intersect method in Container class.
      */
     private void duplicates() {
-        //c.intersections();
+        c.duplicates();
 
     }
 
@@ -156,7 +156,7 @@ public class CommandProcessor {
      * calls the dump method in Container class.
      */
     private void dump() {
-        c.dump();
+            c.dump();
     }
 
     /**
@@ -168,6 +168,6 @@ public class CommandProcessor {
      *            is the name of rectangle
      */
     private void searchByName(String name) {
-        //c.search(name);
+        c.search(name);
     }
 }

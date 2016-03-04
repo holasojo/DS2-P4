@@ -198,6 +198,11 @@ public class Container {
 
     }
 
+    public void duplicates(int x, int y){
+        
+        
+        
+    }
     /**
      * calls the search method in skipList class.
      * 

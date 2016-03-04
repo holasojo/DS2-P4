@@ -199,7 +199,7 @@ public class Container {
     }
 
     public void duplicates(){
-      
+        System.out.println("Duplicate points:");
         tree.duplicates();
         
     }

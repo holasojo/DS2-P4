@@ -118,8 +118,8 @@ public class Container {
         // check the values meet conditions
         if (fits(x, y)) {
             // create a new rectangle value with passed in values
-            Point rec = new Point(x, y);
-   
+            Point pt = new Point(x, y);
+            Point removePoint = tree.removebyCoor(pt);
             // the one got removed
             KVPair<String, Point> removed = list.remove(rec);
             if (removed != null) {

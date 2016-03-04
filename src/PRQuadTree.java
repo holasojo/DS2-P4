@@ -45,6 +45,10 @@ public class PRQuadTree {
         
     }
     
+    public void duplicates(){
+        root.duplicates(x, y, width);
+    }
+    
     
     
 }

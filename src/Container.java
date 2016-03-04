@@ -130,7 +130,7 @@ public class Container {
                 KVPair<String, Point> removed = list.remove(removeThis);
                 if (removed != null && removeThis != null) {
                     // rectangle was in the skip list and got removed
-                    System.out.println("Point removed: (" + x + ", " + y + ")");
+                    System.out.println("Point removed: (" + pt.toString()+ ")");
                 }
                 // else {
                 // // rectangle was not in the skiplist

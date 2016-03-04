@@ -125,6 +125,7 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("rec", 10, 30);
         c.insert("r_42", 1, 20);
         c.insert("far", 200, 200);
+        
 //        c.dump();
 //        c.search("r_r");
 //        c.removebyName("r_r");
@@ -173,4 +174,14 @@ public class PRQuadTreeTest extends student.TestCase {
         
     }
 
+    public void testDuplicates1(){
+        c.insert("r_r", 1, 20);
+        c.insert("rec", 10, 30);
+        c.insert("r_42", 800, 800);
+        c.insert("r_42", 800, 800);
+        c.insert("far", 200, 200);
+        c.insert("far", 200, 200);
+        
+        
+    }
 }

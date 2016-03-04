@@ -67,7 +67,7 @@ public class LeafNode implements QuadNode {
 
     }
 
-    public void regionSearch(int x, int y, int w, int h, int xWorld, int yWrold,
+    public int regionSearch(int x, int y, int w, int h, int xWorld, int yWrold,
             int widthWorld, int nodeCount) {
         Point[] points = list.remove();
 
@@ -76,6 +76,7 @@ public class LeafNode implements QuadNode {
                 System.out.println("Point found: (" + it.toString()+")");
             }
         }
+        return 1;
         
 
     }

@@ -43,9 +43,10 @@ public class Flyweight implements QuadNode {
     }
 
 
-    public void regionSearch(int x, int y, int w, int h, int xWorld, int yWrold,
+    public int regionSearch(int x, int y, int w, int h, int xWorld, int yWrold,
             int widthWorld, int nodeCount) {
-        System.out.println(nodeCount + " quadtree nodes printed");
+        return 1;
+//        System.out.println(nodeCount + " quadtree nodes printed");
         
     }
 

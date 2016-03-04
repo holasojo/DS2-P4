@@ -131,5 +131,17 @@ public class PRQuadTreeTest extends student.TestCase {
         c.tree().dump();
         
     }
+    
+    public void testRemovebyCoor3(){
+        c.insert("A", 0, 0);
+        c.insert("B", 1, 1);
+        c.insert("C", 1000, 1000);
+        c.insert("D", 700, 20);  
+        c.insert("E", 2, 800);
+        c.insert("F", 20, 500);
+        c.insert("G", 300, 300);   
+        c.tree().dump();
+
+    }
 
 }

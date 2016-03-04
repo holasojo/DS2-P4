@@ -120,23 +120,25 @@ public class Container {
             // create a new rectangle value with passed in values
             Point pt = new Point(x, y);
             Point removeThis = tree.removebyCoor(pt);
-            
+            if(removeThis == null){
+                System.out.println("Point not found: (" + x + ", " + y + ")");
+            }
             // the one got removed
             KVPair<String, Point> removed = list.remove(removeThis);
-            if (removed != null) {
+            if (removeThis != null) {
                 // rectangle was in the skip list and got removed
-                System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
+                System.out.println("Point removed: " + "(" + removed.toString() + ")");
             }
             else {
                 // rectangle was not in the skiplist
-                System.out.println("Rectangle not removed: " + pt.toString());
+                System.out.println("Point not removed: " + pt.toString());
             }
         }
         // if the rectangle size and position not meet requirements, print out
         // rectangle rejected
         else {
 
-            System.out.println("Rectangle rejected: (" + x + ", " + y + ")");
+            System.out.println("Point rejected: (" + x + ", " + y + ")");
         }
 
     }

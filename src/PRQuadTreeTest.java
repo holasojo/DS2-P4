@@ -48,44 +48,44 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("A", 200, 200);
         c.tree().dump();
     }
-//
-//    /**
-//     * testing Syntax Test1
-//     */
-//    public void testInsert3() {
-//        /**
-//         * insert r_r -1 -20 
-//         * insert rec 7 -8
-//         */
-//        
-//        c.insert("r_r", -1, -20);
-//        c.insert("r_r", 7, -8);
+
+    /**
+     * testing Syntax Test1
+     */
+    public void testInsert3() {
+        /**
+         * insert r_r -1 -20 
+         * insert rec 7 -8
+         */
+        
+        c.insert("r_r", -1, -20);
+        c.insert("r_r", 7, -8);
+        systemOut().clearHistory();
+        
+
+    }
+    
+    /**
+     * testing Syntax Test2
+     */
+    public void testInsert4() {
+        /**
+         * 
+insert r_r          1 20
+  insert rec        10 30
+  insert r_42   1 20
+    insert far  200 200
+         */
+        systemOut().clearHistory();
+        
+        c.insert("r_r", 1, 20);
+        c.insert("rec", 10, 30);
+        c.insert("r_42", 1, 20);
+        c.insert("far", 200, 200);
+        c.tree().dump();
+ 
 //        systemOut().clearHistory();
-//        
-//
-//    }
-//    
-//    /**
-//     * testing Syntax Test2
-//     */
-//    public void testInsert4() {
-//        /**
-//         * 
-//insert r_r          1 20
-//  insert rec        10 30
-//  insert r_42   1 20
-//    insert far  200 200
-//         */
-//        systemOut().clearHistory();
-//        
-//        c.insert("r_r", 1, 20);
-//        c.insert("rec", 10, 30);
-//        c.insert("r_42", 1, 20);
-//        c.insert("far", 200, 200);
-//        c.tree().dump();
-// 
-////        systemOut().clearHistory();
-//
-//    }
+
+    }
 
 }

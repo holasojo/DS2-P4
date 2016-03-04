@@ -34,7 +34,7 @@ public class PRQuadTree {
 
         Point found = root.searchbyCoor(new Point("dummy", x, y), x, y, width);
         if (found != null) {
-            root = root.remove(pt, x, y, width);
+            root = root.remove(found, x, y, width);
         }
         return root;
 

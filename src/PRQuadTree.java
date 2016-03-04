@@ -30,7 +30,7 @@ public class PRQuadTree {
 
     }
 
-    public QuadNode remove(int x, int y) {
+    public QuadNode removebyCoor(int x, int y) {
 
         Point found = root.searchbyCoor(new Point("dummy", x, y), x, y, width);
         if (found != null) {

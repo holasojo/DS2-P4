@@ -72,10 +72,12 @@ public class LeafNode implements QuadNode {
     @Override
     public void duplicates(int x, int y, int width) {
         
-        String[] elems = list.list();
+        Point[] elems = list.remove();
         
-        for (String elem : elems) {
-            System.out.println("(" + elem + ")");
+        for (Point elem : elems) {
+            if()
+                
+          
         }
         
         

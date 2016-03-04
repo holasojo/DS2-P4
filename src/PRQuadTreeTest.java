@@ -151,6 +151,7 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("A", 0, 0);
         c.insert("A", 0, 0);
         c.insert("A", 0, 0);
+        c.insert("A", 0, 0);
         c.insert("B", 400, 600);
         c.insert("A", 200, 200);
         c.tree().dump();

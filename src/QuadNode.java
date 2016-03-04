@@ -23,4 +23,6 @@ public interface QuadNode {
     }
     
    public Point searchbyCoor(Point pt, int x, int y, int width);
+   
+   public void duplicates(int x, int y, int width, int level);
 }

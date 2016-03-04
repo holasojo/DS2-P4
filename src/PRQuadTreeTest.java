@@ -149,7 +149,7 @@ public class PRQuadTreeTest extends student.TestCase {
 
     }
     
-    public void testRemove(){
+    public void testRemovebyCoor(){
         
     }
 

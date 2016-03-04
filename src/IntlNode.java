@@ -165,7 +165,7 @@ public class IntlNode implements QuadNode {
         NW.duplicates(x, y, width / 2);
         NE.duplicates(x + width / 2, y, width / 2);
         SW.duplicates(x, y + width / 2, width / 2);
-        NE.duplicates(x + width / 2, y + width / 2, width / 2);
+        SE.duplicates(x + width / 2, y + width / 2, width / 2);
 
     }
 

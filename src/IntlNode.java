@@ -151,7 +151,7 @@ public class IntlNode implements QuadNode {
         RectangleValue seRegion = new RectangleValue(centerX, centerY, widthWorld/2, widthWorld/2);
         RectangleValue queryRegion = new RectangleValue(x,y,w,h);
         
-        Direction quadrant = regionOrigin.quadrant(centerX, centerY);
+//        Direction quadrant = regionOrigin.quadrant(centerX, centerY);
         
         if (queryRegion.intersect(nwRegion)) {
            return NW.regionSearch(x, y, w, h, xWorld, yWorld,

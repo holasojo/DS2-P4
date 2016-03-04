@@ -124,7 +124,7 @@ public class PRQuadTreeTest extends student.TestCase {
         systemOut().clearHistory();
         c.tree().dump();
 
-        systemOut().clearHistory();
+    
         
         assertFuzzyEquals("QuadTree dump:\n"
                 + "Node at 0, 0, 1024: Internal\n"

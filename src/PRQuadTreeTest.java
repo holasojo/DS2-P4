@@ -22,7 +22,9 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("D", 700, 20);
         systemOut().clearHistory();
         c.tree().dump();
-        assertFuzzyEquals("quadtree dump\nnode at 0 0 1024\na 0 0\n1 quadtree nodes printed", systemOut().getHistory());
+        assertFuzzyEquals(
+                "quadtree dump\nnode at 0 0 1024 internal\nnode at 0 0 512\na 0 0\nb 1 \nnode at 512 0 512\nd 700 20\nnode at 0 512 512 empty\nnode at 512 512 512\nc 1000 1000\n5 quadtree nodes printed",
+                systemOut().getHistory());
         systemOut().clearHistory();
         c.insert("E", 2, 800);
         c.tree().dump();
@@ -57,36 +59,31 @@ public class PRQuadTreeTest extends student.TestCase {
      */
     public void testInsert3() {
         /**
-         * insert r_r -1 -20 
-         * insert rec 7 -8
+         * insert r_r -1 -20 insert rec 7 -8
          */
-        
+
         c.insert("r_r", -1, -20);
         c.insert("r_r", 7, -8);
         systemOut().clearHistory();
-        
 
     }
-    
+
     /**
      * testing Syntax Test2
      */
     public void testInsert4() {
         /**
          * 
-insert r_r          1 20
-  insert rec        10 30
-  insert r_42   1 20
-    insert far  200 200
+         * insert r_r 1 20 insert rec 10 30 insert r_42 1 20 insert far 200 200
          */
         systemOut().clearHistory();
-        
+
         c.insert("r_r", 1, 20);
         c.insert("rec", 10, 30);
         c.insert("r_42", 1, 20);
         c.insert("far", 200, 200);
         c.tree().dump();
- 
+
         systemOut().clearHistory();
 
     }

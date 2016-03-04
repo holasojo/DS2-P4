@@ -114,11 +114,12 @@ public class Container {
      *            is height
      * 
      */
-    public void remove(int x, int y) {
+    public void removebyCoor(int x, int y) {
         // check the values meet conditions
         if (fits(x, y)) {
             // create a new rectangle value with passed in values
             Point rec = new Point(x, y);
+   
             // the one got removed
             KVPair<String, Point> removed = list.remove(rec);
             if (removed != null) {

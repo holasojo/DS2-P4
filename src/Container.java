@@ -124,6 +124,7 @@ public class Container {
                 System.out.println("Point not found: (" + x + ", " + y + ")");
             }
             // the one got removed
+            else{
             KVPair<String, Point> removed = list.remove(removeThis);
             if (removeThis != null) {
                 // rectangle was in the skip list and got removed
@@ -132,7 +133,7 @@ public class Container {
             else {
                 // rectangle was not in the skiplist
                 System.out.println("Point not removed: (" + x + ", " + y + ")");
-            }
+            }}
         }
         // if the rectangle size and position not meet requirements, print out
         // rectangle rejected

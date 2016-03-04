@@ -10,19 +10,34 @@ public class PRQuadTreeTest extends student.TestCase {
 
     public void testInsert1() {
         c.tree().dump();
-        assertFuzzyEquals("quadtree dump\nnode at 0 0 1024 empty\n1 quadtree nodes printed", systemOut().getHistory());
+        assertFuzzyEquals("quadtree dump\n"
+                + "node at 0 0 1024 empty\n"
+                + "1 quadtree nodes printed", systemOut().getHistory());
         c.insert("A", 0, 0);
         assertEquals(c.tree().size(), 1);
         systemOut().clearHistory();
         c.tree().dump();
-        assertFuzzyEquals("quadtree dump\nnode at 0 0 1024\na 0 0\n1 quadtree nodes printed", systemOut().getHistory());
+        assertFuzzyEquals("quadtree dump\n"
+                + "node at 0 0 1024\n"
+                + "a 0 0\n"
+                + "1 quadtree nodes printed", systemOut().getHistory());
         c.insert("B", 1, 1);
         c.insert("C", 1000, 1000);
         c.insert("D", 700, 20);
         systemOut().clearHistory();
         c.tree().dump();
         assertFuzzyEquals(
-                "quadtree dump\nnode at 0 0 1024 internal\nnode at 0 0 512\na 0 0\nb 1 1\nnode at 512 0 512\nd 700 20\nnode at 0 512 512 empty\nnode at 512 512 512\nc 1000 1000\n5 quadtree nodes printed",
+                "quadtree dump\n"
+                + "node at 0 0 1024 internal\n"
+                + "node at 0 0 512\n"
+                + "a 0 0\n"
+                + "b 1 1\n"
+                + "node at 512 0 512\n"
+                + "d 700 20\n"
+                + "node at 0 512 512 empty\n"
+                + "node at 512 512 512\n"
+                + "c 1000 1000\n"
+                + "5 quadtree nodes printed",
                 systemOut().getHistory());
         c.insert("E", 2, 800);
         c.insert("F", 20, 500);
@@ -30,7 +45,24 @@ public class PRQuadTreeTest extends student.TestCase {
         systemOut().clearHistory();
         c.tree().dump();
         assertFuzzyEquals(
-                "quadtree dump\nnode at 0 0 1024 internal\nnode at 0 0 512\na 0 0\nb 1 1\nnode at 512 0 512\nd 700 20\nnode at 0 512 512 empty\nnode at 512 512 512\nc 1000 1000\n5 quadtree nodes printed",
+                "quadtree dump\n"
+                + "node at 0 0 1024 internal\n"
+                + "node at 0 0 512 internal\n"
+                + "node at 0 0 256\n"
+                + "a 0 0\n"
+                + "b 1 1\n"
+                + "node at 256 0 256 empty\n"
+                + "node at 0 256 256\n"
+                + "f 20 500\n"
+                + "node at 256 256 256\n"
+                + "g 300 300\n"
+                + "node at 512 0 512\n"
+                + "d 700 20\n"
+                + "node at 0 512 512\n"
+                + "e 2 800\n"
+                + "node at 512 512 512\n"
+                + "c 1000 1000\n"
+                + "9 quadtree nodes printed",
                 systemOut().getHistory());
     }
 

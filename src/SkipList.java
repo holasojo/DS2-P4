@@ -275,8 +275,7 @@ class SkipList<K extends Comparable<K>, E> {
                 System.out.println("Found (" +x.getData()+")");
             }
         }
-        else
-            System.out.println("Rectangle not found: " + key);
+       
     }
 
     /**

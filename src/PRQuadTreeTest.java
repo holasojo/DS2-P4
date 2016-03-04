@@ -119,13 +119,6 @@ public class PRQuadTreeTest extends student.TestCase {
      * P2SyntaxTest2
      */
     public void testRemovebyCoor2() {
-
-    }
-
-    /**
-     * P2SyntaxTest2
-     */
-    public void testRemovebyCoor3() {
         c.insert("r_r", 1, 20);
         c.insert("rec", 10, 30);
         c.insert("r_42", 1, 20);

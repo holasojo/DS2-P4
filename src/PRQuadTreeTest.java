@@ -94,7 +94,7 @@ public class PRQuadTreeTest extends student.TestCase {
          */
 
         c.insert("r_r", -1, -20);
-        c.insert("r_r", 7, -8);
+        c.insert("rec", 7, -8);
        
        
         assertFuzzyEquals("Point rejected: (r_r, -1, -20)\n"

@@ -78,6 +78,7 @@ public class IntlNode implements QuadNode {
         
         int pointCount = 0;
         int leafCount = 0;
+        int internalCount = 0;
         
         QuadNode[] children = new QuadNode[]{NW, NE, SW, SE};
         for(QuadNode node : children)
@@ -87,9 +88,12 @@ public class IntlNode implements QuadNode {
                 leafCount++;
                 pointCount  += ((LeafNode)node).pointCount();
             }
+            else if(node.getClass() == IntlNode.class) {
+                internalCount++;
+            }
         }
         
-        if(pointCount <= 3 || leafCount == 1) {
+        if((pointCount <= 3 || leafCount == 1) && internalCount == 0) {
             LeafNode merged = new LeafNode();
             for(QuadNode node : children)
             {
@@ -132,13 +136,41 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
+    public void regionSearch(int x, int y, int w, int h, int xWorld, int yWorld,
+            int widthWorld, int nodeCount) {
+
+        Point regionOrigin = new Point(null, x, y);
+        
+        int centerX = xWorld + widthWorld / 2;
+        int centerY = yWorld+ widthWorld / 2;
+        
+        Direction quadrant = regionOrigin.quadrant(centerX, centerY);
+        
+        if (quadrant == Direction.NW) {
+            NW.regionSearch(x, y, w, h, xWorld, yWorld,
+                    widthWorld / 2, nodeCount++);
+        }
+        else if (quadrant == Direction.NE) {
+            NE.regionSearch(x, y, w, h, centerX, yWorld,
+                    widthWorld / 2, nodeCount++);
+        }
+        else if (quadrant == Direction.SW) {
+            SW.regionSearch(x, y, w, h, xWorld, centerY,
+                    widthWorld / 2, nodeCount++);
+        }
+        else if (quadrant == Direction.SE) {
+            SE.regionSearch(x, y, w, h, centerX, centerY,
+                    widthWorld / 2, nodeCount++);
+        }
+        
+    }
+    
     public void duplicates(int x, int y, int width) {
+        
         NW.duplicates(x, y, width/2);
         NE.duplicates(x, y, width/2);
         SW.duplicates(x, y, width/2);
         NE.duplicates(x, y, width/2);
-        
     }
-
   
 }

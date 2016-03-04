@@ -37,7 +37,13 @@ public class PRQuadTree {
             root = root.remove(found, x, y, width);
         }
         return found;
-
+    }
+    
+    public void regionSearch(int x, int y, int w, int h, int xWorld, int yWorld,
+            int widthWorld, int nodeCount) {
+        
+        root.regionSearch(x, y, yWorld, h, xWorld, yWorld, widthWorld, 1);
+        
     }
     
     

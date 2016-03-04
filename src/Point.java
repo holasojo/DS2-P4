@@ -65,5 +65,13 @@ public class Point {
     public boolean equalsCoor(Point it) {
         return this.getX() == it.getX() && this.getY() == it.getY();
     }
+    
+    public boolean inRegion(int x, int y, int w, int h)
+    {
+        return !(this.xPos < x
+                || x + w <= this.xPos
+                || this.yPos < y || y
+                + h <= this.yPos);
+    }
 
 }

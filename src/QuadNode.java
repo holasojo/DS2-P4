@@ -21,4 +21,6 @@ public interface QuadNode {
         }
         return str;
     }
+    
+   public Point search(Point pt, int x, int y, int width);
 }

@@ -33,7 +33,13 @@ public class Flyweight implements QuadNode {
     @Override
     public QuadNode remove(Point pt, int x, int y, int width) {
        
+        return this;
+    }
+
+    public Point search(Point pt, int x, int y, int width) {
+        
         return null;
+        
     }
 
 }

@@ -80,12 +80,14 @@ public class Container {
      * @param name
      *            is the key value
      */
-    public void remove(String name) {
+    public void removebyName(String name) {
 
         // creating a KVPair to pass into the method
         KVPair<String, Point> toRemove = new KVPair<String, Point>(name, new Point(1, 1));
         // the one actually got removed
         KVPair<String, Point> removed = list.remove(toRemove);
+        
+      
 
         // if there was a rectangle and got removed,
         // print out that it was removed

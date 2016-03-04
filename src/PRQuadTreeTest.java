@@ -84,7 +84,7 @@ insert r_r          1 20
         c.insert("far", 200, 200);
         c.tree().dump();
  
-//        systemOut().clearHistory();
+        systemOut().clearHistory();
 
     }
 

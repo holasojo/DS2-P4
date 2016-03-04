@@ -55,23 +55,23 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
-    public QuadNode remove(Point pt, int x, int y, int width) {
+    public QuadNode remove(Point pt, int x, int y, int width, boolean name) {
         int centerX = x + width / 2;
         int centerY = y + width / 2;
         Direction quadrant = pt.quadrant(centerX, centerY);
 
         if (quadrant == Direction.NW) {
-            NW = NW.remove(pt, x, y, width / 2);
+            NW = NW.remove(pt, x, y, width / 2, name);
         }
         else if (quadrant == Direction.NE) {
-            NE = NE.remove(pt, centerX, y, width / 2);
+            NE = NE.remove(pt, centerX, y, width / 2, name);
         }
         else if (quadrant == Direction.SW) {
-            SW = SW.remove(pt, x, centerY, width / 2);
+            SW = SW.remove(pt, x, centerY, width / 2, name);
 
         }
         else if (quadrant == Direction.SE) {
-            SE = SE.remove(pt, centerX, centerY, width / 2);
+            SE = SE.remove(pt, centerX, centerY, width / 2, name);
         }
 
         int pointCount = 0;

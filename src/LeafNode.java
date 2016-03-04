@@ -43,9 +43,9 @@ public class LeafNode implements QuadNode {
     }
 
     @Override
-    public QuadNode remove(Point pt, int x, int y, int width) {
+    public QuadNode remove(Point pt, int x, int y, int width, boolean name) {
 
-        list.remove(pt);
+        list.remove(pt, name);
 
         if (list.size() == 0) {
             return IntlNode.flyweight();

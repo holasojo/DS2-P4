@@ -88,7 +88,7 @@ public class Container {
         KVPair<String, Point> removed = list.remove(toRemove);
 
         if(removed != null){
-        Point removedInTree = tree.removebyCoor(removed.value());
+        Point removedInTree = tree.removebyCoor(removed.value(), true);
 
         // if there was a points and got removed,
         // print out that it was removed
@@ -141,7 +141,7 @@ public class Container {
         if (fits(x, y)) {
             // create a new points value with passed in values
             Point pt = new Point(x, y);
-            Point removeThis = tree.removebyCoor(pt);
+            Point removeThis = tree.removebyCoor(pt, false);
             if (removeThis == null) {
                 System.out.println("Point not found: (" + x + ", " + y + ")");
                 return;

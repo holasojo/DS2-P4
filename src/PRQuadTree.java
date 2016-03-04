@@ -31,11 +31,11 @@ public class PRQuadTree {
 
     }
 
-    public Point removebyCoor(Point pt) {
+    public Point removebyCoor(Point pt, boolean name) {
 
         Point found = root.searchbyCoor(pt, x, y, width);
         if (found != null) {
-            root = root.remove(found, x, y, width);
+            root = root.remove(found, x, y, width, name);
         }
         return found;
     }

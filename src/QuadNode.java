@@ -10,7 +10,7 @@ public interface QuadNode {
      
     public QuadNode insert(Point pt, int x, int y, int width);
     
-    public QuadNode remove(Point pt, int x, int y, int width);
+    public QuadNode remove(Point pt, int x, int y, int width, boolean name);
     
     public int dump(int x, int y, int width, int level);
     

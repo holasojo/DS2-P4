@@ -12,57 +12,49 @@ public class PtList {
     private PtLink tail;
     private PtLink curr;
     private int size;
-    
-    
-    public PtList()
-    {
+
+    public PtList() {
         tail = curr = new PtLink(null);
         head = new PtLink(tail);
         size = 0;
     }
-    
+
     public boolean append(Point it) {
-            tail.setNext(new PtLink(null));
-            tail.setElement(it);
-            tail = tail.next();
-            size++;
-            return true;
-      }
-    
-    public boolean checkAllSame(Point pt)
-    {
+        tail.setNext(new PtLink(null));
+        tail.setElement(it);
+        tail = tail.next();
+        size++;
+        return true;
+    }
+
+    public boolean checkAllSame(Point pt) {
         curr = head.next();
-        for(int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             if (!pt.equalsCoor(curr.value())) {
                 return false;
             }
-            curr = curr.next();    
+            curr = curr.next();
         }
         return true;
     }
-    
-    public Point findbyCoor(Point it)
-    {
+
+    public Point findbyCoor(Point it) {
         curr = head.next();
-        for(int i =0; i<size; i++){
-            if(it.equalsCoor(curr.value())) {
-                
+        for (int i = 0; i < size; i++) {
+            if (it.equalsCoor(curr.value())) {
+
                 return curr.value();
             }
-            curr = curr.next();   
+            curr = curr.next();
         }
         return null;
     }
-    
-    public Point[] remove()
-    {
-        if(size != 0)
-        {
+
+    public Point[] remove() {
+        if (size != 0) {
             Point[] points = new Point[size];
             curr = head.next();
-            for(int i = 0; i < size; i++)
-            {
+            for (int i = 0; i < size; i++) {
                 points[i] = curr.value();
                 curr = curr.next();
             }
@@ -70,64 +62,71 @@ public class PtList {
         }
         return null;
     }
-    
-    public Point remove(Point it) {
+
+    public Point remove(Point it, boolean name) {
         curr = head.next();
-        for(int i = 0; i<size; i++){
-            if(it.equalsCoor(curr.value())){
-                
-                Point found = curr.value();
-                curr.setElement(curr.next().value());
-                if(curr.next() == tail) {
-                    tail = curr;
+        for (int i = 0; i < size; i++) {
+            if (name) {
+                if (it.equals(curr.value())) {
+
+                    Point found = curr.value();
+                    curr.setElement(curr.next().value());
+                    if (curr.next() == tail) {
+                        tail = curr;
+                    }
+                    curr.setNext(curr.next().next());
+                    size--;
+                    return found;
                 }
-                curr.setNext(curr.next().next());
-                size--;
-                return found;
+            }
+            else {
+                if (it.equalsCoor(curr.value())) {
+
+                    Point found = curr.value();
+                    curr.setElement(curr.next().value());
+                    if (curr.next() == tail) {
+                        tail = curr;
+                    }
+                    curr.setNext(curr.next().next());
+                    size--;
+                    return found;
+                }
             }
             curr = curr.next();
         }
         return null;
     }
-    
-    public String toString()
-    {
-        
+
+    public String toString() {
+
         String str = "";
-        
+
         curr = head.next();
-        for(int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             str += curr.toString() + "\n";
             curr = curr.next();
-        }     
+        }
         return str;
     }
-    
-    public String[] list(){
-       
-        if(size != 0)
-        {
+
+    public String[] list() {
+
+        if (size != 0) {
             String[] strArray = new String[size];
             curr = head.next();
-            for(int i = 0; i < size; i++)
-            {
+            for (int i = 0; i < size; i++) {
                 strArray[i] = curr.value().toString();
                 curr = curr.next();
             }
             return strArray;
         }
         return null;
-        
-        
+
     }
-    
-    public int size()
-    {
+
+    public int size() {
         return size;
     }
-  
-    
 
     private class PtLink {
 
@@ -138,9 +137,8 @@ public class PtList {
             this.point = pt;
             this.next = nxt;
         }
-        
-        public PtLink(PtLink nxt)
-        {
+
+        public PtLink(PtLink nxt) {
             this.next = nxt;
         }
 
@@ -160,9 +158,8 @@ public class PtList {
         public Point setElement(Point it) {
             return point = it;
         }
-        
-        public String toString()
-        {
+
+        public String toString() {
             return point.toString();
         }
     }

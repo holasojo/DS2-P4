@@ -68,6 +68,12 @@ public class LeafNode implements QuadNode {
         return list.findbyCoor(pt);
         
     }
+
+    @Override
+    public void duplicates(int x, int y, int width, int level) {
+        // TODO Auto-generated method stub
+        
+    }
     
 
 }

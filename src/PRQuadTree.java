@@ -31,7 +31,8 @@ public class PRQuadTree {
     }
     
     public QuadNode remove(int x, int y)
-    {
-        
+    {   
+        ()
+        root = root.remove(pt, x, y, width);
     }
 }

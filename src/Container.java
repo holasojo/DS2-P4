@@ -119,16 +119,17 @@ public class Container {
         if (fits(x, y)) {
             // create a new rectangle value with passed in values
             Point pt = new Point(x, y);
-            Point removePoint = tree.removebyCoor(pt);
+            Point removeThis = tree.removebyCoor(pt);
+            
             // the one got removed
-            KVPair<String, Point> removed = list.remove(rec);
+            KVPair<String, Point> removed = list.remove(removeThis);
             if (removed != null) {
                 // rectangle was in the skip list and got removed
                 System.out.println("Rectangle removed: " + "(" + removed.toString() + ")");
             }
             else {
                 // rectangle was not in the skiplist
-                System.out.println("Rectangle not removed: " + rec.toString());
+                System.out.println("Rectangle not removed: " + pt.toString());
             }
         }
         // if the rectangle size and position not meet requirements, print out

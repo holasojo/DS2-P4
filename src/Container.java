@@ -131,7 +131,7 @@ public class Container {
             }
             else {
                 // rectangle was not in the skiplist
-                System.out.println("Point not removed: " + pt.toString());
+                System.out.println("Point not removed: (" + x + ", " + y + ")");
             }
         }
         // if the rectangle size and position not meet requirements, print out

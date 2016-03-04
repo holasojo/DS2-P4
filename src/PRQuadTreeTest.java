@@ -155,6 +155,7 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("A", 1, 1);
         c.tree().dump();
         c.removebyCoor(1, 1);
+        c.tree().dump();
         
     }
 

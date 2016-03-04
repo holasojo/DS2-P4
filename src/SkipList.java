@@ -264,8 +264,7 @@ class SkipList<K extends Comparable<K>, E> {
         x = x.forward[0]; // Move to actual record, if it exists
         if ((x != null) && (key.compareTo(x.getData().key()) == 0)) {
 
-            System.out.println("Rectangles found:");
-            System.out.println(x.getData());
+            System.out.println("Found (" +x.getData()+")");
 
             // walks down the list form first instance of found key, to print
             // remaining KVPair's
@@ -273,7 +272,7 @@ class SkipList<K extends Comparable<K>, E> {
             while (x.forward[0] != null && 
                     key.compareTo(x.forward[0].getData().key()) == 0) {
                 x = x.forward[0];
-                System.out.println(x.getData());
+                System.out.println("Found (" +x.getData()+")");
             }
         }
         else

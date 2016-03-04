@@ -126,7 +126,7 @@ public class Container {
             // the one got removed
             else {
                 KVPair<String, Point> removed = list.remove(removeThis);
-                if (removeThis != null) {
+                if (removed != null) {
                     // rectangle was in the skip list and got removed
                     System.out.println("Point removed: (" + x + ", " + y + ")");
                 }

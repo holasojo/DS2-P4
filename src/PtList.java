@@ -197,18 +197,18 @@ public class PtList {
         private Point point;
         private PtLink next;
 
-        /**
-         * ptlink constructor
-         * 
-         * @param pt
-         *            is the point
-         * @param nxt
-         *            is the next element
-         */
-        public PtLink(Point pt, PtLink nxt) {
-            this.point = pt;
-            this.next = nxt;
-        }
+//        /**
+//         * ptlink constructor
+//         * 
+//         * @param pt
+//         *            is the point
+//         * @param nxt
+//         *            is the next element
+//         */
+//        public PtLink(Point pt, PtLink nxt) {
+//            this.point = pt;
+//            this.next = nxt;
+//        }
 
         /**
          * points to the next element

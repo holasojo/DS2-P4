@@ -75,6 +75,7 @@ public class PRQuadTreeTest extends student.TestCase {
         c.tree().dump();
         c.insert("A", 200, 200);
         c.tree().dump();
+        c.insert("A", 1000, 1000);
     }
 
     /**
@@ -144,8 +145,8 @@ public class PRQuadTreeTest extends student.TestCase {
         systemOut().clearHistory();
         c.removebyCoor(1, -1);
         c.removebyCoor(1, 1);
-        assertFuzzyEquals("point rejected 1 1\npoint not found 1 1", systemOut().getHistory());
-
+        assertFuzzyEquals("point rejected 1 1\npoint not found 1 1",
+                systemOut().getHistory());
 
     }
 
@@ -157,15 +158,21 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("rec", 10, 30);
         c.insert("r_42", 1, 20);
         c.insert("far", 200, 200);
-
-        // c.dump();
-        // c.search("r_r");
-        // c.removebyName("r_r");
-        // c.removebyCoor(10, 30);
-        // c.dump();
-        //
+        systemOut().clearHistory();
+        c.search("r_r");
+        assertFuzzyEquals("found r_r 1 20", systemOut().getHistory());
+        systemOut().clearHistory();
+        c.removebyName("r_r");
+        assertFuzzyEquals("point removed r_r 1 20", systemOut().getHistory());
+        systemOut().clearHistory();
+        c.removebyCoor(10, 30);
+        assertFuzzyEquals("point removed rec 10 30", systemOut().getHistory());
+        systemOut().clearHistory();
         c.regionSearch(0, 0, 25, 25);
-
+        assertFuzzyEquals(
+                "points intersecting region 0 0 25 25\npoint "
+                        + "found r_42 1 20\n1 quadtree nodes visited",
+                systemOut().getHistory());
     }
 
     /**
@@ -179,8 +186,16 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("E", 2, 800);
         c.insert("F", 20, 500);
         c.insert("G", 300, 300);
-        c.tree().dump();
-
+        systemOut().clearHistory();
+        c.removebyCoor(300, 300);
+        assertFuzzyEquals("point removed G 300 300", systemOut().getHistory());
+        systemOut().clearHistory();
+        c.removebyCoor(0, 0);
+        assertFuzzyEquals("point removed A 0 0", systemOut().getHistory());
+        systemOut().clearHistory();
+        c.removebyCoor(700, 20);
+        assertFuzzyEquals("point removed D 700 20", systemOut().getHistory());
+      
     }
 
     /**
@@ -220,7 +235,10 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("far", 200, 200);
         systemOut().clearHistory();
         c.duplicates();
-        assertFuzzyEquals("duplicate points\n200 200\n800 800", systemOut().getHistory());
+        assertFuzzyEquals("duplicate points\n200 200\n800 800",
+                systemOut().getHistory());
 
     }
+    
+   
 }

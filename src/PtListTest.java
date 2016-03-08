@@ -7,14 +7,14 @@
  *
  */
 public class PtListTest extends student.TestCase {
-    PtList list1;
-    PtList list2;
-    Point p1;
-    Point p2;
-    Point p3;
-    Point p4;
-    Point p5;
-    Point p6;
+    private PtList list1;
+    private PtList list2;
+    private Point p1;
+    private Point p2;
+    private Point p3;
+    private Point p4;
+    private Point p5;
+    private Point p6;
 
     /**
      * set up

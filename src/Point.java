@@ -97,12 +97,22 @@ public class Point {
         }
     }
 
-    // public boolean inBox();
-
+    /**
+     * toString
+     * 
+     * @return the point in string form
+     */
     public String toString() {
         return name + ", " + xPos + ", " + yPos;
     }
 
+    /**
+     * Compares two points
+     * 
+     * @param o
+     *            is the one gets compared
+     * @return true of name and coordinates are the same
+     */
     public boolean equals(Object o) {
         if (!o.getClass().equals(this.getClass())) {
             return false;
@@ -112,10 +122,26 @@ public class Point {
                 && this.getName().equals(it.getName());
     }
 
+    /**
+     * Compares coordinates of two points
+     * 
+     * @param it
+     *            is the one gets compared
+     * @return true if coordinates are the same
+     */
     public boolean equalsCoor(Point it) {
         return this.getX() == it.getX() && this.getY() == it.getY();
     }
 
+    /**
+     * checks if the point is within the region
+     * 
+     * @param x is the x position of world
+     * @param y is the y position of world
+     * @param w is the width of world
+     * @param h is the height of world
+     * @return true if it is not outside of the region
+     */
     public boolean inRegion(int x, int y, int w, int h) {
         return !(this.xPos < x || x + w <= this.xPos || this.yPos < y
                 || y + h <= this.yPos);

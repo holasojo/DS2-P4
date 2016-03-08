@@ -12,14 +12,14 @@ public class Container {
     // skiplist
     private SkipList<String, Point> list;
     private PRQuadTree tree;
-    private final int WIDTH = 1024;
+    private final int worldWidth = 1024;
 
     /**
      * constructor. Initializing the SkipList.
      */
     public Container() {
         list = new SkipList<String, Point>();
-        tree = new PRQuadTree(0, 0, 1024);
+        tree = new PRQuadTree(0, 0, worldWidth);
 
     }
 
@@ -48,10 +48,12 @@ public class Container {
             // insert kv into the list
             list.insert(kv);
             tree.insert(pt);
-            System.out.println("Point inserted: (" + name + ", " + x + ", " + y + ")");
+            System.out.println(
+                    "Point inserted: (" + name + ", " + x + ", " + y + ")");
         }
         else {
-            System.out.println("Point rejected: (" + name + ", " + x + ", " + y + ")");
+            System.out.println(
+                    "Point rejected: (" + name + ", " + x + ", " + y + ")");
         }
     }
 
@@ -70,7 +72,7 @@ public class Container {
      */
     public boolean fits(int x, int y) {
 
-        return (x >= 0 && y >= 0) && ((x < WIDTH) && (y < WIDTH));
+        return (x >= 0 && y >= 0) && ((x < worldWidth) && (y < worldWidth));
 
     }
 
@@ -83,25 +85,28 @@ public class Container {
     public void removebyName(String name) {
 
         // creating a KVPair to pass into the method
-        KVPair<String, Point> toRemove = new KVPair<String, Point>(name, new Point(1, 1));
+        KVPair<String, Point> toRemove = new KVPair<String, Point>(name,
+                new Point(1, 1));
         // the one actually got removed
         KVPair<String, Point> removed = list.remove(toRemove);
 
-        if(removed != null){
-        Point removedInTree = tree.removebyCoor(removed.value(), true);
+        if (removed != null) {
+            Point removedInTree = tree.removebyCoor(removed.value(), true);
 
-        // if there was a points and got removed,
-        // print out that it was removed
-        // if not, print out points not removed
-        if (removedInTree != null && removed != null) {
+            // if there was a points and got removed,
+            // print out that it was removed
+            // if not, print out points not removed
+            if (removedInTree != null && removed != null) {
 
-            System.out.println("Point removed: " + "(" + removedInTree.toString() + ")");
-        }}
+                System.out.println("Point removed: " + "("
+                        + removedInTree.toString() + ")");
+            }
+        }
         else {
             System.out.println("Point not found: " + name);
             System.out.println("Point not removed: " + name);
         }
-        
+
     }
 
     /**
@@ -119,7 +124,8 @@ public class Container {
      */
     public boolean fits(int x, int y, int w, int h) {
 
-        return (w > 0 && h > 0) && ((x + w <= 1024) && (y + h <= 1024));
+        return (w > 0 && h > 0)
+                && ((x + w <= worldWidth) && (y + h <= worldWidth));
 
     }
 
@@ -151,7 +157,8 @@ public class Container {
                 KVPair<String, Point> removed = list.remove(removeThis);
                 if (removed != null && removeThis != null) {
                     // points was in the skip list and got removed
-                    System.out.println("Point removed: (" + removed.toString() + ")");
+                    System.out.println(
+                            "Point removed: (" + removed.toString() + ")");
                 }
                 // else {
                 // // points was not in the skiplist
@@ -186,8 +193,9 @@ public class Container {
     public boolean regionSearch(int x, int y, int w, int h) {
         // checking width and height
         if (fits(x, y, w, h)) {
-            
-            System.out.println("Points intersecting region (" + x + ", " + y + ", " + w + ", " + h + "):");
+
+            System.out.println("Points intersecting region (" + x + ", " + y
+                    + ", " + w + ", " + h + "):");
             // start region search
             tree.regionSearch(x, y, w, h);
             return true;
@@ -195,17 +203,19 @@ public class Container {
         }
         else {
             // print out rejection when w <= 0 and h <= 0
-            System.out.println("points rejected: (" + x + ", " + y + ", " + w + ", " + h + ")");
+            System.out.println("points rejected: (" + x + ", " + y + ", " + w
+                    + ", " + h + ")");
             return false;
         }
 
     }
 
-    public void duplicates(){
+    public void duplicates() {
         System.out.println("Duplicate points:");
         tree.duplicates();
-        
+
     }
+
     /**
      * calls the search method in skipList class.
      * 

@@ -1,34 +1,83 @@
-
+/**
+ * Point class
+ * 
+ * @author sohyun
+ * @author sshumway
+ * @version 3/7/2016
+ */
 public class Point {
 
     private String name;
     private int xPos;
     private int yPos;
 
+    /**
+     * Constructor
+     * 
+     * @param x
+     *            is the x position
+     * @param y
+     *            is the y position
+     */
     public Point(int x, int y) {
 
         xPos = x;
         yPos = y;
     }
 
+    /**
+     * constructor
+     * 
+     * @param n
+     *            is the name of point
+     * @param x
+     *            is x position
+     * @param y
+     *            is y position
+     */
     public Point(String n, int x, int y) {
         name = n;
         xPos = x;
         yPos = y;
     }
 
+    /**
+     * getter for x
+     * 
+     * @return x position
+     */
     public int getX() {
         return xPos;
     }
 
+    /**
+     * getter for y
+     * 
+     * @return y position
+     */
     public int getY() {
         return yPos;
     }
 
+    /**
+     * getter for name
+     * 
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Used to see if the point is in which quadrant compare to centerX and
+     * centerY position
+     * 
+     * @param centerX
+     *            the center of world
+     * @param centerY
+     *            the center of y
+     * @return the which quadrant it is
+     */
     public Direction quadrant(int centerX, int centerY) {
 
         if (yPos < centerY && xPos < centerX) {
@@ -59,19 +108,17 @@ public class Point {
             return false;
         }
         Point it = (Point) o;
-        return this.getX() == it.getX() && this.getY() == it.getY() && this.getName().equals(it.getName());
+        return this.getX() == it.getX() && this.getY() == it.getY()
+                && this.getName().equals(it.getName());
     }
 
     public boolean equalsCoor(Point it) {
         return this.getX() == it.getX() && this.getY() == it.getY();
     }
-    
-    public boolean inRegion(int x, int y, int w, int h)
-    {
-        return !(this.xPos < x
-                || x + w <= this.xPos
-                || this.yPos < y || y
-                + h <= this.yPos);
+
+    public boolean inRegion(int x, int y, int w, int h) {
+        return !(this.xPos < x || x + w <= this.xPos || this.yPos < y
+                || y + h <= this.yPos);
     }
 
 }

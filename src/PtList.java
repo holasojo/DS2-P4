@@ -2,7 +2,8 @@
  * Special version of linked list to suit PRQuadTree that stores point objects.
  * 
  * @author sshumway
- * @sohyun
+ * @author sohyun
+ * @version 3/6/2017
  *
  */
 
@@ -13,12 +14,23 @@ public class PtList {
     private PtLink curr;
     private int size;
 
+    /**
+     * set tail and current to null and head is at the same location as tail
+     * size is 0
+     */
     public PtList() {
         tail = curr = new PtLink(null);
         head = new PtLink(tail);
         size = 0;
     }
 
+    /**
+     * Append a Point in the list
+     * 
+     * @param it
+     *            is a point
+     * @return true when inserted
+     */
     public boolean append(Point it) {
         tail.setNext(new PtLink(null));
         tail.setElement(it);
@@ -27,6 +39,13 @@ public class PtList {
         return true;
     }
 
+    /**
+     * Checks to see if there is no duplicates
+     * 
+     * @param pt
+     *            is a point that we are comparing
+     * @return true if all the points are the same
+     */
     public boolean checkAllSame(Point pt) {
         curr = head.next();
         for (int i = 0; i < size; i++) {
@@ -38,6 +57,13 @@ public class PtList {
         return true;
     }
 
+    /**
+     * find a point that has the same coordinate as the parameter
+     * 
+     * @param it
+     *            is the point that we are comparing
+     * @return the current element when matches
+     */
     public Point findbyCoor(Point it) {
         curr = head.next();
         for (int i = 0; i < size; i++) {
@@ -50,6 +76,11 @@ public class PtList {
         return null;
     }
 
+    /**
+     * copying points
+     * 
+     * @return the point array
+     */
     public Point[] remove() {
         if (size != 0) {
             Point[] points = new Point[size];
@@ -63,6 +94,15 @@ public class PtList {
         return null;
     }
 
+    /**
+     * remove a point
+     * 
+     * @param it
+     *            the one gets removed
+     * @param name
+     *            is for when
+     * @return if removed
+     */
     public Point remove(Point it, boolean name) {
         curr = head.next();
         for (int i = 0; i < size; i++) {
@@ -97,6 +137,9 @@ public class PtList {
         return null;
     }
 
+    /**
+     * prints out what's in the list
+     */
     public String toString() {
 
         String str = "";
@@ -109,6 +152,11 @@ public class PtList {
         return str;
     }
 
+    /**
+     * string array that contains the strings of elements in the list
+     * 
+     * @return the string array
+     */
     public String[] list() {
 
         if (size != 0) {
@@ -124,41 +172,97 @@ public class PtList {
 
     }
 
+    /**
+     * size of the list
+     * 
+     * @return size of the list
+     */
     public int size() {
         return size;
     }
 
+    /**
+     * Ptlink is
+     * 
+     * @author sohyun
+     * @author sshumway
+     * @version 3/7/2016
+     *
+     */
     private class PtLink {
 
         private Point point;
         private PtLink next;
 
+        /**
+         * ptlink constructor
+         * 
+         * @param pt
+         *            is the point
+         * @param nxt
+         *            is the next element
+         */
         public PtLink(Point pt, PtLink nxt) {
             this.point = pt;
             this.next = nxt;
         }
 
+        /**
+         * points to the next element
+         * 
+         * @param nxt
+         *            is the next element
+         */
         public PtLink(PtLink nxt) {
             this.next = nxt;
         }
 
+        /**
+         * getter for the next
+         * 
+         * @return next element
+         */
         public PtLink next() {
             return next;
         } // Return next field
 
+        /**
+         * setter for the next
+         * 
+         * @param nextval
+         *            is the next element
+         * @return the next element
+         */
         public PtLink setNext(PtLink nextval) // Set next field
         {
             return next = nextval;
         }
 
+        /**
+         * return the value inside.
+         * 
+         * @return a point
+         */
         public Point value() {
             return point;
         }
 
+        /**
+         * setter for the element
+         * 
+         * @param it
+         *            is the element that we want to store
+         * @return the stored point
+         */
         public Point setElement(Point it) {
             return point = it;
         }
 
+        /**
+         * toString
+         * 
+         * @return string
+         */
         public String toString() {
             return point.toString();
         }

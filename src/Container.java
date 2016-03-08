@@ -198,6 +198,9 @@ public class Container {
 
     }
 
+    /**
+     * looking for duplicates in the tree
+     */
     public void duplicates() {
         System.out.println("Duplicate points:");
         tree.duplicates();

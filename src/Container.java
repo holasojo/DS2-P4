@@ -117,7 +117,7 @@ public class Container {
     public boolean fits(int x, int y, int w, int h) {
 
         return (w > 0 && h > 0)
-                && ((x < worldWidth) && (y < worldWidth));
+                && ((x <= worldWidth) && (y <= worldWidth));
 
     }
 

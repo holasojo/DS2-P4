@@ -115,9 +115,9 @@ public class RectangleValue {
      */
     public boolean intersect(RectangleValue rec) {
 
-        return !(this.posX + this.width <= rec.posX
-                || rec.posX + rec.width <= this.posX
-                || this.posY + this.height <= rec.posY || rec.posY
-                + rec.height <= this.posY);
+        return !(this.posX + this.width < rec.posX
+                || rec.posX + rec.width < this.posX
+                || this.posY + this.height < rec.posY || rec.posY
+                + rec.height < this.posY);
     }
 }

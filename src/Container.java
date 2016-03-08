@@ -128,10 +128,6 @@ public class Container {
      *            is x-pos
      * @param y
      *            is y-pos
-     * @param w
-     *            is width
-     * @param h
-     *            is height
      * 
      */
     public void removebyCoor(int x, int y) {

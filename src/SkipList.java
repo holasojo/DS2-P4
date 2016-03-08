@@ -277,7 +277,10 @@ class SkipList<K extends Comparable<K>, E> {
                 System.out.println("Found (" + x.getData() + ")");
             }
         }
-//Point not found:
+        else
+            System.out.println("Point not found: " + key);
+        
+
     }
 
     /**

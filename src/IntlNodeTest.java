@@ -23,7 +23,9 @@ public class IntlNodeTest extends student.TestCase {
      */
     public void testFlyweight()
     {
+        
         assertEquals(IntlNode.flyweight().getClass(), Flyweight.class);
+
     }
 
 }

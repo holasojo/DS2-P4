@@ -191,7 +191,7 @@ public class Container {
         }
         else {
             // print out rejection when w <= 0 and h <= 0
-            System.out.println("Points Rejected: (" + x + ", " + y + ", " + w
+            System.out.println("Rectangle Rejected: (" + x + ", " + y + ", " + w
                     + ", " + h + ")");
             return false;
         }

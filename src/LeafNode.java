@@ -94,11 +94,12 @@ public class LeafNode implements QuadNode {
     }
 
     @Override
-    public int regionSearch(RectangleValue rec1, RectangleValue rec2,, int nodeCount) {
+    public int regionSearch(RectangleValue rec, int xWorld, int yWrold,
+            int widthWorld, int nodeCount) {
         Point[] points = list.remove();
 
         for (Point it : points) {
-            if (it.inRegion(rec1)) {
+            if (it.inRegion(x, y, w, h)) {
                 System.out.println("Point found: (" + it.toString() + ")");
             }
         }

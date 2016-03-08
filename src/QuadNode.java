@@ -26,6 +26,7 @@ public interface QuadNode {
      * @param x pos of region
      * @param y pos of region
      * @param width of region
+     * @param name to see if we are comparing name too or not
      * @return the subtree or leaf or flyweight depends on the situation
      */
     public QuadNode remove(Point pt, int x, int y, int width, boolean name);
@@ -47,11 +48,11 @@ public interface QuadNode {
      * @return spaces
      */
     public static String spaces(int level) {
-        String str = "";
+        String STR = "";
         for (int i = 0; i < level; i++) {
-            str += "  ";
+            STR += "  ";
         }
-        return str;
+        return STR;
     }
 
     /**

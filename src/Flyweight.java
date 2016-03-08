@@ -3,10 +3,14 @@
  * 
  * @author sshumway
  * @author sohyun
+ * @version 3/7/2016
  *
  */
 public class Flyweight implements QuadNode {
 
+    /**
+     * Constructor. It does not do or contains anything.
+     */
     public Flyweight() {
         // stateless object
     }
@@ -34,12 +38,14 @@ public class Flyweight implements QuadNode {
         return this;
     }
 
+    @Override
     public Point searchbyCoor(Point pt, int x, int y, int width) {
 
         return null;
 
     }
 
+    @Override
     public int regionSearch(int x, int y, int w, int h, int xWorld, int yWrold,
             int widthWorld, int nodeCount) {
         return 1;

@@ -1,17 +1,27 @@
-
+/**
+ * Internal Node class
+ * 
+ * @author sohyun
+ * @author sshumway
+ * @version 3/7/2016
+ *
+ */
 public class IntlNode implements QuadNode {
 
-    private QuadNode NW;
-    private QuadNode NE;
-    private QuadNode SW;
-    private QuadNode SE;
+    private QuadNode nw;
+    private QuadNode ne;
+    private QuadNode sw;
+    private QuadNode se;
     private static Flyweight fly = new Flyweight();
 
+    /**
+     * Sets each direction to flyweight
+     */
     public IntlNode() {
-        NW = fly;
-        NE = fly;
-        SW = fly;
-        SE = fly;
+        nw = fly;
+        ne = fly;
+        sw = fly;
+        se = fly;
     }
 
     @Override
@@ -22,34 +32,42 @@ public class IntlNode implements QuadNode {
         Direction quadrant = pt.quadrant(centerX, centerY);
 
         if (quadrant == Direction.NW) {
-            NW = NW.insert(pt, x, y, width / 2);
+            nw = nw.insert(pt, x, y, width / 2);
         }
         else if (quadrant == Direction.NE) {
-            NE = NE.insert(pt, centerX, y, width / 2);
+            ne = ne.insert(pt, centerX, y, width / 2);
         }
         else if (quadrant == Direction.SW) {
-            SW = SW.insert(pt, x, centerY, width / 2);
+            sw = sw.insert(pt, x, centerY, width / 2);
 
         }
         else if (quadrant == Direction.SE) {
-            SE = SE.insert(pt, centerX, centerY, width / 2);
+            se = se.insert(pt, centerX, centerY, width / 2);
         }
 
         return this;
 
     }
 
+    @Override
     public int dump(int x, int y, int width, int level) {
 
         String n = QuadNode.spaces(level);
 
-        System.out.println(n + "Node at " + x + ", " + y + ", " + width + ": Internal");
-        return 1 + NW.dump(x, y, width / 2, level + 1) + NE.dump(x + width / 2, y, width / 2, level + 1)
-                + SW.dump(x, y + width / 2, width / 2, level + 1)
-                + SE.dump(x + width / 2, y + width / 2, width / 2, level + 1);
+        System.out.println(
+                n + "Node at " + x + ", " + y + ", " + width + ": Internal");
+        return 1 + nw.dump(x, y, width / 2, level + 1)
+                + ne.dump(x + width / 2, y, width / 2, level + 1)
+                + sw.dump(x, y + width / 2, width / 2, level + 1)
+                + se.dump(x + width / 2, y + width / 2, width / 2, level + 1);
 
     }
 
+    /**
+     * getter for flyweight
+     * 
+     * @return fly is flyweight
+     */
     public static Flyweight flyweight() {
         return fly;
     }
@@ -61,24 +79,24 @@ public class IntlNode implements QuadNode {
         Direction quadrant = pt.quadrant(centerX, centerY);
 
         if (quadrant == Direction.NW) {
-            NW = NW.remove(pt, x, y, width / 2, name);
+            nw = nw.remove(pt, x, y, width / 2, name);
         }
         else if (quadrant == Direction.NE) {
-            NE = NE.remove(pt, centerX, y, width / 2, name);
+            ne = ne.remove(pt, centerX, y, width / 2, name);
         }
         else if (quadrant == Direction.SW) {
-            SW = SW.remove(pt, x, centerY, width / 2, name);
+            sw = sw.remove(pt, x, centerY, width / 2, name);
 
         }
         else if (quadrant == Direction.SE) {
-            SE = SE.remove(pt, centerX, centerY, width / 2, name);
+            se = se.remove(pt, centerX, centerY, width / 2, name);
         }
 
         int pointCount = 0;
         int leafCount = 0;
         int internalCount = 0;
 
-        QuadNode[] children = new QuadNode[] { NW, NE, SW, SE };
+        QuadNode[] children = new QuadNode[] { nw, ne, sw, se };
         for (QuadNode node : children) {
             if (node.getClass() == LeafNode.class) {
                 leafCount++;
@@ -111,17 +129,17 @@ public class IntlNode implements QuadNode {
         Direction quadrant = pt.quadrant(centerX, centerY);
 
         if (quadrant == Direction.NW) {
-            return NW.searchbyCoor(pt, x, y, width / 2);
+            return nw.searchbyCoor(pt, x, y, width / 2);
         }
         else if (quadrant == Direction.NE) {
-            return NE.searchbyCoor(pt, centerX, y, width / 2);
+            return ne.searchbyCoor(pt, centerX, y, width / 2);
         }
         else if (quadrant == Direction.SW) {
-            return SW.searchbyCoor(pt, x, centerY, width / 2);
+            return sw.searchbyCoor(pt, x, centerY, width / 2);
 
         }
         else if (quadrant == Direction.SE) {
-            return SE.searchbyCoor(pt, centerX, centerY, width / 2);
+            return se.searchbyCoor(pt, centerX, centerY, width / 2);
         }
         else {
             return null;
@@ -129,43 +147,53 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
-    public int regionSearch(int x, int y, int w, int h, int xWorld, int yWorld, int widthWorld, int nodeCount) {
+    public int regionSearch(int x, int y, int w, int h, int xWorld, int yWorld,
+            int widthWorld, int nodeCount) {
 
         // Point regionOrigin = new Point(null, x, y);
 
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld + widthWorld / 2;
 
-        RectangleValue nwRegion = new RectangleValue(xWorld, yWorld, widthWorld / 2, widthWorld / 2);
-        RectangleValue neRegion = new RectangleValue(centerX, yWorld, widthWorld / 2, widthWorld / 2);
-        RectangleValue swRegion = new RectangleValue(xWorld, centerY, widthWorld / 2, widthWorld / 2);
-        RectangleValue seRegion = new RectangleValue(centerX, centerY, widthWorld / 2, widthWorld / 2);
+        RectangleValue nwRegion = new RectangleValue(xWorld, yWorld,
+                widthWorld / 2, widthWorld / 2);
+        RectangleValue neRegion = new RectangleValue(centerX, yWorld,
+                widthWorld / 2, widthWorld / 2);
+        RectangleValue swRegion = new RectangleValue(xWorld, centerY,
+                widthWorld / 2, widthWorld / 2);
+        RectangleValue seRegion = new RectangleValue(centerX, centerY,
+                widthWorld / 2, widthWorld / 2);
         RectangleValue queryRegion = new RectangleValue(x, y, w, h);
 
         // Direction quadrant = regionOrigin.quadrant(centerX, centerY);
 
         if (queryRegion.intersect(nwRegion)) {
-            return 1 + NW.regionSearch(x, y, w, h, xWorld, yWorld, widthWorld / 2, nodeCount++);
+            return 1 + nw.regionSearch(x, y, w, h, xWorld, yWorld,
+                    widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(neRegion)) {
-            return 1 + NE.regionSearch(x, y, w, h, centerX, yWorld, widthWorld / 2, nodeCount++);
+            return 1 + ne.regionSearch(x, y, w, h, centerX, yWorld,
+                    widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(swRegion)) {
-            return 1 + SW.regionSearch(x, y, w, h, xWorld, centerY, widthWorld / 2, nodeCount++);
+            return 1 + sw.regionSearch(x, y, w, h, xWorld, centerY,
+                    widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(seRegion)) {
-            return 1 + SE.regionSearch(x, y, w, h, centerX, centerY, widthWorld / 2, nodeCount++);
+            return 1 + se.regionSearch(x, y, w, h, centerX, centerY,
+                    widthWorld / 2, nodeCount++);
         }
         return 1;
 
     }
 
+    @Override
     public void duplicates(int x, int y, int width) {
 
-        NW.duplicates(x, y, width / 2);
-        NE.duplicates(x + width / 2, y, width / 2);
-        SW.duplicates(x, y + width / 2, width / 2);
-        SE.duplicates(x + width / 2, y + width / 2, width / 2);
+        nw.duplicates(x, y, width / 2);
+        ne.duplicates(x + width / 2, y, width / 2);
+        sw.duplicates(x, y + width / 2, width / 2);
+        se.duplicates(x + width / 2, y + width / 2, width / 2);
 
     }
 

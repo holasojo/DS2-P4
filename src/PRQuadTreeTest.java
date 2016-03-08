@@ -225,9 +225,8 @@ public class PRQuadTreeTest extends student.TestCase {
         c.removebyCoor(0, 0); // not there
         assertFuzzyEquals("Point not found: (0, 0)", systemOut().getHistory());
         systemOut().clearHistory();
-        c.dump();
-        assertFuzzyEquals("SkipList dump:\nNode has depth 4, Value "
-                + "(null)\nSkipList size is: 0\nQuadTree "
+        c.tree().dump();
+        assertFuzzyEquals("QuadTree "
                 + "dump:\nNode at 0, 0, 1024: Empty\n1 "
                 + "quadtree nodes printed", systemOut().getHistory());
 

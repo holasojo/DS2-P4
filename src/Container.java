@@ -138,6 +138,7 @@ public class Container {
             Point removeThis = tree.removebyCoor(pt, false);
             if (removeThis == null) {
                 System.out.println("Point not found: (" + x + ", " + y + ")");
+                System.out.println("Point not removed: (" + x + ", " + y + ")");
                 return;
             }
             // the one got removed

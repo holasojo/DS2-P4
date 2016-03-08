@@ -142,7 +142,8 @@ public class Point {
      * @param h is the height of world
      * @return true if it is not outside of the region
      */
-    public boolean inRegion(int x, int y, int w, int h) {
+    public boolean inRegion(RectangleValue rec) {
+        
         return !(this.xPos < x || x + w <= this.xPos || this.yPos < y
                 || y + h <= this.yPos);
     }

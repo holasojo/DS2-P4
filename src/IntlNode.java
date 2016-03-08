@@ -161,7 +161,6 @@ public class IntlNode implements QuadNode {
                 widthWorld / 2, widthWorld / 2);
         RectangleValue seRegion = new RectangleValue(centerX, centerY,
                 widthWorld / 2, widthWorld / 2);
-        
 
         // Direction quadrant = regionOrigin.quadrant(centerX, centerY);
 

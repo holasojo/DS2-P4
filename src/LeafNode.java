@@ -1,16 +1,32 @@
-
+/**
+ * LeafNode class
+ * 
+ * @author sohyun
+ * @author sshumway
+ * @version 3/7/2016
+ *
+ */
 public class LeafNode implements QuadNode {
 
     PtList list;
 
+    /**
+     * LeafNode contains a list
+     */
     public LeafNode() {
         list = new PtList();
     }
 
+    /**
+     * checks to see if it's leafnode or not
+     * 
+     * @return true if it's leaf node
+     */
     public boolean isLeaf() {
         return true;
     }
 
+    @Override
     public int dump(int x, int y, int width, int level) {
         String n = QuadNode.spaces(level);
 
@@ -53,31 +69,41 @@ public class LeafNode implements QuadNode {
         return this;
     }
 
+    /**
+     * getter for the number of points in the list
+     * 
+     * @return number of points in the list
+     */
     public int pointCount() {
         return list.size();
     }
 
+    /**
+     * 
+     * @return r
+     */
     public Point[] removeAll() {
         return list.remove();
     }
 
+    @Override
     public Point searchbyCoor(Point pt, int x, int y, int width) {
 
         return list.findbyCoor(pt);
 
     }
 
+    @Override
     public int regionSearch(int x, int y, int w, int h, int xWorld, int yWrold,
             int widthWorld, int nodeCount) {
         Point[] points = list.remove();
 
         for (Point it : points) {
             if (it.inRegion(x, y, w, h)) {
-                System.out.println("Point found: (" + it.toString()+")");
+                System.out.println("Point found: (" + it.toString() + ")");
             }
         }
         return 1;
-        
 
     }
 
@@ -89,10 +115,11 @@ public class LeafNode implements QuadNode {
         for (Point elem1 : elems) {
             for (Point elem2 : elems) {
                 if (elem1 != elem2 && elem1.equalsCoor(elem2)) {
-                    System.out.println("("+elem1.getX()+", "+elem1.getY()+")");
+                    System.out.println(
+                            "(" + elem1.getX() + ", " + elem1.getY() + ")");
                     return;
                 }
-                
+
             }
         }
     }

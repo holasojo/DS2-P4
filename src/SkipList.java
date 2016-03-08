@@ -8,8 +8,10 @@ import java.util.Random;
  * @author SOJO
  * @author sshumway
  * @version 01/25/2016
- * @param <K> The key.
- * @param <E> The value.
+ * @param <K>
+ *            The key.
+ * @param <E>
+ *            The value.
  */
 class SkipList<K extends Comparable<K>, E> {
 
@@ -62,13 +64,13 @@ class SkipList<K extends Comparable<K>, E> {
 
         // loop used to walk down list and print what is stored in each skipnode
         while (temp.forward[0] != null) {
-            System.out.println("Node has depth " + temp.forward.length 
+            System.out.println("Node has depth " + temp.forward.length
                     + ", Value (" + temp.getData() + ")");
             temp = temp.forward[0]; // increments temp's postion in the list.
         }
         // last node isn't reached in loop, so must print its value
-        System.out.println("Node has depth " + temp.forward.length
-                + ", Value (" + temp.getData() + ")");
+        System.out.println("Node has depth " + temp.forward.length + ", Value ("
+                + temp.getData() + ")");
         // prints the number of nodes in the skiplist
         System.out.println("SkipList size is: " + size);
     }
@@ -116,15 +118,15 @@ class SkipList<K extends Comparable<K>, E> {
          * allocates array of skipnodes to hold all the nodes that will point to
          * the new node
          */
-        SkipNode[] update = (SkipNode[]) 
-                Array.newInstance(SkipList.SkipNode.class, level + 1);
+        SkipNode[] update = (SkipNode[]) Array
+                .newInstance(SkipList.SkipNode.class, level + 1);
 
         SkipNode x = head; // Start at header node
 
         for (int i = level; i >= 0; i--) { // Finds insert position by using
                                            // key.
-            while ((x.forward[i] != null) && (k.compareTo(((KVPair<K, E>) 
-                    (x.forward[i]).getData()).key()) > 0))
+            while ((x.forward[i] != null) && (k.compareTo(
+                    ((KVPair<K, E>) (x.forward[i]).getData()).key()) > 0))
                 x = x.forward[i];
             update[i] = x; // Tracks the furthest node reached at level i
         }
@@ -154,19 +156,19 @@ class SkipList<K extends Comparable<K>, E> {
         Comparable<K> k = it.key();
 
         @SuppressWarnings("unchecked")
-        SkipNode[] update = (SkipNode[])
-            Array.newInstance(SkipList.SkipNode.class, level + 1);
+        SkipNode[] update = (SkipNode[]) Array
+                .newInstance(SkipList.SkipNode.class, level + 1);
         SkipNode x = head; // Start at header node
 
         for (int i = level; i >= 0; i--) { // finds remove position.
-            while ((x.forward[i] != null) && (k.compareTo(((KVPair<K, E>) 
-                    (x.forward[i]).getData()).key()) > 0))
+            while ((x.forward[i] != null) && (k.compareTo(
+                    ((KVPair<K, E>) (x.forward[i]).getData()).key()) > 0))
                 x = x.forward[i];
             update[i] = x; // Track farthest node reached at level i.
         }
         // Checks to make sure node was found.
-        if (x.forward[0] != null && (k.compareTo(((KVPair<K, E>) 
-                (x.forward[0]).getData()).key()) == 0)) {
+        if (x.forward[0] != null && (k.compareTo(
+                ((KVPair<K, E>) (x.forward[0]).getData()).key()) == 0)) {
 
             // go forward once more to access node that should be removed.
             SkipNode deleted = x.forward[0];
@@ -200,8 +202,8 @@ class SkipList<K extends Comparable<K>, E> {
 
         // holds nodes that will need to be updated when value is found
         // and removed.
-        SkipNode[] update = (SkipNode[]) 
-                Array.newInstance(SkipList.SkipNode.class, level + 1);
+        SkipNode[] update = (SkipNode[]) Array
+                .newInstance(SkipList.SkipNode.class, level + 1);
 
         // initializes the update array to header node for every index.
         // Accounts for the condition of the first node containing the value,
@@ -211,8 +213,8 @@ class SkipList<K extends Comparable<K>, E> {
         }
 
         // walks down the list looking for the value.
-        while ((x.forward[0] != null) && 
-                !(val.equals((x.forward[0].data.value())))) {
+        while ((x.forward[0] != null)
+                && !(val.equals((x.forward[0].data.value())))) {
 
             // update array pointers to nodes that current node
             // points to
@@ -264,18 +266,18 @@ class SkipList<K extends Comparable<K>, E> {
         x = x.forward[0]; // Move to actual record, if it exists
         if ((x != null) && (key.compareTo(x.getData().key()) == 0)) {
 
-            System.out.println("Found (" +x.getData()+")");
+            System.out.println("Found (" + x.getData() + ")");
 
             // walks down the list form first instance of found key, to print
             // remaining KVPair's
             // with the same key, if they exist.
-            while (x.forward[0] != null && 
-                    key.compareTo(x.forward[0].getData().key()) == 0) {
+            while (x.forward[0] != null
+                    && key.compareTo(x.forward[0].getData().key()) == 0) {
                 x = x.forward[0];
-                System.out.println("Found (" +x.getData()+")");
+                System.out.println("Found (" + x.getData() + ")");
             }
         }
-       
+
     }
 
     /**
@@ -302,8 +304,8 @@ class SkipList<K extends Comparable<K>, E> {
         public SkipNode(KVPair<K, E> value, int level) {
             data = value;
 
-            forward = (SkipNode[]) 
-                    Array.newInstance(SkipList.SkipNode.class, level + 1);
+            forward = (SkipNode[]) Array.newInstance(SkipList.SkipNode.class,
+                    level + 1);
 
             for (int i = 0; i < level; i++) {
                 forward[i] = null;

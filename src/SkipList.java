@@ -246,39 +246,39 @@ class SkipList<K extends Comparable<K>, E> {
         return null;
     }
 
-//    /**
-//     * Searches for KVPairs with the matching key in the list.
-//     * 
-//     * @param key
-//     *            The key being searched for.
-//     * 
-//     */
-//    public void search(Comparable<K> key) {
-//        SkipNode x = head; // header node
-//
-//        for (int i = level; i >= 0; i--) { // For each level...
-//
-//            while ((x.forward[i] != null) && // go forward
-//                    (key.compareTo(x.forward[i].getData().key()) > 0))
-//                x = x.forward[i]; // Go one last step
-//        }
-//
-//        x = x.forward[0]; // Move to actual record, if it exists
-//        if ((x != null) && (key.compareTo(x.getData().key()) == 0)) {
-//
-//            System.out.println("Found (" + x.getData() + ")");
-//
-//            // walks down the list form first instance of found key, to print
-//            // remaining KVPair's
-//            // with the same key, if they exist.
-//            while (x.forward[0] != null
-//                    && key.compareTo(x.forward[0].getData().key()) == 0) {
-//                x = x.forward[0];
-//                System.out.println("Found (" + x.getData() + ")");
-//            }
-//        }
-//
-//    }
+    /**
+     * Searches for KVPairs with the matching key in the list.
+     * 
+     * @param key
+     *            The key being searched for.
+     * 
+     */
+    public void search(Comparable<K> key) {
+        SkipNode x = head; // header node
+
+        for (int i = level; i >= 0; i--) { // For each level...
+
+            while ((x.forward[i] != null) && // go forward
+                    (key.compareTo(x.forward[i].getData().key()) > 0))
+                x = x.forward[i]; // Go one last step
+        }
+
+        x = x.forward[0]; // Move to actual record, if it exists
+        if ((x != null) && (key.compareTo(x.getData().key()) == 0)) {
+
+            System.out.println("Found (" + x.getData() + ")");
+
+            // walks down the list form first instance of found key, to print
+            // remaining KVPair's
+            // with the same key, if they exist.
+            while (x.forward[0] != null
+                    && key.compareTo(x.forward[0].getData().key()) == 0) {
+                x = x.forward[0];
+                System.out.println("Found (" + x.getData() + ")");
+            }
+        }
+
+    }
 
     /**
      * Implementation of a skip node class. SkipNode object holds KVPairs and an

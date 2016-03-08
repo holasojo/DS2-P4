@@ -263,6 +263,14 @@ public class PRQuadTreeTest extends student.TestCase {
                         + "(A, 1, 20)\nPoint found: "
                         + "(B, 10, 30)\n3 quadtree nodes visited",
                 systemOut().getHistory());
+        systemOut().clearHistory();
+        c.regionSearch(0, 0, 0, 0);
+        assertFuzzyEquals(
+                "Points intersecting region "
+                        + "(0, 0, 100, 100):\nPoint found: "
+                        + "(A, 1, 20)\nPoint found: "
+                        + "(B, 10, 30)\n3 quadtree nodes visited",
+                systemOut().getHistory());
 
     }
 

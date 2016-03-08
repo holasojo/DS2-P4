@@ -271,7 +271,7 @@ public class PRQuadTreeTest extends student.TestCase {
                 systemOut().getHistory());
         systemOut().clearHistory();
         c.regionSearch(0, 0, 0, 0);
-        assertFuzzyEquals("points rejected: (0, 0, 0, 0)",
+        assertFuzzyEquals("Rectangle rejected: (0, 0, 0, 0)",
                 systemOut().getHistory());
         systemOut().clearHistory();
         c.regionSearch(100, 100, 100, 100);

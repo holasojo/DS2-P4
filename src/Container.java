@@ -33,10 +33,6 @@ public class Container {
      *            is x-pos
      * @param y
      *            is y-pos
-     * @param w
-     *            is width
-     * @param h
-     *            is height
      */
     public void insert(String name, int x, int y) {
         // check if the points fits under the requirement
@@ -64,10 +60,6 @@ public class Container {
      *            is x-Position. Has to be greater than 0
      * @param y
      *            is y-Position. Has to be greater than 0
-     * @param w
-     *            is width of the points
-     * @param h
-     *            is height of the points
      * @return true if the size of points fits within the unit
      */
     public boolean fits(int x, int y) {

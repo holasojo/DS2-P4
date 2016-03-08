@@ -8,7 +8,7 @@
  */
 public class LeafNode implements QuadNode {
 
-    PtList list;
+    private PtList list;
 
     /**
      * LeafNode contains a list

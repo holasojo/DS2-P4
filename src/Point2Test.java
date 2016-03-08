@@ -20,46 +20,37 @@ public class Point2Test extends TestCase {
     public void testRInit() {
         Point2 dum = new Point2();
         assertNotNull(dum);
-        Point2.main(null);
-        assertFuzzyEquals("Hello, World\n", systemOut().getHistory());
-    }
+        // args.length == 1
+        String[] arr = new String[1];
+        // args[0] == null
+        arr[0] = null;
+        Point2.main(arr);
+        assertFuzzyEquals("Check your arguments\n", systemOut()
+                .getHistory());
+        // args[0] != null
+        arr[0] = "hi.txt";
+        Point2.main(arr);
+        assertFuzzyEquals("Check your arguments\n", systemOut()
+                .getHistory());
 
-    // ----------------------------------------------------------
-    /**
-     * Test command parser syntax on mostly bad input
-     *
-     * @throws Exception
-     */
-    public void testSyntax1() throws Exception {
-        String[] args = new String[1];
-        args[0] = "P2SyntaxTest1.txt";
-        Point2.main(args);
-        assertEquals("Point rejected: (r_r, -1, -20)\n"
-                + "Point rejected: (rec, 7, -8)\n" + "Duplicate points:\n"
-                + "SkipList dump:\n" + "Node has depth 1, Value (null)\n"
-                + "SkipList size is: 0\n" + "QuadTree dump:\n"
-                + "Node at 0, 0, 1024: Empty\n" + "1 quadtree nodes printed\n"
-                + "Point not found: r_r\n" + "Point not removed: r_r\n"
-                + "Point rejected: (1, -1)\n" + "Point not found: (1, 1)\n"
-                + "Points intersecting region (-5, -5, 20, 20):\n"
-                + "1 quadtree nodes visited\n"
-                + "Rectangle rejected: (5, 5, 4, -2)\n",
+        // args.length != 1
+        String[] arr2 = new String[2];
+        // args[0] == null
+        arr2[0] = null;
+        arr2[1] = null;
+        Point2.main(arr2);
+        assertFuzzyEquals("Check your arguments\nCheck your arguments\n",
                 systemOut().getHistory());
-    }
+        // args[0] != null
+        arr2[0] = "hi.txt";
+        arr2[1] = null;
+        Point2.main(arr2);
+        assertFuzzyEquals(
+                "Check your arguments\nCheck your arguments\nCheck "
+                + "your arguments\n",
+                systemOut().getHistory());
 
-    // ----------------------------------------------------------
-    /**
-     * Simple test of all the "good" command outputs
-     *
-     * @throws Exception
-     */
-    public void testSyntax2() throws Exception {
-        String[] args = new String[1];
-        args[0] = "P2SyntaxTest2.txt";
-        Point2.main(args);
-        assertTrue(systemOut().getHistory()
-                .endsWith("SkipList size is: 2\n" + "QuadTree dump:\n"
-                        + "Node at 0, 0, 1024:\n" + "far, 200, 200\n"
-                        + "r_42, 1, 20\n" + "1 quadtree nodes printed\n"));
+        
+
     }
 }

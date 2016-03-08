@@ -19,7 +19,8 @@ public class PtList {
      * size is 0
      */
     public PtList() {
-        tail = curr = new PtLink(null);
+        tail = new PtLink(null);
+        curr = new PtLink(null);
         head = new PtLink(tail);
         size = 0;
     }
@@ -139,6 +140,8 @@ public class PtList {
 
     /**
      * prints out what's in the list
+     * 
+     * @return the list in string
      */
     public String toString() {
 
@@ -235,7 +238,8 @@ public class PtList {
          */
         public PtLink setNext(PtLink nextval) // Set next field
         {
-            return next = nextval;
+            next = nextval;
+            return next;
         }
 
         /**
@@ -255,7 +259,8 @@ public class PtList {
          * @return the stored point
          */
         public Point setElement(Point it) {
-            return point = it;
+            point = it;
+            return point;
         }
 
         /**

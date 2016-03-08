@@ -8,7 +8,7 @@
  */
 public class PRQuadTreeTest extends student.TestCase {
 
-    Container c;
+    private Container c;
 
     /**
      * set up
@@ -179,9 +179,9 @@ public class PRQuadTreeTest extends student.TestCase {
         c.tree().dump();
 
     }
-    
+
     /**
-     *  testing removing by coordinates
+     * testing removing by coordinates
      */
     public void testRemovebyCoor4() {
 

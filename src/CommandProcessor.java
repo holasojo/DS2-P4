@@ -46,16 +46,18 @@ public class CommandProcessor {
         com = line[0]; // command
 
         if (com.equals("insert")) {
-            
+
             String name = line[1];
-            params = new int[]{Integer.parseInt(line[2]), Integer.parseInt(line[3])};
+            params = new int[] { Integer.parseInt(line[2]),
+                    Integer.parseInt(line[3]) };
             insertPoint(name, params);
-            
+
         }
         else if (com.equals("regionsearch")) {
-           params = new int[]{Integer.parseInt(line[1]), Integer.parseInt(line[2]), 
-                   Integer.parseInt(line[3]), Integer.parseInt(line[4])}; 
-                   regionSearch(params);
+            params = new int[] { Integer.parseInt(line[1]),
+                    Integer.parseInt(line[2]), Integer.parseInt(line[3]),
+                    Integer.parseInt(line[4]) };
+            regionSearch(params);
         }
         else if (com.equals("remove")) {
             // 2 Cases for remove command.
@@ -67,7 +69,8 @@ public class CommandProcessor {
             else {
                 // length of array is not 2. Most likely going to be just 4.
                 // Meaning that it will be regions/coordinates.
-                params = new int[]{Integer.parseInt(line[1]), Integer.parseInt(line[2])};
+                params = new int[] { Integer.parseInt(line[1]),
+                        Integer.parseInt(line[2]) };
                 removeByPoint(params);
             }
         }
@@ -81,7 +84,6 @@ public class CommandProcessor {
             searchByName(line[1]);
         }
     }
-
 
     /**
      * gets called when the command line is insert name x y w h
@@ -137,7 +139,7 @@ public class CommandProcessor {
      */
     private void regionSearch(int[] points) {
         c.regionSearch(points[0], points[1], points[2], points[3]);
- 
+
     }
 
     /**
@@ -156,7 +158,7 @@ public class CommandProcessor {
      * calls the dump method in Container class.
      */
     private void dump() {
-            c.dump();
+        c.dump();
     }
 
     /**

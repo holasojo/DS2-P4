@@ -95,7 +95,8 @@ public class PRQuadTree {
      */
     public void regionSearch(RectangleValue rec) {
 
-        int nodes = root.regionSearch(x1, y1, w, h, this.x, this.y, this.width,
+        RectangleValue rec2 = new RectangleValue(x,y,width,width);
+        int nodes = root.regionSearch(rec, rec2,
                 count);
         System.out.println(nodes + " quadtree nodes visited");
 

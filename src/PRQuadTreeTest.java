@@ -289,11 +289,11 @@ public class PRQuadTreeTest extends student.TestCase {
                         + "300):\nPoint found: (G, 900, 20)\nPoint found: "
                         + "(H, 800, 20)\n2 quadtree nodes visited",
                 systemOut().getHistory());
+        systemOut().clearHistory();
         c.regionSearch(0, 700, 300, 300);
         assertFuzzyEquals(
-                "Points intersecting region (700, 0, 300, "
-                        + "300):\nPoint found: (G, 900, 20)\nPoint found: "
-                        + "(H, 800, 20)\n2 quadtree nodes visited",
+                "Points intersecting region (0, 700, 300, 300):\nPoint "
+                        + "found: (D, 200, 800)\n2 quadtree nodes visited",
                 systemOut().getHistory());
 
     }

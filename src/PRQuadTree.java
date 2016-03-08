@@ -93,7 +93,7 @@ public class PRQuadTree {
      * @param h
      *            is the height
      */
-    public void regionSearch(int x1, int y1, int w, int h) {
+    public void regionSearch(RectangleValue rec) {
 
         int nodes = root.regionSearch(x1, y1, w, h, this.x, this.y, this.width,
                 count);

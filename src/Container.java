@@ -115,7 +115,7 @@ public class Container {
      */
     public boolean fits(int x, int y, int w, int h) {
 
-        return (w >= 0 && h >= 0) && ((x < worldWidth) && (y < worldWidth))
+        return (w > 0 && h > 0) && ((x < worldWidth) && (y < worldWidth))
                 && (x + w > 0) && (y + h > 0);
 
     }
@@ -184,7 +184,8 @@ public class Container {
             System.out.println("Points intersecting region (" + x + ", " + y
                     + ", " + w + ", " + h + "):");
             // start region search
-            tree.regionSearch(x, y, w, h);
+            RectangleValue rec = new RectangleValue (x,y,w,h);
+            tree.regionSearch(rec);
             return true;
 
         }

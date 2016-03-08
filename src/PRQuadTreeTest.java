@@ -248,6 +248,9 @@ public class PRQuadTreeTest extends student.TestCase {
 
     }
 
+    /**
+     * test for regionsearch
+     */
     public void testRegionSearch1() {
         c.insert("A", 1, 20);
         c.insert("B", 10, 30);

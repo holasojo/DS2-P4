@@ -150,8 +150,6 @@ public class IntlNode implements QuadNode {
     public int regionSearch(RectangleValue queryRegion, int xWorld, int yWorld,
             int widthWorld, int nodeCount) {
 
-        // Point regionOrigin = new Point(null, x, y);
-
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld + widthWorld / 2;
 

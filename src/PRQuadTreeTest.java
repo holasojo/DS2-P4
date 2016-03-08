@@ -226,8 +226,7 @@ public class PRQuadTreeTest extends student.TestCase {
         assertFuzzyEquals("Point not found: (0, 0)", systemOut().getHistory());
         systemOut().clearHistory();
         c.tree().dump();
-        assertFuzzyEquals("QuadTree "
-                + "dump:\nNode at 0, 0, 1024: Empty\n1 "
+        assertFuzzyEquals("QuadTree " + "dump:\nNode at 0, 0, 1024: Empty\n1 "
                 + "quadtree nodes printed", systemOut().getHistory());
 
     }
@@ -249,7 +248,7 @@ public class PRQuadTreeTest extends student.TestCase {
 
     }
 
-    public void testRegionSearch1(){
+    public void testRegionSearch1() {
         c.insert("A", 1, 20);
         c.insert("B", 10, 30);
         c.insert("C", 700, 800);
@@ -258,10 +257,13 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("F", 200, 20);
         systemOut().clearHistory();
         c.regionSearch(0, 0, 100, 100);
-        assertFuzzyEquals("duplicate points\n200 200\n800 800",
+        assertFuzzyEquals(
+                "Points intersecting region "
+                        + "(0, 0, 100, 100):\nPoint found: "
+                        + "(A, 1, 20)\nPoint found: "
+                        + "(B, 10, 30)\n3 quadtree nodes visited",
                 systemOut().getHistory());
-        
-        
+
     }
 
 }

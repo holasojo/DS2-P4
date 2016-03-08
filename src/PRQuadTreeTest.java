@@ -250,8 +250,19 @@ public class PRQuadTreeTest extends student.TestCase {
 
     }
 
-    public void testSearchbyCoor1() {
-
+    public void testRegionSearch1(){
+        c.insert("A", 1, 20);
+        c.insert("B", 10, 30);
+        c.insert("C", 700, 800);
+        c.insert("D", 200, 800);
+        c.insert("E", 400, 200);
+        c.insert("F", 200, 20);
+        systemOut().clearHistory();
+        c.regionSearch(0, 0, 100, 100);
+        assertFuzzyEquals("duplicate points\n200 200\n800 800",
+                systemOut().getHistory());
+        
+        
     }
 
 }

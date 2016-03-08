@@ -2,11 +2,11 @@
  * Testing Internal Node
  * @author sohyun
  * @author sshumway
- *
+ * @version 3/7/2016
  */
 public class IntlNodeTest extends student.TestCase {
     
-    IntlNode internal;
+    private IntlNode internal;
     
     /**setup
      * 
@@ -14,6 +14,7 @@ public class IntlNodeTest extends student.TestCase {
     public void setUp()
     {
         //empty
+        internal = new IntlNode();
     }
     
     /**

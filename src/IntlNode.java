@@ -147,8 +147,7 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
-    public int regionSearch(int x, int y, int w, int h, int xWorld, int yWorld,
-            int widthWorld, int nodeCount) {
+    public int regionSearch(RectangleValue rec1, RectangleValue rec2, int nodeCount) {
 
         // Point regionOrigin = new Point(null, x, y);
 

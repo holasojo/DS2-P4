@@ -86,34 +86,34 @@ public class RectangleValueTest extends student.TestCase {
         assertFalse(rec.equals(rec8));
         // same y
         assertFalse(rec.equals(rec5));
-        //same x
+        // same x
         assertFalse(rec.equals(rec11));
-        //same width
+        // same width
         assertFalse(rec.equals(rec12));
-        //same height
+        // same height
         assertFalse(rec.equals(rec13));
-        //same width and height
+        // same width and height
         assertFalse(rec.equals(rec14));
-        //same x and y
+        // same x and y
         assertFalse(rec.equals(rec15));
-        //same width and x
+        // same width and x
         assertFalse(rec.equals(rec16));
-        //same height and y
+        // same height and y
         assertFalse(rec.equals(rec17));
-        //same height and x
+        // same height and x
         assertFalse(rec.equals(rec18));
-        //same width and y
+        // same width and y
         assertFalse(rec.equals(rec19));
         // all but x
         assertFalse(rec.equals(rec20));
-        //all but y
+        // all but y
         assertFalse(rec.equals(rec21));
-        //all but w
+        // all but w
         assertFalse(rec.equals(rec22));
-        //all but h
+        // all but h
         assertFalse(rec.equals(rec23));
         assertFalse(rec.equals(rec24));
-        
+
     }
 
     /**
@@ -133,7 +133,7 @@ public class RectangleValueTest extends student.TestCase {
         assertFalse(rec5.intersect(rec9));
         assertTrue(rec9.intersect(rec9));
         assertFalse(rec10.intersect(rec9));
-        assertEquals(rec10.toString(),"5, 90, 60, 200");
+        assertEquals(rec10.toString(), "5, 90, 60, 200");
     }
 
 }

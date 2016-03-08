@@ -6,18 +6,17 @@
  *
  */
 public class Flyweight implements QuadNode {
-    
-    public Flyweight()
-    {
-        //stateless object
+
+    public Flyweight() {
+        // stateless object
     }
 
     @Override
     public int dump(int x, int y, int width, int level) {
-        
-        String n = QuadNode.spaces(level);   
-        System.out
-                .println(n+ "Node at " + x + ", " + y + ", " + width + ": Empty");
+
+        String n = QuadNode.spaces(level);
+        System.out.println(
+                n + "Node at " + x + ", " + y + ", " + width + ": Empty");
         return 1;
     }
 
@@ -36,23 +35,22 @@ public class Flyweight implements QuadNode {
     }
 
     public Point searchbyCoor(Point pt, int x, int y, int width) {
-        
-        return null;
-        
-    }
 
+        return null;
+
+    }
 
     public int regionSearch(int x, int y, int w, int h, int xWorld, int yWrold,
             int widthWorld, int nodeCount) {
         return 1;
-//        System.out.println(nodeCount + " quadtree nodes printed");
-        
+        // System.out.println(nodeCount + " quadtree nodes printed");
+
     }
 
     @Override
     public void duplicates(int x, int y, int width) {
         // TODO Auto-generated method stub
-        
+
     }
 
 }

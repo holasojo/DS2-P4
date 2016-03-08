@@ -1,2 +1,4 @@
 
-public enum Direction{NW, SW, SE, NE, OUTSIDE};
+public enum Direction {
+    NW, SW, SE, NE, OUTSIDE
+};

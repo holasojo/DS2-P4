@@ -4,7 +4,7 @@
  * 
  * @author sshumway
  * @author sohyun
- *
+ * @version 3/7/2016
  */
 public interface QuadNode {
 

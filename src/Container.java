@@ -95,7 +95,6 @@ public class Container {
             }
         }
         else {
-            System.out.println("Point not found: " + name);
             System.out.println("Point not removed: " + name);
         }
 

@@ -9,6 +9,7 @@
 public class PtListTest extends student.TestCase {
     private PtList list1;
     private PtList list2;
+    private PtList list3;
     private Point p1;
     private Point p2;
     private Point p3;
@@ -22,6 +23,7 @@ public class PtListTest extends student.TestCase {
     public void setUp() {
         list1 = new PtList();
         list2 = new PtList();
+        list3 = new PtList();
         p1 = new Point("A", 1, 1);
         p2 = new Point("B", 2, 2);
         p3 = new Point("C", 1, 1);
@@ -70,7 +72,22 @@ public class PtListTest extends student.TestCase {
         list2.append(new Point("B", 2, 2));
         list2.append(new Point("B", 2, 2));
         assertTrue(list2.checkAllSame(p2));
+        
+        assertNotNull(list2.findbyCoor(new Point("B", 2, 2)));
+        assertNull(list2.findbyCoor(new Point("c", 1000, 1000)));
+        
+        assertNull(list3.remove(new Point("b", 8, 8), false));
+        list3.append(new Point("b", 8 , 8));
+        assertNotNull(list3.remove(new Point("b", 8, 8), false));
+        list3.append(new Point("b", 8 , 8));
+        assertNull(list3.remove(new Point("c", 8, 8), true));
+        assertNotNull(list3.remove(new Point("b", 8, 8), true));
+        
+        assertNull(list3.list());
+        
 
     }
+    
+    
 
 }

@@ -62,7 +62,7 @@ public class Container {
      *            is y-Position. Has to be greater than 0
      * @return true if the size of points fits within the unit
      */
-    public boolean fits(int x, int y) {
+    private boolean fits(int x, int y) {
 
         return (x >= 0 && y >= 0) && ((x < worldWidth) && (y < worldWidth));
 
@@ -88,11 +88,10 @@ public class Container {
             // if there was a points and got removed,
             // print out that it was removed
             // if not, print out points not removed
-            if (removedInTree != null && removed != null) {
+            
 
                 System.out.println("Point removed: " + "("
                         + removedInTree.toString() + ")");
-            }
         }
         else {
             System.out.println("Point not removed: " + name);
@@ -101,7 +100,7 @@ public class Container {
     }
 
     /**
-     * checking bounds of the points
+     * Checks to make sure search region is valid.
      * 
      * @param x
      *            is x-Position. Has to be greater than 0
@@ -115,11 +114,9 @@ public class Container {
      */
     public boolean fits(int x, int y, int w, int h) {
 
-        return (w >= 0 && h >= 0) && ((x < worldWidth) && (y < worldWidth))
-                && (x + w >= 0) && (y + h >= 0);
+        return (w > 0 && h > 0) && (x + w > 0) && (y + h > 0);
 
     }
-
 
     /**
      * calls remove method in skipList class.
@@ -185,7 +182,7 @@ public class Container {
             System.out.println("Points intersecting region (" + x + ", " + y
                     + ", " + w + ", " + h + "):");
             // start region search
-            RectangleValue rec = new RectangleValue (x,y,w,h);
+            RectangleValue rec = new RectangleValue(x, y, w, h);
             tree.regionSearch(rec);
             return true;
 

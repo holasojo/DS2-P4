@@ -106,21 +106,21 @@ public class Point {
         return name + ", " + xPos + ", " + yPos;
     }
 
-    // /**
-    // * Compares two points
-    // *
-    // * @param o
-    // * is the one gets compared
-    // * @return true of name and coordinates are the same
-    // */
-    // public boolean equals(Object o) {
-    // if (!o.getClass().equals(this.getClass())) {
-    // return false;
-    // }
-    // Point it = (Point) o;
-    // return this.getX() == it.getX() && this.getY() == it.getY()
-    // && this.getName().equals(it.getName());
-    // }
+     /**
+     * Compares two points
+     *
+     * @param o
+     * is the one gets compared
+     * @return true of name and coordinates are the same
+     */
+     public boolean equals(Object o) {
+     if (!o.getClass().equals(this.getClass())) {
+     return false;
+     }
+     Point it = (Point) o;
+     return this.getX() == it.getX() && this.getY() == it.getY()
+     && this.getName().equals(it.getName());
+     }
 
     /**
      * Compares coordinates of two points

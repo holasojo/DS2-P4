@@ -167,15 +167,15 @@ public class IntlNode implements QuadNode {
             return 1 + nw.regionSearch(queryRegion, xWorld, yWorld,
                     widthWorld / 2, nodeCount++);
         }
-        else if (queryRegion.intersect(neRegion)) {
+        if (queryRegion.intersect(neRegion)) {
             return 1 + ne.regionSearch(queryRegion, centerX, yWorld,
                     widthWorld / 2, nodeCount++);
         }
-        else if (queryRegion.intersect(swRegion)) {
+        if (queryRegion.intersect(swRegion)) {
             return 1 + sw.regionSearch(queryRegion, xWorld, centerY,
                     widthWorld / 2, nodeCount++);
         }
-        else if (queryRegion.intersect(seRegion)) {
+        if (queryRegion.intersect(seRegion)) {
             return 1 + se.regionSearch(queryRegion, centerX, centerY,
                     widthWorld / 2, nodeCount++);
         }

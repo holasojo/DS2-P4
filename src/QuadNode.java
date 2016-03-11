@@ -55,20 +55,6 @@ public interface QuadNode {
      */
     public int dump(int x, int y, int width, int level);
 
-    /**
-     * used to calculates how many spaces we need when dump()
-     * 
-     * @param level
-     *            of a node
-     * @return spaces
-     */
-    public static String spaces(int level) {
-        String spaceStr = "";
-        for (int i = 0; i < level; i++) {
-            spaceStr += "  ";
-        }
-        return spaceStr;
-    }
 
     /**
      * Looking for a point

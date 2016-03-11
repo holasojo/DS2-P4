@@ -193,5 +193,21 @@ public class IntlNode implements QuadNode {
         se.duplicates(x + width / 2, y + width / 2, width / 2);
 
     }
+    
+
+    /**
+     * used to calculates how many spaces we need when dump()
+     * 
+     * @param level
+     *            of a node
+     * @return spaces
+     */
+    public static String spaces(int level) {
+        String spaceStr = "";
+        for (int i = 0; i < level; i++) {
+            spaceStr += "  ";
+        }
+        return spaceStr;
+    }
 
 }

@@ -115,5 +115,21 @@ public class LeafNode implements QuadNode {
             }
         }
     }
+    
+
+    /**
+     * used to calculates how many spaces we need when dump()
+     * 
+     * @param level
+     *            of a node
+     * @return spaces
+     */
+    public static String spaces(int level) {
+        String spaceStr = "";
+        for (int i = 0; i < level; i++) {
+            spaceStr += "  ";
+        }
+        return spaceStr;
+    }
 
 }

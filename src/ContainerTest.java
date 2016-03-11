@@ -44,6 +44,7 @@ public class ContainerTest extends student.TestCase {
         assertFalse(box.regionSearch(-10, 200, 5, 10));
         assertFalse(box.regionSearch(10, -5, 20, -2));
         assertFalse(box.regionSearch(0, 0, 0, 0));
+        assertFalse(box.regionSearch(-200, -200, -10, -10));
         assertNotNull(box.getList());
     }
     

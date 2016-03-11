@@ -104,7 +104,7 @@ public class SkipListTest extends student.TestCase {
         list = con3.getList();
         con3.removebyCoor(0, 0);
         assertEquals(8, list.size());
-        con3.removebyCoor(1024, 1024);
+        con3.removebyCoor(1023, 1023);
         assertEquals(7, list.size());
         // not in the list
         con3.removebyCoor(3, 3);

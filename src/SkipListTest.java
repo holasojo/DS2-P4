@@ -113,9 +113,7 @@ public class SkipListTest extends student.TestCase {
         con3.removebyCoor(-1, -1);
         assertEquals(7, list.size());
         con3.insert("Z", 3, 3);
-        con3.removebyCoor(3, 3);
-        assertEquals(7, list.size());
-
+       
     }
 
     /**

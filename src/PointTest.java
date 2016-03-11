@@ -1,11 +1,17 @@
-
+/**
+ * Point test class
+ * @author sohyun
+ * @author sshumway
+ * @version 3/11/2016
+ *
+ */
 public class PointTest extends student.TestCase {
 
-    Point pt1;
-    Point pt2;
-    Point pt3;
-    Point pt4;
-    Point pt5;
+    private Point pt1;
+    private Point pt2;
+    private Point pt3;
+    private Point pt4;
+    private Point pt5;
 
     public void setUp() {
         pt1 = new Point("A", 1, 1);

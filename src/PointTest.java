@@ -1,5 +1,6 @@
 /**
  * Point test class
+ * 
  * @author sohyun
  * @author sshumway
  * @version 3/11/2016
@@ -63,22 +64,27 @@ public class PointTest extends student.TestCase {
     public void testInRegion() {
         // !(this.xPos < x || x + w <= this.xPos || this.yPos < y
         // || y + h <= this.yPos);
-        
+
     }
 
     public void testQuadrant() {
-        Point pt6 = new Point (1, 1);
-        Point pt7 = new Point (1, 8);
-        Point pt8 = new Point (8, 1);
-        Point pt9 = new Point (8, 8);
-        
+        Point pt6 = new Point(1, 1);
+        Point pt7 = new Point(1, 8);
+        Point pt8 = new Point(8, 1);
+        Point pt9 = new Point(8, 8);
+        Point pt10 = new Point(5, 5);
+        Point pt11 = new Point(5, 8);
+        Point pt12 = new Point(8, 5);
+
+        // (yPos < centerY && xPos < centerX)
         assertEquals(pt6.quadrant(5, 5), Direction.NW);
+        // (yPos > centerY && xPos < centerX)
+        // (yPos < centerY && xPos > centerX)
+        // (yPos > centerY && xPos > centerX)
         assertEquals(pt7.quadrant(5, 5), Direction.SW);
         assertEquals(pt8.quadrant(5, 5), Direction.NE);
         assertEquals(pt9.quadrant(5, 5), Direction.SE);
-        // if (yPos < centerY && xPos < centerX) {
-        // return Direction.NW;
-        // }
+
         // else if (yPos < centerY && xPos >= centerX) {
         // return Direction.NE;
         // }
@@ -88,8 +94,7 @@ public class PointTest extends student.TestCase {
         // else if (yPos >= centerY && xPos >= centerX) {
         // return Direction.SE;
         // }
-        //
-        // return Direction.OUTSIDE;
+        assertEquals(pt10.quadrant(5, 5), Direction.SE);
     }
 
 }

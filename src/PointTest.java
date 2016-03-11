@@ -63,14 +63,16 @@ public class PointTest extends student.TestCase {
 
     public void testInRegion() {
         
-        Point pt6 = new Point("A", 1, 1);
-        Point pt7 = new Point("A", 1, 1);
-        Point pt8 = new Point("A", 1, 1);
-        Point pt9 = new Point("A", 1, 1);
+        Point pt6 = new Point("A", 8, 8);
+        Point pt7 = new Point("A", 2, 8);
+        Point pt8 = new Point("A", 8, 2);
+        Point pt9 = new Point("A", 15, 15);
+        Point pt10 = new Point("A", 8, 15);
+        Point pt11 = new Point("A", 15, 8);
         // !(this.xPos < x || x + w <= this.xPos || this.yPos < y
         // || y + h <= this.yPos);
-        assertTrue(pt1.inRegion(5, 5, 10, 10));
-        assertTrue(pt1.inRegion(5, 5, 10, 10));
+        assertTrue(pt6.inRegion(5, 5, 5, 5));
+        assertTrue(pt1.inRegion(5, 5, 5, 5));
 
     }
 

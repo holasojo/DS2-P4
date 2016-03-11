@@ -92,9 +92,9 @@ public class Point {
         else if (yPos >= centerY && xPos >= centerX) {
             return Direction.SE;
         }
-        else {
-            return Direction.OUTSIDE;
-        }
+
+        return Direction.OUTSIDE;
+
     }
 
     /**

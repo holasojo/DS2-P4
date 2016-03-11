@@ -307,9 +307,12 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("A", 5, 5);
         c.insert("B", 30, 30);
         c.insert("C", 0, 0);
-        c.insert("D", 512, 512);
+//        c.insert("D", 512, 512);
+        c.insert("E", 700, 700);
+        c.dump();
         systemOut().clearHistory();
-        c.regionSearch(0, 0, 514, 514);
+//        c.regionSearch(0, 0, 514, 514);
+        c.regionSearch(0, 0, 900, 900);
         assertFuzzyEquals(
                 "Points intersecting region (0, 700, 300, 300):\nPoint "
                         + "found: (D, 200, 800)\n2 quadtree nodes visited",

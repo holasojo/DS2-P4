@@ -72,8 +72,6 @@ public class PointTest extends student.TestCase {
         Point pt8 = new Point (8, 1);
         Point pt9 = new Point (8, 8);
         
-        
-  
         assertEquals(pt6.quadrant(5, 5), Direction.NW);
         assertEquals(pt7.quadrant(5, 5), Direction.SW);
         assertEquals(pt8.quadrant(5, 5), Direction.NE);

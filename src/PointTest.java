@@ -64,6 +64,7 @@ public class PointTest extends student.TestCase {
     public void testInRegion() {
         // !(this.xPos < x || x + w <= this.xPos || this.yPos < y
         // || y + h <= this.yPos);
+        assertTrue(pt1.inRegion(0, 0, 10, 10));
 
     }
 

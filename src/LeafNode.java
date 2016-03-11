@@ -17,15 +17,7 @@ public class LeafNode implements QuadNode {
         list = new PtList();
     }
 
-    /**
-     * checks to see if it's leafnode or not
-     * 
-     * @return true if it's leaf node
-     */
-    public boolean isLeaf() {
-        return true;
-    }
-
+ 
     @Override
     public int dump(int x, int y, int width, int level) {
         String n = QuadNode.spaces(level);

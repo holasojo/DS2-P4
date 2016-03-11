@@ -151,7 +151,7 @@ public class IntlNode implements QuadNode {
             int widthWorld, int nodeCount) {
 
         int count = 1;
-        nodeCount=1;
+       
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld + widthWorld / 2;
 
@@ -180,7 +180,7 @@ public class IntlNode implements QuadNode {
             count = 1 + se.regionSearch(queryRegion, centerX, centerY,
                     widthWorld / 2, nodeCount++);
         }
-        return nodeCount;
+        return count;
 
         //
         // if (queryRegion.intersect(nwRegion)) {

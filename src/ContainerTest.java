@@ -58,7 +58,8 @@ public class ContainerTest extends student.TestCase {
         // (x + w > 0) && (y + h > 0);
         systemOut().clearHistory();
         assertTrue(box.regionSearch(-100, -200, 300, 300));
-        assertFuzzyEquals("Rectangle Rejected (100, 200, -10, -12)",
+        assertFuzzyEquals("Points intersecting region (-100, -200, 300, 300):\n0 "
+                + "quadtree nodes visited",
                 systemOut().getHistory());
 
         

@@ -83,10 +83,10 @@ public class Point {
         if (yPos < centerY && xPos < centerX) {
             return Direction.NW;
         }
-        else if (yPos < centerY && xPos >= centerX) {
+        if (yPos < centerY && xPos >= centerX) {
             return Direction.NE;
         }
-        else if (yPos >= centerY && xPos < centerX) {
+        if (yPos >= centerY && xPos < centerX) {
             return Direction.SW;
         }
 

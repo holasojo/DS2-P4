@@ -34,37 +34,43 @@ public class ContainerTest extends student.TestCase {
      */
     public void testRegionSearch() {
         // (w > 0 && h > 0) && (x + w > 0) && (y + h > 0);
-        // (w > 0 && h > 0)
+        // (w > 0 && h > 0) && (x + w > 0) && (y + h > 0);
         systemOut().clearHistory();
         assertTrue(box.regionSearch(100, 200, 10, 12));
         assertFuzzyEquals("Points intersecting region (100, 200, 10, 12):\n0 "
                 + "quadtree nodes visited", systemOut().getHistory());
         // (w > 0 || h > 0)
-        // w > 0 && h < 0
+        // w > 0 && h < 0 && (x + w > 0) && (y + h > 0);
         systemOut().clearHistory();
         assertFalse(box.regionSearch(100, 200, 10, -12));
         assertFuzzyEquals("Rectangle Rejected (100, 200, 10, -12)",
                 systemOut().getHistory());
-        // w < 0 && h > 0
+        // w < 0 && h > 0 && (x + w > 0) && (y + h > 0);
         systemOut().clearHistory();
         assertFalse(box.regionSearch(100, 200, -10, 12));
         assertFuzzyEquals("Rectangle Rejected (100, 200, -10, 12)",
                 systemOut().getHistory());
-        // w < 0 && h < 0
+        // w < 0 && h < 0 && (x + w > 0) && (y + h > 0);
         systemOut().clearHistory();
         assertFalse(box.regionSearch(100, 200, -10, -12));
         assertFuzzyEquals("Rectangle Rejected (100, 200, -10, -12)",
                 systemOut().getHistory());
 
+        
         assertFalse(box.regionSearch(100, 200, -10, -12));
         assertFalse(box.regionSearch(100, 200, 20, -5));
         assertFalse(box.regionSearch(-10, 200, 5, 10));
         assertFalse(box.regionSearch(10, -5, 20, -2));
-        assertFalse(box.regionSearch(0, 0, 0, 0));
+        
+        
         assertFalse(box.regionSearch(-200, -200, -10, -10));
+        systemOut().clearHistory();
+        assertFalse(box.regionSearch(0, 0, 0, 0));
+        assertFuzzyEquals("Rectangle Rejected (0, 0, 0, 0)",
+                systemOut().getHistory());
         assertNotNull(box.getList());
 
-        systemOut().clearHistory();
+     
 
     }
 

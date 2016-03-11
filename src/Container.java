@@ -88,10 +88,9 @@ public class Container {
             // if there was a points and got removed,
             // print out that it was removed
             // if not, print out points not removed
-            
 
-                System.out.println("Point removed: " + "("
-                        + removedInTree.toString() + ")");
+            System.out.println(
+                    "Point removed: " + "(" + removedInTree.toString() + ")");
         }
         else {
             System.out.println("Point not removed: " + name);
@@ -139,8 +138,9 @@ public class Container {
             }
             // the one got removed
             else {
-                KVPair<String, Point> removed = list.remove(removeThis);
-                if (removed != null && removeThis != null) {
+               
+                if (removeThis != null) {
+                    KVPair<String, Point> removed = list.remove(removeThis);
                     // points was in the skip list and got removed
                     System.out.println(
                             "Point removed: (" + removed.toString() + ")");

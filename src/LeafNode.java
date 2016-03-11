@@ -17,7 +17,6 @@ public class LeafNode implements QuadNode {
         list = new PtList();
     }
 
- 
     @Override
     public int dump(int x, int y, int width, int level) {
         String n = QuadNode.spaces(level);
@@ -89,9 +88,10 @@ public class LeafNode implements QuadNode {
     public int regionSearch(RectangleValue rec, int xWorld, int yWorld,
             int widthWorld) {
         Point[] points = list.remove();
-        //RectangleValue rec2 = null;
+        // RectangleValue rec2 = null;
         for (Point it : points) {
-            if (it.inRegion(rec.getPosX(), rec.getPosY(), rec.getWidth(), rec.getHeight())) {
+            if (it.inRegion(rec.getPosX(), rec.getPosY(), rec.getWidth(),
+                    rec.getHeight())) {
                 System.out.println("Point found: (" + it.toString() + ")");
             }
         }

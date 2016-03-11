@@ -69,7 +69,7 @@ public class PointTest extends student.TestCase {
     public void testQuadrant() {
         Point pt = new Point (10, 10);
         
-        pt.quadrant(5, 5);
+        pt1.quadrant(5, 5);
         assertEquals(pt.quadrant(5, 5), Direction.NW);
         // if (yPos < centerY && xPos < centerX) {
         // return Direction.NW;

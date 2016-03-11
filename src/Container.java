@@ -145,11 +145,7 @@ public class Container {
                     System.out.println(
                             "Point removed: (" + removed.toString() + ")");
                 }
-                // else {
-                // // points was not in the skiplist
-                // System.out.println("Point not removed: (" + x + ", " + y +
-                // ")");
-                // }
+             
             }
         }
         // if the points size and position not meet requirements, print out

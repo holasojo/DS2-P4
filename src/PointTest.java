@@ -52,11 +52,11 @@ public class PointTest extends student.TestCase {
         // this.getX() == it.getX() && this.getY() == it.getY();
         assertTrue(pt1.equalsCoor(pt1));
         // this.getX() != it.getX() && this.getY() == it.getY();
-        assertTrue(pt1.equalsCoor(pt4));
+        assertFalse(pt1.equalsCoor(pt4));
         // this.getX() == it.getX() && this.getY() != it.getY();
-        assertTrue(pt1.equalsCoor(pt3));
+        assertFalse(pt1.equalsCoor(pt3));
         // this.getX() != it.getX() && this.getY() != it.getY();
-        assertTrue(pt1.equalsCoor(pt5));
+        assertFalse(pt1.equalsCoor(pt5));
 
     }
 

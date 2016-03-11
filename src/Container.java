@@ -138,14 +138,12 @@ public class Container {
             }
             // the one got removed
             else {
-               
-              
-                    KVPair<String, Point> removed = list.remove(removeThis);
-                    // points was in the skip list and got removed
-                    System.out.println(
-                            "Point removed: (" + removed.toString() + ")");
-                
-             
+
+                KVPair<String, Point> removed = list.remove(removeThis);
+                // points was in the skip list and got removed
+                System.out
+                        .println("Point removed: (" + removed.toString() + ")");
+
             }
         }
         // if the points size and position not meet requirements, print out

@@ -13,7 +13,6 @@ public class PRQuadTree {
     private int x;
     private int y;
     private int width;
-    private static int count;
 
     /**
      * constructor.
@@ -84,18 +83,10 @@ public class PRQuadTree {
     /**
      * Search all the points that are within the region
      * 
-     * @param x1
-     *            is the x pos
-     * @param y1
-     *            is the y pos
-     * @param w
-     *            is the width
-     * @param h
-     *            is the height
+     * @param rec is the region that we are looking into
      */
     public void regionSearch(RectangleValue rec) {
 
-        
         int nodes = root.regionSearch(rec, x, y, width);
         System.out.println(nodes + " quadtree nodes visited");
 

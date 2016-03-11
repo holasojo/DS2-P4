@@ -148,7 +148,7 @@ public class IntlNode implements QuadNode {
 
     @Override
     public int regionSearch(RectangleValue queryRegion, int xWorld, int yWorld,
-            int widthWorld) {
+            int widthWorld, int nodeCount) {
 
         int count = 1;
 
@@ -166,21 +166,21 @@ public class IntlNode implements QuadNode {
 
         if (queryRegion.intersect(nwRegion)) {
             count = 1 + nw.regionSearch(queryRegion, xWorld, yWorld,
-                    widthWorld / 2);
+                    widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(neRegion)) {
             count = 1 + ne.regionSearch(queryRegion, centerX, yWorld,
-                    widthWorld / 2);
+                    widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(swRegion)) {
             count = 1 + sw.regionSearch(queryRegion, xWorld, centerY,
-                    widthWorld / 2);
+                    widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(seRegion)) {
             count = 1 + se.regionSearch(queryRegion, centerX, centerY,
-                    widthWorld / 2);
+                    widthWorld / 2, nodeCount++);
         }
-        return count;
+        return nodeCount;
 
         //
         // if (queryRegion.intersect(nwRegion)) {

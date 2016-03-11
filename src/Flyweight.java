@@ -47,8 +47,8 @@ public class Flyweight implements QuadNode {
 
     @Override
     public int regionSearch(RectangleValue rec, int xWorld, int yWrold,
-            int widthWorld) {
-        return 1;
+            int widthWorld, int nodeCount) {
+        return 0;
 
     }
 

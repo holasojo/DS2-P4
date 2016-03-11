@@ -124,7 +124,7 @@ public class PointTest extends student.TestCase {
         assertEquals(pt6.quadrant(8, 8), Direction.NW);
         assertEquals(pt7.quadrant(8, 8), Direction.NE);
         assertEquals(pt8.quadrant(8, 8), Direction.SW);
-        assertEquals(pt9.quadrant(8, 8), Direction.SE);
+        assertEquals(pt9.quadrant(8, 8), Direction.NE);
         assertEquals(pt10.quadrant(8, 8), Direction.SE);
         assertEquals(pt11.quadrant(8, 8), Direction.SE);
         assertEquals(pt12.quadrant(8, 8), Direction.SE);

@@ -166,21 +166,21 @@ public class IntlNode implements QuadNode {
 
         if (queryRegion.intersect(nwRegion)) {
             count = 1 + nw.regionSearch(queryRegion, xWorld, yWorld,
-                    widthWorld / 2, nodeCount++);
+                    widthWorld / 2);
         }
         if (queryRegion.intersect(neRegion)) {
             count = 1 + ne.regionSearch(queryRegion, centerX, yWorld,
-                    widthWorld / 2, nodeCount++);
+                    widthWorld / 2);
         }
         if (queryRegion.intersect(swRegion)) {
             count = 1 + sw.regionSearch(queryRegion, xWorld, centerY,
-                    widthWorld / 2, nodeCount++);
+                    widthWorld / 2);
         }
         if (queryRegion.intersect(seRegion)) {
             count = 1 + se.regionSearch(queryRegion, centerX, centerY,
-                    widthWorld / 2, nodeCount++);
+                    widthWorld / 2);
         }
-        return nodeCount;
+        return count;
 
         //
         // if (queryRegion.intersect(nwRegion)) {

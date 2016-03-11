@@ -70,7 +70,7 @@ public class PointTest extends student.TestCase {
         Point pt = new Point (10, 10);
         
         pt.quadrant(5, 5);
-        assertEquals(pt.quadrant(5, 5).getClass(), Direction.NW);
+        assertEquals(pt.quadrant(5, 5), Direction.NW);
         // if (yPos < centerY && xPos < centerX) {
         // return Direction.NW;
         // }

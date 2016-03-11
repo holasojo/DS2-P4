@@ -158,10 +158,6 @@ public class SkipListTest extends student.TestCase {
         assertEquals(0, list.size());
         con.insert("it's", 7, -8);
         assertEquals(0, list.size());
-        con.insert("me", 0, 0);
-        assertEquals(0, list.size());
-        con.insert("from", 0, 0);
-        assertEquals(0, list.size());
         con.insert("thousand", 1, 1);
         assertEquals(0, list.size());
         con.insert("miles", 1, 1);

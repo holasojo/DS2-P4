@@ -92,7 +92,7 @@ public class PointTest extends student.TestCase {
         // else if (yPos >= centerY && xPos < centerX) {
         // return Direction.SW;
         // }
-        assertEquals(pt11.quadrant(5, 5), Direction.SE);
+        assertEquals(pt11.quadrant(5, 5), Direction.NE);
         
         // else if (yPos >= centerY && xPos >= centerX) {
         // return Direction.SE;

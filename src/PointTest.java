@@ -14,6 +14,9 @@ public class PointTest extends student.TestCase {
     private Point pt4;
     private Point pt5;
 
+    /**
+     * setup
+     */
     public void setUp() {
         pt1 = new Point("A", 1, 1);
         pt2 = new Point("B", 1, 1);
@@ -22,6 +25,9 @@ public class PointTest extends student.TestCase {
         pt5 = new Point("A", 3, 3);
     }
 
+    /**
+     * testing equals() method
+     */
     public void testEquals() {
         // this.getX() == it.getX() && this.getY() == it.getY()
         // && this.getName().equals(it.getName());
@@ -49,6 +55,9 @@ public class PointTest extends student.TestCase {
         assertFalse(pt1.equals(new Point("B", 2, 2)));
     }
 
+    /**
+     * testing equalsCoor() method
+     */
     public void testEqualsCoor() {
         // this.getX() == it.getX() && this.getY() == it.getY();
         assertTrue(pt1.equalsCoor(pt1));
@@ -61,8 +70,11 @@ public class PointTest extends student.TestCase {
 
     }
 
+    /**
+     * testing inRegion() method
+     */
     public void testInRegion() {
-        
+
         Point pt6 = new Point("A", 8, 8);
         Point pt7 = new Point("A", 2, 15);
         Point pt8 = new Point("A", 15, 2);
@@ -82,6 +94,9 @@ public class PointTest extends student.TestCase {
 
     }
 
+    /**
+     * testing quadrant()
+     */
     public void testQuadrant() {
         Point pt6 = new Point(1, 1);
         Point pt7 = new Point(1, 8);
@@ -108,7 +123,7 @@ public class PointTest extends student.TestCase {
         // return Direction.SW;
         // }
         assertEquals(pt11.quadrant(5, 5), Direction.NE);
-        
+
         // else if (yPos >= centerY && xPos >= centerX) {
         // return Direction.SE;
         // }

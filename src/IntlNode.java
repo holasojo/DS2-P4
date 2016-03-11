@@ -52,7 +52,7 @@ public class IntlNode implements QuadNode {
     @Override
     public int dump(int x, int y, int width, int level) {
 
-        String n = QuadNode.spaces(level);
+        String n = spaces(level);
 
         System.out.println(
                 n + "Node at " + x + ", " + y + ", " + width + ": Internal");

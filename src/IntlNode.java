@@ -150,8 +150,7 @@ public class IntlNode implements QuadNode {
     public int regionSearch(RectangleValue queryRegion, int xWorld, int yWorld,
             int widthWorld, int nodeCount) {
 
-//        int count = 1;
-        nodeCount = 1;
+        int count = 1;
 
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld + widthWorld / 2;
@@ -166,19 +165,19 @@ public class IntlNode implements QuadNode {
                 widthWorld / 2, widthWorld / 2);
 
         if (queryRegion.intersect(nwRegion)) {
-            nodeCount = 1 + nw.regionSearch(queryRegion, xWorld, yWorld,
+            count = 1 + nw.regionSearch(queryRegion, xWorld, yWorld,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(neRegion)) {
-            nodeCount = 1 + ne.regionSearch(queryRegion, centerX, yWorld,
+            count = 1 + ne.regionSearch(queryRegion, centerX, yWorld,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(swRegion)) {
-            nodeCount = 1 + sw.regionSearch(queryRegion, xWorld, centerY,
+            count = 1 + sw.regionSearch(queryRegion, xWorld, centerY,
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(seRegion)) {
-            nodeCount = 1 + se.regionSearch(queryRegion, centerX, centerY,
+            count = 1 + se.regionSearch(queryRegion, centerX, centerY,
                     widthWorld / 2, nodeCount++);
         }
         return nodeCount;

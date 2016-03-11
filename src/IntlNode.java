@@ -177,10 +177,10 @@ public class IntlNode implements QuadNode {
                     widthWorld / 2, nodeCount++);
         }
         if (queryRegion.intersect(seRegion)) {
-            count = 1 + se.regionSearch(queryRegion, centerX, centerY,
+            1 + se.regionSearch(queryRegion, centerX, centerY,
                     widthWorld / 2, nodeCount++);
         }
-        return count;
+        return nodeCount;
 
         //
         // if (queryRegion.intersect(nwRegion)) {

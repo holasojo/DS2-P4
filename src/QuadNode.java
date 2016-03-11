@@ -63,11 +63,11 @@ public interface QuadNode {
      * @return spaces
      */
     public static String spaces(int level) {
-        String str = "";
+        String SPACE_STR = "";
         for (int i = 0; i < level; i++) {
-            str += "  ";
+            SPACE_STR += "  ";
         }
-        return str;
+        return SPACE_STR;
     }
 
     /**

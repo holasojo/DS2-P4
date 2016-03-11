@@ -70,6 +70,7 @@ public class ContainerTest extends student.TestCase {
         assertFuzzyEquals("Rectangle Rejected (0, 0, 0, 0)",
                 systemOut().getHistory());
         systemOut().clearHistory();
+        //positive
         assertFalse(box.regionSearch(1, 1, 0, 0));
         assertFuzzyEquals("Rectangle Rejected (1, 1, 0, 0)",
                 systemOut().getHistory());
@@ -82,6 +83,15 @@ public class ContainerTest extends student.TestCase {
         assertFuzzyEquals("Rectangle Rejected (0, 1, 0, 0)",
                 systemOut().getHistory());
         systemOut().clearHistory();
+        assertFalse(box.regionSearch(0, 0, 1, 0));
+        assertFuzzyEquals("Rectangle Rejected (0, 0, 1, 0)",
+                systemOut().getHistory());
+        systemOut().clearHistory();
+        assertFalse(box.regionSearch(0, 0, 0, 1));
+        assertFuzzyEquals("Rectangle Rejected (0, 0, 0, 1)",
+                systemOut().getHistory());
+        //negative
+        systemOut().clearHistory();
         assertFalse(box.regionSearch(0, -1, 0, 0));
         assertFuzzyEquals("Rectangle Rejected (0, -1, 0, 0)",
                 systemOut().getHistory());
@@ -92,10 +102,6 @@ public class ContainerTest extends student.TestCase {
         systemOut().clearHistory();
         assertFalse(box.regionSearch(-1, -1, 0, 0));
         assertFuzzyEquals("Rectangle Rejected (-1, -1, 0, 0)",
-                systemOut().getHistory());
-        systemOut().clearHistory();
-        assertFalse(box.regionSearch(-1, 0, 0, 0));
-        assertFuzzyEquals("Rectangle Rejected (-1, 0, 0, 0)",
                 systemOut().getHistory());
         systemOut().clearHistory();
         assertFalse(box.regionSearch(0, 0, -1, 0));

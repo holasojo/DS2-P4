@@ -151,7 +151,7 @@ public class IntlNode implements QuadNode {
             int widthWorld, int nodeCount) {
 
         int count = 1;
-
+        nodeCount=1;
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld + widthWorld / 2;
 

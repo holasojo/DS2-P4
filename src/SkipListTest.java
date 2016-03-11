@@ -51,13 +51,12 @@ public class SkipListTest extends student.TestCase {
         assertEquals(0, list.size());
         systemOut().clearHistory();
         con2.search("A");
-        assertFuzzyEquals("Rectangle not found: A\n", systemOut().getHistory());
+        assertFuzzyEquals("Point not found: A\n", systemOut().getHistory());
 
         con2.insert("A", 0, 0);
         systemOut().clearHistory();
         con2.search("A");
-        assertFuzzyEquals("Rectangles found:\nA 0, 0, 1, 1\n",
-                systemOut().getHistory());
+        assertFuzzyEquals("found: A 0, 0\n", systemOut().getHistory());
         assertEquals(1, list.size());
         con2.insert("B", 0, 0);
         assertEquals(2, list.size());
@@ -66,7 +65,7 @@ public class SkipListTest extends student.TestCase {
         systemOut().clearHistory();
 
         con2.search("Z");
-        assertFuzzyEquals("Rectangle not found: Z\n", systemOut().getHistory());
+        assertFuzzyEquals("Point not found: Z\n", systemOut().getHistory());
         con2.insert("E", 1023, 1023);
         assertEquals(4, list.size());
         con2.insert("E", 0, 1023);
@@ -75,22 +74,20 @@ public class SkipListTest extends student.TestCase {
         systemOut().clearHistory();
 
         con2.search("E");
-        assertFuzzyEquals("Rectangles found:\nE 1023, 0, 1, 1\nE 0, 1023, 1, "
-                + "1\nE 1023, 1023, 1, 1\n", systemOut().getHistory());
+        assertFuzzyEquals("found: E 1023, 0\nfound: E 0, 1023"
+                + "\nfound: E 1023, 1023\n", systemOut().getHistory());
         assertEquals(6, list.size());
         con2.insert("C", 1, 1);
         con2.insert("C", 1, 1);
         con2.insert("C", 1, 1);
         systemOut().clearHistory();
         con2.search("C");
-        assertFuzzyEquals(
-                "Rectangles found:\nC 1, 1, 1, 1\nC 1, 1, 1, 1\nC "
-                        + "1, 1, 1, 1\nC 1, 1, 1, 1\n",
-                systemOut().getHistory());
+        assertFuzzyEquals("found: C 1, 1\nfound: C 1, 1\nfound: C "
+                + "1, 1\nfound: C 1, 1\n", systemOut().getHistory());
         systemOut().clearHistory();
 
         con2.search("D");
-        assertFuzzyEquals("Rectangle not found: D\n", systemOut().getHistory());
+        assertFuzzyEquals("Point not found: D\n", systemOut().getHistory());
 
     }
 
@@ -99,24 +96,24 @@ public class SkipListTest extends student.TestCase {
      */
     public void testRemoveByRegion() {
         // remove from the empty list
-        con.remove(1, 1, 1, 1);
+        con.removebyCoor(1, 1);
         assertEquals(0, con.getList().size());
-        con.remove(-1, -1, -1, -1);
+        con.removebyCoor(-1, -1);
         assertEquals(0, con.getList().size());
         // list now has rectangles inserted
         list = con3.getList();
-        con3.remove(0, 0, 1, 1);
+        con3.removebyCoor(0, 0);
         assertEquals(8, list.size());
-        con3.remove(0, 0, 1024, 1024);
+        con3.removebyCoor(1024, 1024);
         assertEquals(7, list.size());
         // not in the list
-        con3.remove(3, 3, 100, 100);
+        con3.removebyCoor(3, 3);
         assertEquals(7, list.size());
         // rectangle not valid
-        con3.remove(0, 0, -1, -1);
+        con3.removebyCoor(-1, -1);
         assertEquals(7, list.size());
-        con3.insert("Z", 3, 3, 3, 3);
-        con3.remove(3, 3, 3, 3);
+        con3.insert("Z", 3, 3);
+        con3.removebyCoor(3, 3);
         assertEquals(7, list.size());
 
     }
@@ -192,87 +189,42 @@ public class SkipListTest extends student.TestCase {
     public void testRemove() {
         list = con3.getList();
         assertNotNull(list);
-        con3.remove("C");
+        con3.removebyName("C");
         assertEquals(8, list.size());
-        con3.remove("A");
+        con3.removebyName("A");
         assertEquals(7, list.size());
-        con3.remove("C");
-        con3.remove("C");
-        con3.remove("C");
+        con3.removebyName("C");
+        con3.removebyName("C");
+        con3.removebyName("C");
         assertEquals(4, list.size());
-        con3.remove("C"); // trying to remove when it's not there.
+        con3.removebyName("C"); // trying to remove when it's not there.
         assertEquals(4, list.size());
         list.dump();
-        con3.remove("B");
-        con3.remove("D");
+        con3.removebyName("B");
+        con3.removebyName("D");
         list.dump();
-        con3.remove("E");
+        con3.removebyName("E");
         assertEquals(2, list.size());
-        con3.remove("E");
-        con3.remove("E"); // rmeoved all E's
+        con3.removebyName("E");
+        con3.removebyName("E"); // rmeoved all E's
         assertEquals(0, list.size());
         assertNull(list.remove(new Point(1, 2)));
         assertNull(list.remove(new Point(-1, -1)));
-        con3.insert("B", 0, 0, 1024, 1024);
-        con3.insert("B", 0, 0, 1024, 1024);
-        con3.insert("B", 0, 0, 1024, 1024);
+        con3.insert("B", 0, 0);
+        con3.insert("B", 0, 0);
+        con3.insert("B", 0, 0);
 
-        Point rec = new Point(0, 0);
-        con3.dump();
-        assertNotNull(list.remove(rec));
-        assertNull(list.remove(new Point(1, 2)));
-        assertEquals(list.remove(rec).value().getWidth(), 1024);
-
-        assertEquals(1, list.size());
-        list.dump();
-        assertEquals(0, list.remove(rec).value().getPosY());
-
-        list.dump();
-
-    }
-
-    /**
-     * test regionsearch
-     */
-    public void testRegionSearch2() {
-        list = con.getList();
-        Point region = new Point(15, 15);
-        Point region2 = new Point(-10, -10, 200, 200);
-        Point region3 = new Point(200, 200, 10, 10);
-        Point region4 = new Point(2, 2, 4, 3);
-        Point region5 = new Point(110, 110, 90, 90);
-
-        con.insert("a", 10, 10, 30, 40);
-        con.insert("b", 115, 115, 20, 20);
-        con.insert("c", 180, 180, 10, 10);
-
-        con.insert("r1", 0, 0, 3, 4);
-        con.insert("r2", 5, 0, 5, 3);
-
-        assertEquals(1, list.regionsearch(region));
-        assertEquals(5, list.regionsearch(region2));
-        assertEquals(0, list.regionsearch(region3));
-        assertEquals(2, list.regionsearch(region5));
-        assertEquals(2, list.regionsearch(region4));
-
-    }
-
-    /**
-     * testing intersection
-     */
-    public void testIntersection() {
-        list = con.getList();
-
-        con.insert("a", 10, 10, 30, 40);
-        assertEquals(0, list.intersections());
-        con.insert("b", 115, 115, 20, 20);
-        assertEquals(0, list.intersections());
-        con.insert("c", 180, 180, 10, 10);
-        assertEquals(0, list.intersections());
-        con.insert("d", 10, 13, 3, 4);
-        assertEquals(2, list.intersections());
-        con.insert("e", 9, 7, 5, 10);
-        assertEquals(6, list.intersections());
+        // Point rec = new Point(0, 0);
+        // con3.dump();
+        // assertNotNull(list.remove(rec));
+        // assertNull(list.remove(new Point(1, 2)));
+        // assertEquals(list.remove(rec).value().getWidth(), 1024);
+        //
+        // assertEquals(1, list.size());
+        // list.dump();
+        // assertEquals(0, list.remove(rec).value().getPosY());
+        //
+        // list.dump();
 
     }
 

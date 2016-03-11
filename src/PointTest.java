@@ -14,27 +14,49 @@ public class PointTest extends student.TestCase {
         pt4 = new Point("A", 2, 1);
         pt5 = new Point("A", 3, 3);
     }
-    
+
     public void testEquals() {
         // this.getX() == it.getX() && this.getY() == it.getY()
         // && this.getName().equals(it.getName());
-        assertEquals(pt1.equals(pt1));
-        
-        
-        
-        // this.getX() == it.getX() && this.getY() == it.getY()
+        assertTrue(pt1.equals(pt1));
+        // this.getX() != it.getX() && this.getY() == it.getY()
         // && this.getName().equals(it.getName());
-        // this.getX() == it.getX() && this.getY() == it.getY()
+        assertFalse(pt1.equals(pt4));
+        // this.getX() == it.getX() && this.getY() != it.getY()
         // && this.getName().equals(it.getName());
+        assertFalse(pt1.equals(pt3));
+        // this.getX() == it.getX() && this.getY() == it.getY()
+        // && !this.getName().equals(it.getName());
+        assertFalse(pt1.equals(pt2));
+        // this.getX() != it.getX() && this.getY() != it.getY()
+        // && this.getName().equals(it.getName());
+        assertFalse(pt1.equals(pt5));
+        // this.getX() != it.getX() && this.getY() == it.getY()
+        // && !this.getName().equals(it.getName());
+        assertFalse(pt1.equals(new Point("B", 2, 1)));
+        // this.getX() == it.getX() && this.getY() != it.getY()
+        // && !this.getName().equals(it.getName());
+        assertFalse(pt1.equals(new Point("B", 1, 2)));
+        // this.getX() != it.getX() && this.getY() != it.getY()
+        // && !this.getName().equals(it.getName());
+        assertFalse(pt1.equals(new Point("B", 2, 2)));
+    }
+
+    public void testEqualsCoor() {
+        // this.getX() == it.getX() && this.getY() == it.getY();
+        assertTrue(pt1.equalsCoor(pt1));
+        // this.getX() != it.getX() && this.getY() == it.getY();
+        assertTrue(pt1.equalsCoor(pt4));
+        // this.getX() == it.getX() && this.getY() != it.getY();
+        assertTrue(pt1.equalsCoor(pt3));
+        // this.getX() != it.getX() && this.getY() != it.getY();
+        assertTrue(pt1.equalsCoor(pt5));
+
     }
 
     public void testInRegion() {
         // !(this.xPos < x || x + w <= this.xPos || this.yPos < y
         // || y + h <= this.yPos);
-    }
-
-    public void testEqualsCoor() {
-        // this.getX() == it.getX() && this.getY() == it.getY();
     }
 
     public void testQuadrant() {
@@ -55,5 +77,4 @@ public class PointTest extends student.TestCase {
         // return Direction.OUTSIDE;
     }
 
-  
 }

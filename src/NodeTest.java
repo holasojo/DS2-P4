@@ -11,6 +11,8 @@ public class NodeTest extends student.TestCase {
      * testing removing flyweight
      */
     public void testRemove() {
+        
+        tree.removebyCoor(new Point(1,1), false);
 
     }
 }

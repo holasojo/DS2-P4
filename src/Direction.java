@@ -24,8 +24,5 @@ public enum Direction {
      * north east
      */
     NE,
-    /**
-     * not in the region?
-     */
-    OUTSIDE
+    
 };

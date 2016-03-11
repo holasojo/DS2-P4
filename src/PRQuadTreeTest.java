@@ -253,7 +253,7 @@ public class PRQuadTreeTest extends student.TestCase {
      */
     public void testRegionSearch1() {
         c.insert("A", 1, 20);
-        
+
         c.insert("B", 10, 30);
         c.insert("C", 700, 800);
         c.insert("D", 200, 800);
@@ -301,21 +301,21 @@ public class PRQuadTreeTest extends student.TestCase {
                 systemOut().getHistory());
 
     }
-    
+
     /**
      * regionsearch test
      */
-    public void testRegionSearch2(){
-        
+    public void testRegionSearch2() {
+
         c.insert("A", 5, 5);
         c.insert("B", 30, 30);
         c.insert("C", 0, 0);
-        c.insert("G", 400,400);
+        c.insert("G", 400, 400);
         c.insert("D", 512, 512);
         c.insert("E", 700, 700);
         c.dump();
         systemOut().clearHistory();
-//        c.regionSearch(0, 0, 514, 514);
+        // c.regionSearch(0, 0, 514, 514);
         c.regionSearch(0, 0, 512, 512);
 
     }

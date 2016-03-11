@@ -125,47 +125,6 @@ public class ContainerTest extends student.TestCase {
                 systemOut().getHistory());
         
 
-        // w > 0 && h < 0 && (x + w > 0) && (y + h > 0);
-        systemOut().clearHistory();
-        assertFalse(box.regionSearch(100, 200, 10, -12));
-        assertFuzzyEquals("Rectangle Rejected (100, 200, 10, -12)",
-                systemOut().getHistory());
-
-        // w < 0 && h > 0 && (x + w > 0) && (y + h > 0);
-        systemOut().clearHistory();
-        assertFalse(box.regionSearch(100, 200, -10, 12));
-        assertFuzzyEquals("Rectangle Rejected (100, 200, -10, 12)",
-                systemOut().getHistory());
-        // w < 0 && h < 0 && (x + w > 0) && (y + h > 0);
-        systemOut().clearHistory();
-        assertFalse(box.regionSearch(100, 200, -10, -12));
-        assertFuzzyEquals("Rectangle Rejected (100, 200, -10, -12)",
-                systemOut().getHistory());
-
-        // w < 0 && h < 0
-        // (x + w > 0) && (y + h > 0);
-        systemOut().clearHistory();
-        assertTrue(box.regionSearch(-100, -200, 300, 300));
-        assertFuzzyEquals(
-                "Points intersecting region (-100, -200, 300, 300):\n0 "
-                        + "quadtree nodes visited",
-                systemOut().getHistory());
-        // (x + w > 0) && not (y + h > 0);
-        systemOut().clearHistory();
-        assertFalse(box.regionSearch(-100, -200, 200, -30));
-        assertFuzzyEquals("Rectangle Rejected (-100, -200, 200, -30)",
-                systemOut().getHistory());
-        // not (x + w > 0) && (y + h > 0);
-        systemOut().clearHistory();
-        assertFalse(box.regionSearch(-100, -200, 20, 300));
-        assertFuzzyEquals("Rectangle Rejected (-100, -200, 20, 300)",
-                systemOut().getHistory());
-        // not (x + w > 0) && not (y + h > 0);
-        systemOut().clearHistory();
-        assertFalse(box.regionSearch(-100, -200, 20, 30));
-        assertFuzzyEquals("Rectangle Rejected (-100, -200, 20, 30)",
-                systemOut().getHistory());
-
         // 0
         systemOut().clearHistory();
         assertFalse(box.regionSearch(0, 0, 0, 0));

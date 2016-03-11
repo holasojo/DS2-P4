@@ -63,6 +63,7 @@ public class PointTest extends student.TestCase {
     public void testInRegion() {
         // !(this.xPos < x || x + w <= this.xPos || this.yPos < y
         // || y + h <= this.yPos);
+        
     }
 
     public void testQuadrant() {

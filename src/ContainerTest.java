@@ -64,6 +64,7 @@ public class ContainerTest extends student.TestCase {
         
         
         assertFalse(box.regionSearch(-200, -200, -10, -10));
+        // 0
         systemOut().clearHistory();
         assertFalse(box.regionSearch(0, 0, 0, 0));
         assertFuzzyEquals("Rectangle Rejected (0, 0, 0, 0)",

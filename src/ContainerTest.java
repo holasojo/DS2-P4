@@ -37,8 +37,15 @@ public class ContainerTest extends student.TestCase {
      */
     public void testRegionSearch()
     {
-        
+        //(w > 0 && h > 0) && (x + w > 0) && (y + h > 0);
+        //(w > 0 && h > 0) 
+        //(w > 0 || h > 0) 
+        systemOut().clearHistory();
         assertFalse(box.regionSearch(100, 200, -10, 12));
+        assertFuzzyEquals(
+                "Points intersecting region (0, 700, 300, 300):\nPoint "
+                        + "found: (D, 200, 800)\n2 quadtree nodes visited",
+                systemOut().getHistory());
         assertFalse(box.regionSearch(100, 200, -10, -12));
         assertFalse(box.regionSearch(100, 200, 20, -5));
         assertFalse(box.regionSearch(-10, 200, 5, 10));
@@ -46,6 +53,10 @@ public class ContainerTest extends student.TestCase {
         assertFalse(box.regionSearch(0, 0, 0, 0));
         assertFalse(box.regionSearch(-200, -200, -10, -10));
         assertNotNull(box.getList());
+        
+        systemOut().clearHistory();
+        
+   
     }
     
     

@@ -40,11 +40,22 @@ public class ContainerTest extends student.TestCase {
         assertFuzzyEquals("Points intersecting region (100, 200, 10, 12):\n0 "
                 + "quadtree nodes visited", systemOut().getHistory());
         // (w > 0 || h > 0)
-        // w > 0
+        // w > 0 && h < 0
         systemOut().clearHistory();
         assertFalse(box.regionSearch(100, 200, 10, -12));
         assertFuzzyEquals("Rectangle Rejected (100, 200, 10, -12)",
                 systemOut().getHistory());
+        // w < 0 && h > 0
+        systemOut().clearHistory();
+        assertFalse(box.regionSearch(100, 200, -10, 12));
+        assertFuzzyEquals("Rectangle Rejected (100, 200, -10, 12)",
+                systemOut().getHistory());
+        // w < 0 && h < 0
+        systemOut().clearHistory();
+        assertFalse(box.regionSearch(100, 200, -10, -12));
+        assertFuzzyEquals("Rectangle Rejected (100, 200, -10, -12)",
+                systemOut().getHistory());
+
         assertFalse(box.regionSearch(100, 200, -10, -12));
         assertFalse(box.regionSearch(100, 200, 20, -5));
         assertFalse(box.regionSearch(-10, 200, 5, 10));

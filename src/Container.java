@@ -139,12 +139,12 @@ public class Container {
             // the one got removed
             else {
                
-                if (removeThis != null) {
+              
                     KVPair<String, Point> removed = list.remove(removeThis);
                     // points was in the skip list and got removed
                     System.out.println(
                             "Point removed: (" + removed.toString() + ")");
-                }
+                
              
             }
         }

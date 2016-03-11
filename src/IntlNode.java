@@ -148,7 +148,7 @@ public class IntlNode implements QuadNode {
 
     @Override
     public int regionSearch(RectangleValue queryRegion, int xWorld, int yWorld,
-            int widthWorld, int nodeCount) {
+            int widthWorld) {
 
         int count = 1;
        
@@ -166,40 +166,22 @@ public class IntlNode implements QuadNode {
 
         if (queryRegion.intersect(nwRegion)) {
             count += nw.regionSearch(queryRegion, xWorld, yWorld,
-                    widthWorld / 2, nodeCount++);
+                    widthWorld / 2);
         }
         if (queryRegion.intersect(neRegion)) {
             count +=  ne.regionSearch(queryRegion, centerX, yWorld,
-                    widthWorld / 2, nodeCount++);
+                    widthWorld / 2);
         }
         if (queryRegion.intersect(swRegion)) {
             count +=  sw.regionSearch(queryRegion, xWorld, centerY,
-                    widthWorld / 2, nodeCount++);
+                    widthWorld / 2);
         }
         if (queryRegion.intersect(seRegion)) {
             count += se.regionSearch(queryRegion, centerX, centerY,
-                    widthWorld / 2, nodeCount++);
+                    widthWorld / 2);
         }
         return count;
 
-        //
-        // if (queryRegion.intersect(nwRegion)) {
-        // return 1 + nw.regionSearch(queryRegion, xWorld, yWorld,
-        // widthWorld / 2, nodeCount++);
-        // }
-        // if (queryRegion.intersect(neRegion)) {
-        // return 1 + ne.regionSearch(queryRegion, centerX, yWorld,
-        // widthWorld / 2, nodeCount++);
-        // }
-        // if (queryRegion.intersect(swRegion)) {
-        // return 1 + sw.regionSearch(queryRegion, xWorld, centerY,
-        // widthWorld / 2, nodeCount++);
-        // }
-        // if (queryRegion.intersect(seRegion)) {
-        // return 1 + se.regionSearch(queryRegion, centerX, centerY,
-        // widthWorld / 2, nodeCount++);
-        // }
-        // return 1;
 
     }
 

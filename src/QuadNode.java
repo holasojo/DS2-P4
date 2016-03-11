@@ -107,7 +107,7 @@ public interface QuadNode {
      * @return the number of node visited
      */
     public int regionSearch(RectangleValue rec1, int xWorld, int yWorld,
-            int widthWorld, int nodeCount);
+            int widthWorld);
 
     /**
      * find duplicates

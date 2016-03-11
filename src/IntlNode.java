@@ -141,9 +141,9 @@ public class IntlNode implements QuadNode {
         else if (quadrant == Direction.SE) {
             return se.searchbyCoor(pt, centerX, centerY, width / 2);
         }
-        else {
-            return null;
-        }
+
+        return null;
+
     }
 
     @Override
@@ -151,7 +151,7 @@ public class IntlNode implements QuadNode {
             int widthWorld) {
 
         int count = 1;
-       
+
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld + widthWorld / 2;
 
@@ -169,11 +169,11 @@ public class IntlNode implements QuadNode {
                     widthWorld / 2);
         }
         if (queryRegion.intersect(neRegion)) {
-            count +=  ne.regionSearch(queryRegion, centerX, yWorld,
+            count += ne.regionSearch(queryRegion, centerX, yWorld,
                     widthWorld / 2);
         }
         if (queryRegion.intersect(swRegion)) {
-            count +=  sw.regionSearch(queryRegion, xWorld, centerY,
+            count += sw.regionSearch(queryRegion, xWorld, centerY,
                     widthWorld / 2);
         }
         if (queryRegion.intersect(seRegion)) {
@@ -181,7 +181,6 @@ public class IntlNode implements QuadNode {
                     widthWorld / 2);
         }
         return count;
-
 
     }
 

@@ -88,22 +88,15 @@ public interface QuadNode {
     /**
      * looking for all points within the region
      * 
-     * @param x
-     *            d
-     * @param y
-     *            d
-     * @param w
-     *            d
-     * @param h
-     *            d
+     * @param rec1
+     *            is the rectangle,region, that we are looking into
      * @param xWorld
-     *            d
+     *            x position of the world
      * @param yWorld
-     *            d
+     *            y position of the world
      * @param widthWorld
-     *            d
-     * @param nodeCount
-     *            d
+     *            width of the world
+     *
      * @return the number of node visited
      */
     public int regionSearch(RectangleValue rec1, int xWorld, int yWorld,

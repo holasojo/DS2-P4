@@ -76,6 +76,8 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("A", 200, 200);
         c.tree().dump();
         c.insert("A", 1000, 1000);
+        c.insert("A", 1001, 1001);
+        c.tree().dump();
     }
 
     /**
@@ -198,7 +200,10 @@ public class PRQuadTreeTest extends student.TestCase {
         systemOut().clearHistory();
         c.removebyCoor(2, 800);
         assertFuzzyEquals("point removed E 2 800", systemOut().getHistory());
-        c.dump();
+        systemOut().clearHistory();
+        c.removebyCoor(1000, 1000);
+        assertFuzzyEquals("point removed C 1000 1000", systemOut().getHistory());
+       
 
     }
 
@@ -315,7 +320,6 @@ public class PRQuadTreeTest extends student.TestCase {
         c.insert("E", 700, 700);
         c.dump();
         systemOut().clearHistory();
-        // c.regionSearch(0, 0, 514, 514);
         c.regionSearch(0, 0, 512, 512);
 
     }

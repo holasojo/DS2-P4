@@ -188,6 +188,7 @@ public class IntlNode implements QuadNode {
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld + widthWorld / 2;
 
+        
         RectangleValue nwRegion = new RectangleValue(xWorld, yWorld,
                 widthWorld / 2, widthWorld / 2);
         RectangleValue neRegion = new RectangleValue(centerX, yWorld,

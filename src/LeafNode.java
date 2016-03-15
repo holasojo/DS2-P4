@@ -1,5 +1,5 @@
 /**
- * LeafNode class
+ * LeafNode class, stores point objects.
  * 
  * @author sohyun
  * @author sshumway
@@ -18,6 +18,11 @@ public class LeafNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Prints the points that are stored in this leaf node,
+     * if any, and returns 1 for the node visited.
+     * @return Count for this node.
+     */
     public int dump(int x, int y, int width, int level) {
         String n = spaces(level);
 
@@ -34,7 +39,14 @@ public class LeafNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Insert a point into the leaf node.
+     * @return The node being inserted, possibly an internal node
+     * if a split is required.
+     */
     public QuadNode insert(Point pt, int x, int y, int width) {
+        //Splits into inernal with children if greater than 3
+        //unique points
         if (list.size() >= 3 && !list.checkAllSame(pt)) {
             Point[] points = list.remove();
             IntlNode internal = new IntlNode();
@@ -45,11 +57,16 @@ public class LeafNode implements QuadNode {
             internal.insert(pt, x, y, width);
             return internal;
         }
+        //otherwise adds to this leaf node.
         list.append(pt);
         return this;
     }
 
     @Override
+    /**
+     * Removes given point from this leaf node.
+     * @return this node or flyeweight if empty.
+     */
     public QuadNode remove(Point pt, int x, int y, int width, boolean name) {
 
         list.remove(pt, name);
@@ -70,7 +87,7 @@ public class LeafNode implements QuadNode {
     }
 
     /**
-     * 
+     * Returns all points stored in list.
      * @return r
      */
     public Point[] removeAll() {
@@ -78,6 +95,11 @@ public class LeafNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Returns the given point from list if it exists.
+     * Used to obtain point when performing a removal.
+     * @return The point being removed.
+     */
     public Point searchbyCoor(Point pt, int x, int y, int width) {
 
         return list.findbyCoor(pt);
@@ -85,10 +107,15 @@ public class LeafNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Finds points in the list that intersect with
+     * the given search region and prints them.
+     * @return The count for node visits.
+     */
     public int regionSearch(RectangleValue rec, int xWorld, int yWorld,
             int widthWorld) {
+        
         Point[] points = list.remove();
-        // RectangleValue rec2 = null;
         for (Point it : points) {
             if (it.inRegion(rec.getPosX(), rec.getPosY(), rec.getWidth(),
                     rec.getHeight())) {
@@ -100,6 +127,10 @@ public class LeafNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Prints duplicate points in this node, if they
+     * exist.
+     */
     public void duplicates(int x, int y, int width) {
 
         Point[] elems = list.remove();
@@ -116,7 +147,6 @@ public class LeafNode implements QuadNode {
         }
     }
     
-
     /**
      * used to calculates how many spaces we need when dump()
      * 
@@ -131,5 +161,7 @@ public class LeafNode implements QuadNode {
         }
         return spaceStr;
     }
+
+   
 
 }

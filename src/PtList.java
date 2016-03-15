@@ -185,7 +185,8 @@ public class PtList {
     }
 
     /**
-     * Ptlink is
+     * Link class used to make up a 
+     * list of points.
      * 
      * @author sohyun
      * @author sshumway
@@ -211,7 +212,7 @@ public class PtList {
 //        }
 
         /**
-         * points to the next element
+         * Constructor 
          * 
          * @param nxt
          *            is the next element

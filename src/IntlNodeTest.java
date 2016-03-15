@@ -30,5 +30,30 @@ public class IntlNodeTest extends student.TestCase {
                 Flyweight.class);
 
     }
+    
+    /**
+     * Tests the insert method.
+     */
+    public void testInsert() {
+        Point it = new Point("a", -7, -10);
+        assertEquals(internal, internal.insert(it, 0, 0, 1024));
+        assertEquals(internal,
+                internal.insert(new Point("b", 512, 512), 0, 0, 1024));
+    }
+    
+    /**
+     * Test remove method and search by coord.
+     */
+    public void testRemove() {
+        Point it = new Point("a", -7, -10);
+        assertNotNull(internal.remove(it, 0, 0, 1024, false));
+        internal = new IntlNode();
+        assertEquals(internal,
+                internal.insert(new Point("b", 512, 512), 0, 0, 1024));
+        assertNotNull(
+                internal.remove(new Point("b", 512, 512), 0, 0, 1024, false));
+        assertNull(internal.searchbyCoor(it, 0, 0, 1024));
+
+    }
 
 }

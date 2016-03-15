@@ -1,5 +1,6 @@
 /**
- * Internal Node class
+ * Internal Node class, has 4 children representing quadrants
+ * of the world.
  * 
  * @author sohyun
  * @author sshumway
@@ -15,7 +16,7 @@ public class IntlNode implements QuadNode {
     private static Flyweight fly = new Flyweight();
 
     /**
-     * Sets each direction to flyweight
+     * Sets each child to flyweight
      */
     public IntlNode() {
         nw = fly;
@@ -25,12 +26,19 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Inserts a point into the internal node.
+     * @return This node.
+     */
     public QuadNode insert(Point pt, int x, int y, int width) {
 
         int centerX = x + width / 2;
         int centerY = y + width / 2;
         Direction quadrant = pt.quadrant(centerX, centerY);
-
+        
+        /**
+         * Determines which quadrant the point belongs.
+         */
         if (quadrant == Direction.NW) {
             nw = nw.insert(pt, x, y, width / 2);
         }
@@ -50,8 +58,13 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Prints the points stored in an internal nodes
+     * children.
+     * @return The number of nodes visited.
+     */
     public int dump(int x, int y, int width, int level) {
-
+        
         String n = spaces(level);
 
         System.out.println(
@@ -64,7 +77,7 @@ public class IntlNode implements QuadNode {
     }
 
     /**
-     * getter for flyweight
+     * getter for the flyweight object.
      * 
      * @return fly is flyweight
      */
@@ -73,11 +86,17 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Removes the point from the appropriate child
+     * if it exists.
+     * @return The node resulting from the removal.
+     */
     public QuadNode remove(Point pt, int x, int y, int width, boolean name) {
         int centerX = x + width / 2;
         int centerY = y + width / 2;
         Direction quadrant = pt.quadrant(centerX, centerY);
-
+        
+        //Determines Quadrant to be searched
         if (quadrant == Direction.NW) {
             nw = nw.remove(pt, x, y, width / 2, name);
         }
@@ -95,8 +114,10 @@ public class IntlNode implements QuadNode {
         int pointCount = 0;
         int leafCount = 0;
         int internalCount = 0;
-
+        
         QuadNode[] children = new QuadNode[] { nw, ne, sw, se };
+        //Checks the point counts and node type counts
+        //after the remove operation.
         for (QuadNode node : children) {
             if (node.getClass() == LeafNode.class) {
                 leafCount++;
@@ -106,7 +127,8 @@ public class IntlNode implements QuadNode {
                 internalCount++;
             }
         }
-
+        
+        //Merges the children into one leaf node if appropriate.
         if ((pointCount <= 3 || leafCount == 1) && internalCount == 0) {
             LeafNode merged = new LeafNode();
             for (QuadNode node : children) {
@@ -123,6 +145,11 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Searches for the point. Used when removing to obtain the 
+     * desired point before the remove operation is carried out.
+     * @return The point that will be removed.
+     */
     public Point searchbyCoor(Point pt, int x, int y, int width) {
         int centerX = x + width / 2;
         int centerY = y + width / 2;
@@ -147,11 +174,17 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Prints and returns the nodes contained in this nodes children
+     * that intersect with the given region.
+     * @return The number of nodes visited.
+     */
     public int regionSearch(RectangleValue queryRegion, int xWorld, int yWorld,
             int widthWorld) {
 
         int count = 1;
-
+        
+        //Coordinates of regions center point.
         int centerX = xWorld + widthWorld / 2;
         int centerY = yWorld + widthWorld / 2;
 
@@ -163,7 +196,9 @@ public class IntlNode implements QuadNode {
                 widthWorld / 2, widthWorld / 2);
         RectangleValue seRegion = new RectangleValue(centerX, centerY,
                 widthWorld / 2, widthWorld / 2);
-
+        
+        //Checks for intersections and searches child nodes
+        //for points that intersect with the query region.
         if (queryRegion.intersect(nwRegion)) {
             count += nw.regionSearch(queryRegion, xWorld, yWorld,
                     widthWorld / 2);
@@ -185,6 +220,10 @@ public class IntlNode implements QuadNode {
     }
 
     @Override
+    /**
+     * Prints duplicate points contained in this nodes
+     * children.
+     */
     public void duplicates(int x, int y, int width) {
 
         nw.duplicates(x, y, width / 2);
@@ -194,7 +233,6 @@ public class IntlNode implements QuadNode {
 
     }
     
-
     /**
      * used to calculates how many spaces we need when dump()
      * 
@@ -209,5 +247,6 @@ public class IntlNode implements QuadNode {
         }
         return spaceStr;
     }
+    
 
 }

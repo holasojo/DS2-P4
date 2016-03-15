@@ -121,6 +121,7 @@ public class Point {
 
     /**
      * Compares coordinates of two points
+     * for equality.
      * 
      * @param it
      *            is the one gets compared

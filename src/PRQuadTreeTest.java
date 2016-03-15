@@ -205,7 +205,7 @@ public class PRQuadTreeTest extends student.TestCase {
         assertFuzzyEquals("point removed C 1000 1000", systemOut().getHistory());
         systemOut().clearHistory();
         c.removebyCoor(1001, 1001);
-        assertFuzzyEquals("point removed C 1000 1000", systemOut().getHistory());
+        assertFuzzyEquals("point not found 1001 1001", systemOut().getHistory());
        
 
     }

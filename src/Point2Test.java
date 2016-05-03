@@ -33,6 +33,7 @@ public class Point2Test extends TestCase {
         assertFuzzyEquals("Check your arguments\n", systemOut()
                 .getHistory());
 
+        
         // args.length != 1
         String[] arr2 = new String[2];
         // args[0] == null
